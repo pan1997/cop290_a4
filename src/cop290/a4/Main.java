@@ -4,14 +4,14 @@ import cop290.a4.animation.animPanel;
 import cop290.a4.animation.animPanelTest;
 
 import javax.swing.*;
-import javax.swing.tree.ExpandVetoException;
 
 public class Main {
 
     public static void main(String[] args) {
         JFrame main=new JFrame("TEST");
-        animPanel animPanel=new animPanelTest(500,500,100,1);
+        animPanelTest animPanel=new animPanelTest(500,500,100,1);
         main.setContentPane(animPanel);
+        animPanel.addMouseMotionListener(animPanel);
         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         main.setSize(600,700);
         main.setVisible(true);
