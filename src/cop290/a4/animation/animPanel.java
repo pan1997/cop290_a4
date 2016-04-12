@@ -17,6 +17,7 @@ public class animPanel extends JPanel implements Runnable {
     private Image screen;
     private Graphics2D gscreen;
     private long pt;
+    protected Image background;
     Thread th;
 
     public animPanel(int l, int b, int ups, int skp) {
@@ -24,11 +25,17 @@ public class animPanel extends JPanel implements Runnable {
         this.l = l;
         this.b = b;
         screen = new BufferedImage(l, b, BufferedImage.TYPE_INT_ARGB);
+        background=new BufferedImage(l,b,BufferedImage.TYPE_INT_ARGB);
         gscreen = (Graphics2D) screen.getGraphics();
         upsr = ups;
         nskip = skp;
+        createBackground();
     }
-
+    protected void createBackground(){
+        Graphics g=background.getGraphics();
+        g.setColor(Color.white);
+        g.fillRect(0,0,l,b);
+    }
     protected void update() {
         if (u == 50) {
             long c = System.nanoTime();
@@ -38,13 +45,17 @@ public class animPanel extends JPanel implements Runnable {
             pt = c;
         }
     }
-
+    public int getL(){
+        return l;
+    }
+    public int getB(){
+        return b;
+    }
     protected void render(Graphics g) {
-        g.setColor(Color.white);
-        g.fillRect(0, 0, b, l);
+        g.drawImage(background,0,0,this);
         g.setColor(Color.BLACK);
-        g.drawString("ups " + ups, 10, 20);
-        g.drawString("fps " + fps, 10, 40);
+        g.drawString("ups " + ups, 20, 30);
+        g.drawString("fps " + fps, 20, 45);
     }
 
     public void paintComponent(Graphics g) {

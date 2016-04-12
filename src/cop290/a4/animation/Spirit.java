@@ -7,9 +7,9 @@ import java.awt.*;
  */
 
 public abstract class Spirit {
-    animPanel parent;
+    protected animPanel parent;
 
-    Spirit(animPanel parent) {
+    public Spirit(animPanel parent) {
         this.parent = parent;
     }
 
