@@ -93,7 +93,7 @@ public class animPanel extends JPanel implements Runnable {
         while (running) {
             u++;
             update();
-            if (pin || sk == nskip) {
+            if (ups+2>=upsr || sk == nskip) {
                 f++;
                 render(gscreen);
                 paintRender();

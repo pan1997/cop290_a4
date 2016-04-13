@@ -15,6 +15,7 @@ public class physics {
     }
     void update(){
         for(Ball b:balls){
+            b.updateSpirit();
             if(b.x+b.r>=b.parent().getB()||b.x<=b.r)
                 b.vx=-b.vx;
             if(b.y+b.r>=b.parent().getL()||b.y<=b.r)

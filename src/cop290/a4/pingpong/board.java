@@ -39,7 +39,7 @@ public class board extends animPanel {
     @Override
     protected void update() {
         super.update();
-        spirits.forEach(e->e.updateSpirit());
+        //spirits.forEach(e->e.updateSpirit());
         ph.update();
     }
 

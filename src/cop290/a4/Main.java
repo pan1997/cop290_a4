@@ -16,7 +16,7 @@ public class Main {
         }
         JFrame main = new JFrame("Game");
         //animPanelTest animPanel = new animPanelTest(500, 500, 100, 1);
-        animPanel animPanel = new board(500, 500, 100, 1);
+        animPanel animPanel = new board(500, 500, 100, 2);
         main.setContentPane(animPanel);
         //animPanel.addMouseMotionListener(animPanel);
         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,6 +25,7 @@ public class Main {
         {
             JFrame terminal = new JFrame("terminal");
             JTextArea jt = new JTextArea();
+            jt.setEditable(false);
             JTextField jtf = new JTextField();
             jtf.addActionListener(e -> {
                 jt.append(e.getActionCommand() + "\n");
@@ -47,6 +48,8 @@ public class Main {
             terminal.add(jtf, BorderLayout.SOUTH);
             terminal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             terminal.setSize(600, 200);
+            //terminal.pack();
+            terminal.setLocationRelativeTo(null);
             terminal.setVisible(true);
         }
     }
