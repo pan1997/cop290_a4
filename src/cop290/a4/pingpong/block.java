@@ -11,21 +11,24 @@ import java.awt.*;
 public class block extends Spirit {
     int width, thickness;
     int x, y, l, b;
+    Rectangle rect;
     Color color;
 
     public block(animPanel parent) {
         super(parent);
         color = Color.black;
+        rect=new Rectangle();
     }
 
     @Override
     public void updateSpirit() {
-
+        rect.setRect(x,y,l,b);
     }
 
     @Override
-    public void renderSpirit(Graphics g) {
+    public void renderSpirit(Graphics2D g) {
         g.setColor(color);
-        g.fillRect(x, y, l, b);
+        g.fill(rect);
+        //g.fillRect((int)rect.getX(),(int)rect.getY(),(int)rect.getWidth(),(int)rect.getHeight());
     }
 }

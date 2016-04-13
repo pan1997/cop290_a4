@@ -11,6 +11,7 @@ import java.awt.*;
 public class bat extends block {
     double loc;
     int or;
+    double vel;
 
     public bat(animPanel parent, int orientation) {
         super(parent);
@@ -44,6 +45,7 @@ public class bat extends block {
 
     @Override
     public void updateSpirit() {
+        loc+=vel;
         switch (or) {
             case 0:
                 x = (int) (loc * parent.getL()) - width / 2;
@@ -58,5 +60,6 @@ public class bat extends block {
                 y = (int) (loc * parent.getB()) - width / 2;
                 break;
         }
+        super.updateSpirit();
     }
 }

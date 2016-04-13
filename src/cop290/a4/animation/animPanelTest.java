@@ -55,7 +55,7 @@ public class animPanelTest extends animPanel implements MouseMotionListener {
     }
 
     @Override
-    public void render(Graphics g) {
+    public void render(Graphics2D g) {
         super.render(g);
         if (!play) {
             g.drawString("Game over!!!", 200, 250);

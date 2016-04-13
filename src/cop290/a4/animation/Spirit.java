@@ -15,7 +15,7 @@ public abstract class Spirit {
 
     public abstract void updateSpirit();
 
-    public abstract void renderSpirit(Graphics g);
+    public abstract void renderSpirit(Graphics2D g);
 }
 
 class ballSpirit extends Spirit {
@@ -42,7 +42,7 @@ class ballSpirit extends Spirit {
     }
 
     @Override
-    public void renderSpirit(Graphics g) {
+    public void renderSpirit(Graphics2D g) {
         g.setColor(Color.red);
         g.fillOval((int) (x - r), (int) (y - r), (int) (2 * r), (int) (2 * r));
     }
@@ -97,7 +97,7 @@ class batSpirit extends Spirit {
     }
 
     @Override
-    public void renderSpirit(Graphics g) {
+    public void renderSpirit(Graphics2D g) {
         g.setColor(Color.blue);
         if (orinetation % 2 == 0)
             g.fillRect((int) px, (int) py, 50, 10);

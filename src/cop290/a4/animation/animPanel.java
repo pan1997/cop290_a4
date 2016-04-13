@@ -51,7 +51,7 @@ public class animPanel extends JPanel implements Runnable {
     public int getB(){
         return b;
     }
-    protected void render(Graphics g) {
+    protected void render(Graphics2D g) {
         g.drawImage(background,0,0,this);
         g.setColor(Color.BLACK);
         g.drawString("ups " + ups, 20, 30);

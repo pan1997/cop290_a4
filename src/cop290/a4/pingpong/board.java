@@ -4,20 +4,24 @@ import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 /**
  * Created by pankaj on 12/4/16.
  */
-public class board extends animPanel {
+public class board extends animPanel implements KeyListener{
 
     ArrayList<Spirit> spirits;
+    ArrayList<bat> bats;
     physics ph;
     public board(int l, int b, int ups, int skp) {
         super(l, b, ups, skp);
         spirits =new ArrayList<>();
+        bats=new ArrayList<>();
         ph=new physics();
-        for(int i=0;i<4;i++){
+        for(int i=0;i<1;i++){
             Ball ball=new Ball(this);
             spirits.add(ball);
             ph.add(ball);
@@ -25,15 +29,25 @@ public class board extends animPanel {
         bat bt=new bat(this,0);
         spirits.add(bt);
         ph.add(bt);
+        bats.add(bt);
         bt=new bat(this,1);
         spirits.add(bt);
         ph.add(bt);
+        bats.add(bt);
         bt=new bat(this,2);
         spirits.add(bt);
         ph.add(bt);
+        bats.add(bt);
         bt=new bat(this,3);
         spirits.add(bt);
         ph.add(bt);
+        bats.add(bt);
+        block blk=new block(this);
+        blk.x=250;
+        blk.y=250;
+        blk.l=blk.b=70;
+        spirits.add(blk);
+        ph.add(blk);
     }
 
     @Override
@@ -56,8 +70,41 @@ public class board extends animPanel {
     }
 
     @Override
-    protected void render(Graphics g) {
+    protected void render(Graphics2D g) {
         super.render(g);
         spirits.forEach(e->e.renderSpirit(g));
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        switch (e.getKeyChar()){
+            case 'q':bats.get(0).vel=0.005;break;
+            case 'a':bats.get(0).vel=-0.005;break;
+            case 'w':bats.get(1).vel=0.005;break;
+            case 's':bats.get(1).vel=-0.005;break;
+            case 'e':bats.get(2).vel=0.005;break;
+            case 'd':bats.get(2).vel=-0.005;break;
+            case 'r':bats.get(3).vel=0.005;break;
+            case 'f':bats.get(3).vel=-0.005;break;
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        switch (e.getKeyChar()){
+            case 'q':if(bats.get(0).vel>0)bats.get(0).vel=0;break;
+            case 'a':if(bats.get(0).vel<0)bats.get(0).vel=0;break;
+            case 'w':if(bats.get(1).vel>0)bats.get(1).vel=0;break;
+            case 's':if(bats.get(1).vel<0)bats.get(1).vel=0;break;
+            case 'e':if(bats.get(2).vel>0)bats.get(2).vel=0;break;
+            case 'd':if(bats.get(2).vel<0)bats.get(2).vel=0;break;
+            case 'r':if(bats.get(3).vel>0)bats.get(3).vel=0;break;
+            case 'f':if(bats.get(3).vel<0)bats.get(3).vel=0;break;
+        }
     }
 }
