@@ -25,6 +25,7 @@ public class Main {
         {
             JFrame terminal = new JFrame("terminal");
             JTextArea jt = new JTextArea();
+            jt.append("Legal commands:\nstart\nstop\nrestart\nexit\n\n\n");
             jt.setEditable(false);
             JTextField jtf = new JTextField();
             jtf.addActionListener(e -> {

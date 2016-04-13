@@ -20,8 +20,20 @@ public class board extends animPanel {
         for(int i=0;i<4;i++){
             Ball ball=new Ball(this);
             spirits.add(ball);
-            ph.addBall(ball);
+            ph.add(ball);
         }
+        bat bt=new bat(this,0);
+        spirits.add(bt);
+        ph.add(bt);
+        bt=new bat(this,1);
+        spirits.add(bt);
+        ph.add(bt);
+        bt=new bat(this,2);
+        spirits.add(bt);
+        ph.add(bt);
+        bt=new bat(this,3);
+        spirits.add(bt);
+        ph.add(bt);
     }
 
     @Override

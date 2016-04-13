@@ -7,13 +7,19 @@ import java.util.ArrayList;
  */
 public class physics {
     ArrayList<Ball> balls;
+    ArrayList<block> blocks;
     physics(){
         balls=new ArrayList<>();
+        blocks=new ArrayList<>();
     }
-    void addBall(Ball b){
+    void add(Ball b){
         balls.add(b);
     }
+    void add(bat b){
+        blocks.add(b);
+    }
     void update(){
+        blocks.forEach(e->e.updateSpirit());
         for(Ball b:balls){
             b.updateSpirit();
             if(b.x+b.r>=b.parent().getB()||b.x<=b.r)
