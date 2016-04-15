@@ -7,10 +7,17 @@ import java.awt.*;
  */
 
 public abstract class Spirit {
+    private static int ns;
+
+    int id;
     protected animPanel parent;
 
+    public int getID(){
+        return id;
+    }
     public Spirit(animPanel parent) {
         this.parent = parent;
+        id=ns++;
     }
 
     public abstract void updateSpirit();
@@ -21,6 +28,7 @@ public abstract class Spirit {
 class ballSpirit extends Spirit {
     double x, y, vx, vy;
     double r;
+
 
     public ballSpirit(animPanel a) {
         super(a);

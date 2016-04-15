@@ -18,7 +18,7 @@ public class bat extends block {
         or = orientation;
         loc = 0.75;
         color = Color.blue;
-        width = 50;
+        width = 100;
         thickness = 10;
         if (or % 2 == 0) {
             l = width;

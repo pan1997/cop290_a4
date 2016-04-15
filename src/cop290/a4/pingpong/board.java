@@ -21,7 +21,7 @@ public class board extends animPanel implements KeyListener{
         spirits =new ArrayList<>();
         bats=new ArrayList<>();
         ph=new physics();
-        for(int i=0;i<2;i++){
+        for(int i=0;i<4;i++){
             Ball ball=new Ball(this);
             spirits.add(ball);
             ph.add(ball);
@@ -73,6 +73,7 @@ public class board extends animPanel implements KeyListener{
     protected void render(Graphics2D g) {
         super.render(g);
         spirits.forEach(e->e.renderSpirit(g));
+
     }
 
     @Override
