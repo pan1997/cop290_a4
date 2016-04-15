@@ -70,6 +70,7 @@ public class physics {
                         System.out.println("x");
                     } else {//edge
                         System.out.println("Edge");
+
                         double x, y;
                         x = ball.x < bat.x ? bat.x : bat.x + bat.l;
                         y = ball.y < bat.y ? bat.y : bat.y + bat.b;
