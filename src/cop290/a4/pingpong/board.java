@@ -21,7 +21,7 @@ public class board extends animPanel implements KeyListener{
         spirits =new ArrayList<>();
         bats=new ArrayList<>();
         ph=new physics();
-        for(int i=0;i<1;i++){
+        for(int i=0;i<2;i++){
             Ball ball=new Ball(this);
             spirits.add(ball);
             ph.add(ball);

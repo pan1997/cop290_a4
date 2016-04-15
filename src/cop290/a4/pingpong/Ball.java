@@ -17,8 +17,8 @@ public class Ball extends Spirit {
         super(parent);
         x=25+Math.random()*450;
         y=25+Math.random()*450;
-        vx=(Math.random()-0.5)*7;
-        vy=(Math.random()-0.5)*7;
+        vx=(Math.random()-0.5)*1.5;
+        vy=(Math.random()-0.5)*1.5;
         theta=Math.random();
         w=0.2*(Math.random()-0.5);
         r=10;

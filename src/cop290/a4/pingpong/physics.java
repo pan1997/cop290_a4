@@ -31,6 +31,7 @@ public class physics {
                 b.vx = -b.vx;
             if (b.y + b.r >= b.parent().getL() || b.y <= b.r)
                 b.vy = -b.vy;
+            b.updateSpirit();
         }
         for (int i = 0; i < balls.size(); i++) {
             Ball b1 = balls.get(i);
@@ -49,9 +50,14 @@ public class physics {
                 }
             }
         }
-        for (Ball ball : balls)
+        for (Ball ball : balls) {
             for (block bat : blocks)
                 if (ball.e2d.intersects(bat.x, bat.y, bat.l, bat.b)) {
+
+
+
+
+
                     boolean top = ball.e2d.intersects(bat.x, bat.y, bat.l, 0.01);
                     boolean bottom = ball.e2d.intersects(bat.x, bat.y + bat.b - 0.01, bat.l, 0.01);
                     boolean left = ball.e2d.intersects(bat.x, bat.y, 0.01, bat.b);
@@ -73,12 +79,13 @@ public class physics {
                         /*
                         double rxu = (left?-1:1)*Math.sqrt(0.5);
                         double ryu = (top?-1:1)*Math.sqrt(0.5);
-                         */
+*/
                         double v1_along = ball.vx * rxu + ball.vy * ryu;
                         ball.vx -= 2 * v1_along * rxu;
                         ball.vy -= 2 * v1_along * ryu;
                     }
                 }
+        }
 
     }
 }
