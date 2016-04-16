@@ -46,6 +46,8 @@ public class bat extends block {
     @Override
     public void updateSpirit() {
         loc+=vel;
+        loc = Math.min(loc, 1-(width/2+15.0)/parent.getB());
+        loc = Math.max(loc, 0+(width/2+15.0)/parent.getB());
         switch (or) {
             case 0:
                 x = (int) (loc * parent.getL()) - width / 2;

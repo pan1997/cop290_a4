@@ -16,7 +16,7 @@ public class Main {
         }
         JFrame main = new JFrame("Game");
         //animPanelTest animPanel = new animPanelTest(500, 500, 100, 1);
-        board animPanel = new board(500, 500, 100, 2);
+        board animPanel = new board(600, 600, 100, 2);
         main.setContentPane(animPanel);
         main.addKeyListener(animPanel);
         //animPanel.addMouseMotionListener(animPanel);

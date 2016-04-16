@@ -21,10 +21,22 @@ public class board extends animPanel implements KeyListener{
         spirits =new ArrayList<>();
         bats=new ArrayList<>();
         ph=new physics();
+        ArrayList<block> corners = new ArrayList<block>();
         for(int i=0;i<4;i++){
             Ball ball=new Ball(this);
             spirits.add(ball);
             ph.add(ball);
+            block blck = new block(this);
+            blck.l = blck.b = 15;
+            corners.add(blck);
+        }
+        corners.get(0).x = corners.get(0).y = 0;
+        corners.get(1).x = corners.get(1).y = l-15;
+        corners.get(2).x = 0; corners.get(2).y = l-15;
+        corners.get(3).x = l-15; corners.get(3).y = 0;
+        for(int i = 0; i < 4; i++){
+            spirits.add(corners.get(i));
+            ph.add(corners.get(i));
         }
         bat bt=new bat(this,0);
         spirits.add(bt);
