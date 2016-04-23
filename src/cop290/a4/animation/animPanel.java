@@ -19,7 +19,7 @@ public class animPanel extends JPanel implements Runnable {
     private long pt;
     protected Image background;
     Thread th;
-
+    public int rot=0;
     public animPanel(int l, int b, int ups, int skp) {
         super();
         this.l = l;
@@ -58,16 +58,25 @@ public class animPanel extends JPanel implements Runnable {
         g.drawString("fps " + fps, 20, 45);
     }
 
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if (screen != null)
+    public void paintComponent(Graphics gd) {
+        super.paintComponent(gd);
+        Graphics2D g = (Graphics2D)gd;
+        if (g != null && screen != null) {
+            g.rotate(Math.PI/2*rot,getL()/2,getB()/2);
             g.drawImage(screen, 0, 0, null);
+        }else{
+            System.out.println("No scrren or img");
+        }
     }
 
     private void paintRender() {
-        Graphics g = this.getGraphics();
-        if (g != null && screen != null)
+        Graphics2D g = (Graphics2D)this.getGraphics();
+        if (g != null && screen != null) {
+            g.rotate(Math.PI/2*rot,getL()/2,getB()/2);
             g.drawImage(screen, 0, 0, null);
+        }else{
+            System.out.println("No scrren or img");
+        }
     }
 
     public void start() {

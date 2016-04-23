@@ -43,6 +43,9 @@ public class Main {
                         }
                         animPanel.start();
                         break;
+                    case "rot":
+                        animPanel.rot++;
+                        break;
                     case "stop":
                         animPanel.stop();
                         break;
