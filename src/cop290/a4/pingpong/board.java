@@ -24,6 +24,7 @@ public class board extends animPanel implements KeyListener{
         bats=new ArrayList<>();
         if(bds!=null)
             bds.setSpirits(spirits);
+        this.bds=bds;
         ph=physics;
         ArrayList<block> corners = new ArrayList<block>();
         for(int i=0;i<4;i++){
@@ -84,8 +85,10 @@ public class board extends animPanel implements KeyListener{
         //spirits.forEach(e->e.updateSpirit());
         ph.update();
         try {
-            if(bds!=null)
+            if(bds!=null) {
                 bds.broadcast();
+                //System.out.println("Broadcasted");
+            }
         }catch (Exception e){
             System.out.println(e);
         }

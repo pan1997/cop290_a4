@@ -24,9 +24,11 @@ public class broadcasting implements Runnable{
         spirits=as;
     }
     public void broadcast() throws Exception {
-        if (out != null)
+        if (out != null) {
             for (Spirit s : spirits)
                 out.writeUTF(s.toString());
+            out.flush();
+        }
     }
     public void setSpirits(ArrayList<Spirit> as){
         spirits=as;
@@ -46,7 +48,7 @@ public class broadcasting implements Runnable{
             s = skt.accept();
             System.out.println("Connected to "+s.getRemoteSocketAddress());
             out=new DataOutputStream(s.getOutputStream());
-            out.writeUTF("Connected\n");
+            out.writeUTF("Connected to server\n");
             out.flush();
         } catch (IOException e) {
             e.printStackTrace();
