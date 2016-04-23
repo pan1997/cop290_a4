@@ -100,14 +100,14 @@ public class board extends animPanel implements KeyListener{
     @Override
     public void keyTyped(KeyEvent e) {
         switch (e.getKeyChar()){
-            case 'q':bats.get(0).vel=0.005;break;
-            case 'a':bats.get(0).vel=-0.005;break;
-            case 'w':bats.get(1).vel=0.005;break;
-            case 's':bats.get(1).vel=-0.005;break;
-            case 'e':bats.get(2).vel=0.005;break;
-            case 'd':bats.get(2).vel=-0.005;break;
-            case 'r':bats.get(3).vel=0.005;break;
-            case 'f':bats.get(3).vel=-0.005;break;
+            case 'd':bats.get(0).vel=0.005;break;
+            case 's':bats.get(0).vel=-0.005;break;
+            case 'r':bats.get(1).vel=0.005;break;
+            case 'f':bats.get(1).vel=-0.005;break;
+            case 'w':bats.get(2).vel=0.005;break;
+            case 'e':bats.get(2).vel=-0.005;break;
+            case 'a':bats.get(3).vel=0.005;break;
+            case 'q':bats.get(3).vel=-0.005;break;
         }
     }
 
@@ -119,14 +119,14 @@ public class board extends animPanel implements KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyChar()){
-            case 'q':if(bats.get(0).vel>0)bats.get(0).vel=0;break;
-            case 'a':if(bats.get(0).vel<0)bats.get(0).vel=0;break;
-            case 'w':if(bats.get(1).vel>0)bats.get(1).vel=0;break;
-            case 's':if(bats.get(1).vel<0)bats.get(1).vel=0;break;
-            case 'e':if(bats.get(2).vel>0)bats.get(2).vel=0;break;
-            case 'd':if(bats.get(2).vel<0)bats.get(2).vel=0;break;
-            case 'r':if(bats.get(3).vel>0)bats.get(3).vel=0;break;
-            case 'f':if(bats.get(3).vel<0)bats.get(3).vel=0;break;
+            case 'd':if(bats.get(0).vel>0)bats.get(0).vel=0;break;
+            case 's':if(bats.get(0).vel<0)bats.get(0).vel=0;break;
+            case 'r':if(bats.get(1).vel>0)bats.get(1).vel=0;break;
+            case 'f':if(bats.get(1).vel<0)bats.get(1).vel=0;break;
+            case 'w':if(bats.get(2).vel>0)bats.get(2).vel=0;break;
+            case 'e':if(bats.get(2).vel<0)bats.get(2).vel=0;break;
+            case 'a':if(bats.get(3).vel>0)bats.get(3).vel=0;break;
+            case 'q':if(bats.get(3).vel<0)bats.get(3).vel=0;break;
         }
     }
 }
