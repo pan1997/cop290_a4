@@ -16,7 +16,7 @@ public class block extends Spirit {
 
     public block(animPanel parent) {
         super(parent);
-        color = Color.black;
+        color = Color.BLACK;
         rect=new Rectangle();
     }
 
