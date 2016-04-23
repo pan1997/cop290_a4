@@ -12,21 +12,22 @@ import java.util.HashMap;
 public class physics {
     ArrayList<Ball> balls;
     ArrayList<block> blocks;
-    HashMap<Integer,Spirit> map;
+    HashMap<Integer, Spirit> map;
+
     public physics() {
         balls = new ArrayList<>();
         blocks = new ArrayList<>();
-        map=new HashMap<>();
+        map = new HashMap<>();
     }
 
     void add(Ball b) {
         balls.add(b);
-        map.put(b.getID(),b);
+        map.put(b.getID(), b);
     }
 
     void add(block b) {
         blocks.add(b);
-        map.put(b.getID(),b);
+        map.put(b.getID(), b);
     }
 
     static final int wall = 1000;
@@ -51,8 +52,8 @@ public class physics {
                 Ball b2 = balls.get(j);
                 double r = Math.sqrt((b1.x - b2.x) * (b1.x - b2.x) + (b1.y - b2.y) * (b1.y - b2.y));
                 if (r <= b1.r + b2.r) {
-                    b1.lastid=b2.getID();
-                    b2.lastid=b1.getID();
+                    b1.lastid = b2.getID();
+                    b2.lastid = b1.getID();
                     double rxu = (b1.x - b2.x) / r;
                     double ryu = (b1.y - b2.y) / r;
                     double v1_along = b1.vx * rxu + b1.vy * ryu;
@@ -67,20 +68,20 @@ public class physics {
         for (Ball ball : balls) {
             for (block bat : blocks)
                 if (ball.lastid != bat.getID() && ball.e2d.intersects(bat.x, bat.y, bat.l, bat.b)) {
-                    ball.lastid=bat.getID();
+                    ball.lastid = bat.getID();
                     //boolean top = ball.e2d.intersects(bat.x, bat.y, bat.l, 0.01);
                     //boolean bottom = ball.e2d.intersects(bat.x, bat.y + bat.b - 0.01, bat.l, 0.01);
                     //boolean left = ball.e2d.intersects(bat.x, bat.y, 0.01, bat.b);
                     //boolean right = ball.e2d.intersects(bat.x + bat.l - 0.01, bat.y, 0.01, bat.b);
 
-                    boolean wx=ball.x>=bat.x&&ball.x<=bat.x+bat.l;
-                    boolean wy=ball.y>=bat.y&&ball.y<=bat.y+bat.b;
+                    boolean wx = ball.x >= bat.x && ball.x <= bat.x + bat.l;
+                    boolean wy = ball.y >= bat.y && ball.y <= bat.y + bat.b;
 
                     //if ((top || bottom) && !(left || right)) {
-                    if(wx&&!wy){
+                    if (wx && !wy) {
                         System.out.println("y");
                         ball.vy = -ball.vy;
-                    } else if (wy&&!wx) {
+                    } else if (wy && !wx) {
                         ball.vx = -ball.vx;
                         System.out.println("x");
                     } else {//edge

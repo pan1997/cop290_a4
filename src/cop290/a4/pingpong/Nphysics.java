@@ -22,7 +22,8 @@ public class Nphysics extends physics implements Runnable {
 
     @Override
     public void update() {
-
+        blocks.forEach(e->e.rect.setRect(e.x,e.y,e.l,e.b));
+        balls.forEach(e->e.e2d.setFrame(e.x-e.r,e.y-e.r,2*e.r,2*e.r));
     }
 
     @Override
@@ -45,7 +46,6 @@ public class Nphysics extends physics implements Runnable {
                     s.x=x;
                     s.y=y;
                 }catch (Exception e){
-
                     System.out.println(e);
                 }
             }
