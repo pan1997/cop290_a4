@@ -16,14 +16,17 @@ public class physics {
     public physics() {
         balls = new ArrayList<>();
         blocks = new ArrayList<>();
+        map=new HashMap<>();
     }
 
     void add(Ball b) {
         balls.add(b);
+        map.put(b.getID(),b);
     }
 
     void add(block b) {
         blocks.add(b);
+        map.put(b.getID(),b);
     }
 
     static final int wall = 1000;

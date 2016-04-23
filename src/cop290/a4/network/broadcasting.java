@@ -28,13 +28,22 @@ public class broadcasting implements Runnable{
             for (Spirit s : spirits)
                 out.writeUTF(s.toString());
     }
+    public void setSpirits(ArrayList<Spirit> as){
+        spirits=as;
+    }
+    Socket s;
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        s.close();
+    }
 
     @Override
     public void run() {
         try {
             ServerSocket skt=new ServerSocket(port);
             System.out.println("Waiting on" + skt.getLocalSocketAddress());
-            Socket s = skt.accept();
+            s = skt.accept();
             System.out.println("Connected to "+s.getRemoteSocketAddress());
             out=new DataOutputStream(s.getOutputStream());
             out.writeUTF("Connected\n");

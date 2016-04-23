@@ -18,11 +18,12 @@ public class board extends animPanel implements KeyListener{
     broadcasting bds;
     ArrayList<bat> bats;
     physics ph;
-    public board(int l, int b, int ups, int skp,physics physics) {
+    public board(int l, int b, int ups, int skp,physics physics,broadcasting bds) {
         super(l, b, ups, skp);
         spirits =new ArrayList<>();
         bats=new ArrayList<>();
-        bds=new broadcasting(1234,spirits);
+        if(bds!=null)
+            bds.setSpirits(spirits);
         ph=physics;
         ArrayList<block> corners = new ArrayList<block>();
         for(int i=0;i<4;i++){
@@ -83,7 +84,8 @@ public class board extends animPanel implements KeyListener{
         //spirits.forEach(e->e.updateSpirit());
         ph.update();
         try {
-            bds.broadcast();
+            if(bds!=null)
+                bds.broadcast();
         }catch (Exception e){
             System.out.println(e);
         }
