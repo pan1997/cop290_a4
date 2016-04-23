@@ -2,6 +2,7 @@ package cop290.a4.pingpong;
 
 import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
+import cop290.a4.network.broadcasting;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -14,13 +15,15 @@ import java.util.ArrayList;
 public class board extends animPanel implements KeyListener{
 
     ArrayList<Spirit> spirits;
+    broadcasting bds;
     ArrayList<bat> bats;
     physics ph;
-    public board(int l, int b, int ups, int skp) {
+    public board(int l, int b, int ups, int skp,physics physics) {
         super(l, b, ups, skp);
         spirits =new ArrayList<>();
         bats=new ArrayList<>();
-        ph=new physics();
+        bds=new broadcasting(1234,spirits);
+        ph=physics;
         ArrayList<block> corners = new ArrayList<block>();
         for(int i=0;i<4;i++){
             Ball ball=new Ball(this);
@@ -79,13 +82,17 @@ public class board extends animPanel implements KeyListener{
         super.update();
         //spirits.forEach(e->e.updateSpirit());
         ph.update();
+        try {
+            bds.broadcast();
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     @Override
     protected void render(Graphics2D g) {
         super.render(g);
         spirits.forEach(e->e.renderSpirit(g));
-
     }
 
     @Override

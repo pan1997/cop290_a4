@@ -1,8 +1,7 @@
 package cop290.a4;
 
-import cop290.a4.animation.animPanel;
-import cop290.a4.animation.animPanelTest;
 import cop290.a4.pingpong.board;
+import cop290.a4.pingpong.physics;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +15,7 @@ public class Main {
         }
         JFrame main = new JFrame("Game");
         //animPanelTest animPanel = new animPanelTest(500, 500, 100, 1);
-        board animPanel = new board(600, 600, 100, 2);
+        board animPanel = new board(600, 600, 100, 2,new physics());
         main.setContentPane(animPanel);
         main.addKeyListener(animPanel);
         //animPanel.addMouseMotionListener(animPanel);
@@ -55,4 +54,5 @@ public class Main {
             terminal.setVisible(true);
         }
     }
+
 }

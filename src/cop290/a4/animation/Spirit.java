@@ -9,6 +9,7 @@ import java.awt.*;
 public abstract class Spirit {
     private static int ns;
 
+    public double x,y;
     int id;
     protected animPanel parent;
 
