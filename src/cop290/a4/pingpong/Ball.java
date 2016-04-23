@@ -10,7 +10,7 @@ import java.awt.geom.Ellipse2D;
  * Created by pankaj on 12/4/16.
  */
 public class Ball extends Spirit {
-    double x,y,vx,vy,theta,w;
+    double vx,vy,theta,w;
     double r;
     Ellipse2D e2d;
 
@@ -49,5 +49,11 @@ public class Ball extends Spirit {
         g.fillArc((int)e2d.getX(),(int)e2d.getY(),(int)e2d.getWidth(),(int)e2d.getHeight(),(int)(theta*180/Math.PI),180);
         g.setColor(Color.white);
         g.fillArc((int)e2d.getX(),(int)e2d.getY(),(int)e2d.getWidth(),(int)e2d.getHeight(),180+(int)(theta*180/Math.PI),180);
+    }
+
+
+    @Override
+    public String toString() {
+        return getID()+" "+x+" "+y;
     }
 }

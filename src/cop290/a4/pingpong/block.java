@@ -10,7 +10,7 @@ import java.awt.*;
  */
 public class block extends Spirit {
     int width, thickness;
-    int x, y, l, b;
+    int l, b;
     Rectangle rect;
     Color color;
 
@@ -30,5 +30,10 @@ public class block extends Spirit {
         g.setColor(color);
         g.fill(rect);
         //g.fillRect((int)rect.getX(),(int)rect.getY(),(int)rect.getWidth(),(int)rect.getHeight());
+    }
+
+    @Override
+    public String toString() {
+        return getID()+" "+x+" "+y;
     }
 }

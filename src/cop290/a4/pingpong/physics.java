@@ -1,7 +1,10 @@
 package cop290.a4.pingpong;
 
+import cop290.a4.animation.Spirit;
+
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by pankaj on 12/4/16.
@@ -9,8 +12,8 @@ import java.util.ArrayList;
 public class physics {
     ArrayList<Ball> balls;
     ArrayList<block> blocks;
-
-    physics() {
+    HashMap<Integer,Spirit> map;
+    public physics() {
         balls = new ArrayList<>();
         blocks = new ArrayList<>();
     }
