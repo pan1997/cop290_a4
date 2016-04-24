@@ -5,6 +5,7 @@ import cop290.a4.animation.Spirit;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by pankaj on 12/4/16.
@@ -12,12 +13,17 @@ import java.util.HashMap;
 public class physics {
     ArrayList<Ball> balls;
     ArrayList<block> blocks;
-    HashMap<Integer, Spirit> map;
+    ArrayList<circularObstacle> circs, holes;
+    Map<Integer, circularObstacle> teleport;
+    Map<Integer, Spirit> map;
 
     public physics() {
         balls = new ArrayList<>();
         blocks = new ArrayList<>();
         map = new HashMap<>();
+        teleport = new HashMap<>();
+        circs = new ArrayList<>();
+        holes = new ArrayList<>();
     }
 
     void add(Ball b) {
@@ -25,16 +31,34 @@ public class physics {
         map.put(b.getID(), b);
     }
 
+    void addTeleportPair(circularObstacle c1, circularObstacle c2) {
+        holes.add(c1);
+        holes.add(c2);
+        teleport.put(c1.getID(), c2);
+        teleport.put(c2.getID(), c1);
+    }
+
     void add(block b) {
         blocks.add(b);
         map.put(b.getID(), b);
     }
 
+    void add(circularObstacle c) {
+        circs.add(c);
+        map.put(c.getID(), c);
+    }
+
     static final int wall = 1000;
 
+    long last = 0;
+
     void update() {
-        blocks.forEach(e -> e.updateSpirit());
-        balls.forEach(e -> e.updateSpirit());
+        long current = System.nanoTime();
+        double dt = last != 0 ? (current - last) / 1000000000.0 : 0;
+        //System.out.println(dt);
+        last = current;
+        blocks.forEach(e -> e.updateSpirit(dt));
+        balls.forEach(e -> e.updateSpirit(dt / 2));
         for (Ball b : balls) {
             if (b.x + b.r >= b.parent().getB() || b.x <= b.r) {
                 b.lastid = wall;
@@ -44,7 +68,7 @@ public class physics {
                 b.lastid = wall;
                 b.vy = -b.vy;
             }
-            b.updateSpirit();
+            b.updateSpirit(dt / 2);
         }
         for (int i = 0; i < balls.size(); i++) {
             Ball b1 = balls.get(i);
@@ -65,14 +89,35 @@ public class physics {
                 }
             }
         }
+
+        for (Ball bl : balls)
+            for (circularObstacle c : circs) {
+                double r = Math.sqrt((bl.x - c.x) * (bl.x - c.x) + (bl.y - c.y) * (bl.y - c.y));
+                if (r <= bl.r + c.r) {
+                    bl.lastid = c.getID();
+                    double rxu = (bl.x - c.x) / r;
+                    double ryu = (bl.y - c.y) / r;
+                    double v1_along = bl.vx * rxu + bl.vy * ryu;
+                    bl.vx -= 2 * v1_along * rxu;
+                    bl.vy -= 2 * v1_along * ryu;
+                }
+            }
+
+        for (Ball bl : balls)
+            for (circularObstacle c : holes)
+                if (bl.lastid != c.getID()) {
+                    double r = Math.sqrt((bl.x - c.x) * (bl.x - c.x) + (bl.y - c.y) * (bl.y - c.y));
+                    if (r <= bl.r+c.r) {
+                        circularObstacle to = teleport.get(c.getID());
+                        bl.lastid = to.getID();
+                        bl.x = to.x;
+                        bl.y = to.y;
+                    }
+                }
         for (Ball ball : balls) {
             for (block bat : blocks)
                 if (ball.lastid != bat.getID() && ball.e2d.intersects(bat.x, bat.y, bat.l, bat.b)) {
                     ball.lastid = bat.getID();
-                    //boolean top = ball.e2d.intersects(bat.x, bat.y, bat.l, 0.01);
-                    //boolean bottom = ball.e2d.intersects(bat.x, bat.y + bat.b - 0.01, bat.l, 0.01);
-                    //boolean left = ball.e2d.intersects(bat.x, bat.y, 0.01, bat.b);
-                    //boolean right = ball.e2d.intersects(bat.x + bat.l - 0.01, bat.y, 0.01, bat.b);
 
                     boolean wx = ball.x >= bat.x && ball.x <= bat.x + bat.l;
                     boolean wy = ball.y >= bat.y && ball.y <= bat.y + bat.b;
@@ -92,15 +137,30 @@ public class physics {
                         double r = Math.sqrt((ball.x - x) * (ball.x - x) + (ball.y - y) * (ball.y - y));
                         double rxu = (ball.x - x) / r;
                         double ryu = (ball.y - y) / r;
-                        /*
-                        double rxu = (left?-1:1)*Math.sqrt(0.5);
-                        double ryu = (top?-1:1)*Math.sqrt(0.5);
-*/
                         double v1_along = ball.vx * rxu + ball.vy * ryu;
-                        ball.vx -= 2 * v1_along * rxu;
-                        ball.vy -= 2 * v1_along * ryu;
-                        //ball.vx=-ball.vx;
-                        //ball.vy=-ball.vy;
+                        double v2_along = 0;
+                        if (bat instanceof bat) {
+                            bat b = (bat) bat;
+                            double bv = b.vel * ball.parent().getL();
+                            double vx = 0, vy = 0;
+                            switch (b.or) {
+                                case 0:
+                                    vx = bv;
+                                    break;
+                                case 1:
+                                    vy = -bv;
+                                    break;
+                                case 2:
+                                    vx = -bv;
+                                    break;
+                                case 3:
+                                    vy = bv;
+                                    break;
+                            }
+                            v2_along = vx * rxu + vy * ryu;
+                        }
+                        ball.vx += -2 * (v1_along) * rxu+v2_along*rxu;
+                        ball.vy += -2 * (v1_along) * ryu+v2_along*ryu;
                     }
 
                 }

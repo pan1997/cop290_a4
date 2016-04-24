@@ -27,10 +27,12 @@ public class board extends animPanel implements KeyListener{
         this.bds=bds;
         ph=physics;
         ArrayList<block> corners = new ArrayList<block>();
-        for(int i=0;i<4;i++){
+        for(int i=0;i<3;i++){
             Ball ball=new Ball(this);
             spirits.add(ball);
             ph.add(ball);
+        }
+        for(int i=0;i<4;i++){
             block blck = new block(this);
             blck.l = blck.b = 15;
             corners.add(blck);
@@ -59,20 +61,86 @@ public class board extends animPanel implements KeyListener{
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
-        block blk=new block(this);
-        blk.x=250;
-        blk.y=250;
-        blk.l=blk.b=70;
-        spirits.add(blk);
-        ph.add(blk);
+        setStage(5);
     }
 
+    private void setStage(int stg){
+        switch (stg){
+            case 1:{
+                block blk=new block(this);
+                blk.x=l/2-35;
+                blk.y=b/2-35;
+                blk.l=blk.b=70;
+                spirits.add(blk);
+                ph.add(blk);
+            }break;
+            case 2:{
+                block blk=new block(this);
+                blk.x=l/2-40;
+                blk.y=b/2-40;
+                blk.l=80;
+                blk.b=10;
+                spirits.add(blk);
+                ph.add(blk);
+                blk=new block(this);
+                blk.x=l/2-40;
+                blk.y=b/2+30;
+                blk.l=80;
+                blk.b=10;
+                spirits.add(blk);
+                ph.add(blk);
+            }break;
+            case 3:{
+                circularObstacle circ=new circularObstacle(this,Color.ORANGE,null,null);
+                circ.x=l/2;
+                circ.y=b/2;
+                circ.r=25;
+                spirits.add(circ);
+                ph.add(circ);
+            }
+            case 4:{
+                circularObstacle c1=new circularObstacle(this,null,Color.MAGENTA,Color.MAGENTA);
+                circularObstacle c2=new circularObstacle(this,null,Color.MAGENTA,Color.MAGENTA);
+                c1.r=c2.r=10;
+                c1.x=150;c1.y=150;
+                c2.x=c2.y=450;
+                spirits.add(c1);
+                spirits.add(c2);
+                ph.addTeleportPair(c1,c2);
+            }
+            case 5:{
+                block blk=new block(this);
+                blk.x=l/2-35;
+                blk.y=b/2-35;
+                blk.l=blk.b=70;
+                spirits.add(blk);
+                ph.add(blk);
+                circularObstacle c1=new circularObstacle(this,null,Color.MAGENTA,Color.MAGENTA);
+                circularObstacle c2=new circularObstacle(this,null,Color.MAGENTA,Color.MAGENTA);
+                c1.r=c2.r=10;
+                c1.x=150;c1.y=150;
+                c2.x=c2.y=450;
+                spirits.add(c1);
+                spirits.add(c2);
+                ph.addTeleportPair(c1,c2);
+                c1=new circularObstacle(this,null,Color.CYAN,Color.CYAN);
+                c2=new circularObstacle(this,null,Color.CYAN,Color.CYAN);
+                c1.r=c2.r=10;
+                c1.x=450;c1.y=150;
+                c2.x=150;
+                c2.y=450;
+                spirits.add(c1);
+                spirits.add(c2);
+                ph.addTeleportPair(c1,c2);
+            }
+        }
+    }
     @Override
     protected void createBackground() {
         Graphics g=background.getGraphics();
-        g.setColor(Color.LIGHT_GRAY);
+        g.setColor(Color.BLACK);
         g.fillRect(0,0,l,b);
-        g.setColor(Color.black);
+        g.setColor(Color.WHITE);
         g.drawLine(15,0,15,b);
         g.drawLine(l-15,0,l-15,b);
         g.drawLine(0,15,l,15);
@@ -100,17 +168,19 @@ public class board extends animPanel implements KeyListener{
         spirits.forEach(e->e.renderSpirit(g));
     }
 
+    static double bd=0.5;
     @Override
     public void keyTyped(KeyEvent e) {
+
         switch (e.getKeyChar()){
-            case 'd':bats.get(0).vel=0.005;break;
-            case 's':bats.get(0).vel=-0.005;break;
-            case 'r':bats.get(1).vel=0.005;break;
-            case 'f':bats.get(1).vel=-0.005;break;
-            case 'w':bats.get(2).vel=0.005;break;
-            case 'e':bats.get(2).vel=-0.005;break;
-            case 'a':bats.get(3).vel=0.005;break;
-            case 'q':bats.get(3).vel=-0.005;break;
+            case 'd':bats.get(0).vel=bd;break;
+            case 's':bats.get(0).vel=-bd;break;
+            case 'r':bats.get(1).vel=bd;break;
+            case 'f':bats.get(1).vel=-bd;break;
+            case 'w':bats.get(2).vel=bd;break;
+            case 'e':bats.get(2).vel=-bd;break;
+            case 'a':bats.get(3).vel=bd;break;
+            case 'q':bats.get(3).vel=-bd;break;
         }
     }
 

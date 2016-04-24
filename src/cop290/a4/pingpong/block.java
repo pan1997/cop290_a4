@@ -16,12 +16,12 @@ public class block extends Spirit {
 
     public block(animPanel parent) {
         super(parent);
-        color = Color.BLACK;
+        color = Color.WHITE;
         rect=new Rectangle();
     }
 
     @Override
-    public void updateSpirit() {
+    public void updateSpirit(double dt) {
         rect.setRect(x,y,l,b);
     }
 
@@ -32,8 +32,4 @@ public class block extends Spirit {
         //g.fillRect((int)rect.getX(),(int)rect.getY(),(int)rect.getWidth(),(int)rect.getHeight());
     }
 
-    @Override
-    public String toString() {
-        return getID()+" "+x+" "+y;
-    }
 }

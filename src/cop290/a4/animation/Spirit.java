@@ -9,21 +9,27 @@ import java.awt.*;
 public abstract class Spirit {
     private static int ns;
 
-    public double x,y;
+    public double x, y;
     int id;
     protected animPanel parent;
 
-    public int getID(){
+    public int getID() {
         return id;
     }
+
     public Spirit(animPanel parent) {
         this.parent = parent;
-        id=ns++;
+        id = ns++;
     }
 
-    public abstract void updateSpirit();
+    public abstract void updateSpirit(double dt);
 
     public abstract void renderSpirit(Graphics2D g);
+
+    @Override
+    public String toString() {
+        return getID() + " " + x + " " + y;
+    }
 }
 
 class ballSpirit extends Spirit {
@@ -41,9 +47,9 @@ class ballSpirit extends Spirit {
     }
 
     @Override
-    public void updateSpirit() {
-        x += vx;
-        y += vy;
+    public void updateSpirit(double dt) {
+        x += vx*dt;
+        y += vy*dt;
         //if(x+r>=parent.b||x<=r)
         //    vx=-vx;
         //if(y+r>=parent.l||y<=r)
@@ -85,7 +91,7 @@ class batSpirit extends Spirit {
     }
 
     @Override
-    public void updateSpirit() {
+    public void updateSpirit(double dt) {
     }
 
     public void updateLoc(double x, double y) {

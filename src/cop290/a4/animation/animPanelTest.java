@@ -24,7 +24,8 @@ public class animPanelTest extends animPanel implements MouseMotionListener {
 
     protected void update() {
         super.update();
-        if (play) {
+
+        /*if (play) {
             ball.updateSpirit();
             bat.updateSpirit();
             cpu1.updateSpirit();
@@ -52,6 +53,7 @@ public class animPanelTest extends animPanel implements MouseMotionListener {
             if (ball.x + ball.r >= b || ball.x <= ball.r || ball.y + ball.r >= l || ball.y <= ball.r)
                 play = false;
         }
+        */
     }
 
     @Override

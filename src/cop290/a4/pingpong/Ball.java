@@ -10,50 +10,43 @@ import java.awt.geom.Ellipse2D;
  * Created by pankaj on 12/4/16.
  */
 public class Ball extends Spirit {
-    double vx,vy,theta,w;
+    double vx, vy, theta, w;
     double r;
     Ellipse2D e2d;
 
 
-    int lastid=-1;
+    int lastid = -1;
 
     Ball(animPanel parent) {
         super(parent);
-        x=25+Math.random()*450;
-        y=25+Math.random()*450;
+        x = 25 + Math.random() * 450;
+        y = 25 + Math.random() * 450;
 
-        vx=(Math.random()-0.5)*3;
-        vy=(Math.random()-0.5)*3;
-
-        vx=(Math.random()-0.5)*3.0;
-        vy=(Math.random()-0.5)*3.0;
-        theta=Math.random();
-        w=0.2*(Math.random()-0.5);
-        r=10;
-        e2d=new Ellipse2D.Double(x-r,y-r,2*r,2*r);
+        vx = (Math.random() - 0.5) * 500.0;
+        vy = (Math.random() - 0.5) * 500.0;
+        theta = Math.random();
+        w = 15 * (Math.random() - 0.5);
+        r = 10;
+        e2d = new Ellipse2D.Double(x - r, y - r, 2 * r, 2 * r);
     }
 
     @Override
-    public void updateSpirit() {
-        x+=vx;
-        y+=vy;
-        theta+=w;
-        e2d.setFrame(x-r,y-r,2*r,2*r);
+    public void updateSpirit(double dt) {
+        x += vx * dt;
+        y += vy * dt;
+        theta += w * dt;
+        e2d.setFrame(x - r, y - r, 2 * r, 2 * r);
     }
-    animPanel parent(){
+
+    animPanel parent() {
         return parent;
     }
+
     @Override
     public void renderSpirit(Graphics2D g) {
         g.setColor(Color.red);
-        g.fillArc((int)e2d.getX(),(int)e2d.getY(),(int)e2d.getWidth(),(int)e2d.getHeight(),(int)(theta*180/Math.PI),180);
+        g.fillArc((int) e2d.getX(), (int) e2d.getY(), (int) e2d.getWidth(), (int) e2d.getHeight(), (int) (theta * 180 / Math.PI), 180);
         g.setColor(Color.white);
-        g.fillArc((int)e2d.getX(),(int)e2d.getY(),(int)e2d.getWidth(),(int)e2d.getHeight(),180+(int)(theta*180/Math.PI),180);
-    }
-
-
-    @Override
-    public String toString() {
-        return getID()+" "+x+" "+y;
+        g.fillArc((int) e2d.getX(), (int) e2d.getY(), (int) e2d.getWidth(), (int) e2d.getHeight(), 180 + (int) (theta * 180 / Math.PI), 180);
     }
 }

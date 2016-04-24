@@ -44,10 +44,10 @@ public class bat extends block {
     }
 
     @Override
-    public void updateSpirit() {
-        loc+=vel;
-        loc = Math.min(loc, 1-(width/2+15.0)/parent.getB());
-        loc = Math.max(loc, 0+(width/2+15.0)/parent.getB());
+    public void updateSpirit(double dt) {
+        loc += vel * dt;
+        loc = Math.min(loc, 1 - (width / 2 + 15.0) / parent.getB());
+        loc = Math.max(loc, 0 + (width / 2 + 15.0) / parent.getB());
         switch (or) {
             case 0:
                 x = (int) (loc * parent.getL()) - width / 2;
@@ -62,6 +62,6 @@ public class bat extends block {
                 y = (int) (loc * parent.getB()) - width / 2;
                 break;
         }
-        super.updateSpirit();
+        super.updateSpirit(dt);
     }
 }
