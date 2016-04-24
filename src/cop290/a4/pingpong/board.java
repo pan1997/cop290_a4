@@ -67,7 +67,7 @@ public class board extends animPanel implements KeyListener{
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
-        setStage(4);
+        setStage(3);
     }
 
     private void setStage(int stg){
@@ -99,7 +99,7 @@ public class board extends animPanel implements KeyListener{
             case 3:{
                 Graphics g=background.getGraphics();
                 try {
-                    image = ImageIO.read(new File("/home/kritarth/IntellijProjects/cop290_assn4_pingpong/src/cop290/a4/backgrounds/tex4.jpg"));
+                    image = ImageIO.read(new File("./src/cop290/a4/backgrounds/tex4.jpg"));
                 } catch (IOException ex) {
                     System.out.println("image 404 block"+ex);
                 }
