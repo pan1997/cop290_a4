@@ -12,6 +12,7 @@ public class bat extends block {
     double loc;
     int or;
     double vel;
+    int fillet;
 
     public bat(animPanel parent, int orientation) {
         super(parent);
@@ -19,6 +20,7 @@ public class bat extends block {
         loc = 0.75;
         color = Color.blue;
         width = 100;
+        fillet = 3;
         thickness = 10;
         if (or % 2 == 0) {
             l = width;

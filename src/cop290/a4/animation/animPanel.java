@@ -66,7 +66,7 @@ public class animPanel extends JPanel implements Runnable {
             g.rotate(Math.PI/2*rot,getL()/2,getB()/2);
             g.drawImage(screen, 0, 0, null);
         }else{
-            System.out.println("No scrren or img");
+            System.out.println("No screen or img");
         }
     }
 
@@ -76,7 +76,7 @@ public class animPanel extends JPanel implements Runnable {
             g.rotate(Math.PI/2*rot,getL()/2,getB()/2);
             g.drawImage(screen, 0, 0, null);
         }else{
-            System.out.println("No scrren or img");
+            System.out.println("No screen or img");
         }
     }
 

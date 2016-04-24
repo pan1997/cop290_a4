@@ -4,15 +4,21 @@ import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
 import cop290.a4.network.broadcasting;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * Created by pankaj on 12/4/16.
  */
 public class board extends animPanel implements KeyListener{
+
+    protected BufferedImage image;
 
     ArrayList<Spirit> spirits;
     broadcasting bds;
@@ -61,7 +67,7 @@ public class board extends animPanel implements KeyListener{
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
-        setStage(5);
+        setStage(4);
     }
 
     private void setStage(int stg){
@@ -91,13 +97,22 @@ public class board extends animPanel implements KeyListener{
                 ph.add(blk);
             }break;
             case 3:{
+                Graphics g=background.getGraphics();
+                try {
+                    image = ImageIO.read(new File("/home/kritarth/IntellijProjects/cop290_assn4_pingpong/src/cop290/a4/backgrounds/tex4.jpg"));
+                } catch (IOException ex) {
+                    System.out.println("image 404 block"+ex);
+                }
+                super.paintComponent(g);
+                // Draw the background image.
+                g.drawImage(image, 0, 0, this);
                 circularObstacle circ=new circularObstacle(this,Color.ORANGE,null,null);
                 circ.x=l/2;
                 circ.y=b/2;
                 circ.r=25;
                 spirits.add(circ);
                 ph.add(circ);
-            }
+            }break;
             case 4:{
                 circularObstacle c1=new circularObstacle(this,null,Color.MAGENTA,Color.MAGENTA);
                 circularObstacle c2=new circularObstacle(this,null,Color.MAGENTA,Color.MAGENTA);
@@ -107,7 +122,7 @@ public class board extends animPanel implements KeyListener{
                 spirits.add(c1);
                 spirits.add(c2);
                 ph.addTeleportPair(c1,c2);
-            }
+            }break;
             case 5:{
                 block blk=new block(this);
                 blk.x=l/2-35;
@@ -146,9 +161,21 @@ public class board extends animPanel implements KeyListener{
         //ph.add(blk);
         */
     }
+
+
     @Override
     protected void createBackground() {
         Graphics g=background.getGraphics();
+        /*
+        try {
+            image = ImageIO.read(new File("/home/kritarth/IntellijProjects/cop290_assn4_pingpong/src/cop290/a4/backgrounds/tex4.jpg"));
+        } catch (IOException ex) {
+            System.out.println("image 404 block"+ex);
+        }
+        super.paintComponent(g);
+        // Draw the background image.
+        g.drawImage(image, 0, 0, this);
+        */
         g.setColor(Color.BLACK);
         g.fillRect(0,0,l,b);
         g.setColor(Color.WHITE);
@@ -156,6 +183,7 @@ public class board extends animPanel implements KeyListener{
         g.drawLine(l-15,0,l-15,b);
         g.drawLine(0,15,l,15);
         g.drawLine(0,b-15,l,b-15);
+
     }
 
     @Override
