@@ -11,12 +11,12 @@ import java.awt.*;
 public class circularObstacle extends Spirit {
     double r;
     Color fill;
-    Color boundry;
+    Color boundary;
     Color center;
     public circularObstacle(animPanel parent,Color c1,Color c2,Color c3) {
         super(parent);
         fill = c1;
-        boundry = c2;
+        boundary = c2;
         center=c3;
     }
 
@@ -31,8 +31,8 @@ public class circularObstacle extends Spirit {
             g.setColor(fill);
             g.fillOval((int) (x - r), (int) (y - r), (int) (2 * r), (int) (2 * r));
         }
-        if (boundry != null) {
-            g.setColor(boundry);
+        if (boundary != null) {
+            g.setColor(boundary);
             g.drawOval((int) (x - r), (int) (y - r), (int) (2 * r), (int) (2 * r));
         }
         if(center!=null){

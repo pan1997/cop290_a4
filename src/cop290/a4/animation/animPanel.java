@@ -75,8 +75,8 @@ public class animPanel extends JPanel implements Runnable {
         if (g != null && screen != null) {
             g.rotate(Math.PI/2*rot,getL()/2,getB()/2);
             g.drawImage(screen, 0, 0, null);
-        }else{
-            System.out.println("No screen or img");
+        }else if(screen==null){
+            System.out.println("No screen or img1");
         }
     }
 

@@ -6,6 +6,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -43,7 +44,9 @@ public class broadcasting implements Runnable{
     @Override
     public void run() {
         try {
-            ServerSocket skt=new ServerSocket(port);
+            ServerSocket skt=new ServerSocket();
+            skt.setReuseAddress(true);
+            skt.bind(new InetSocketAddress(port));
             System.out.println("Waiting on" + skt.getLocalSocketAddress());
             s = skt.accept();
             System.out.println("Connected to "+s.getRemoteSocketAddress());
@@ -53,6 +56,5 @@ public class broadcasting implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

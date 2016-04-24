@@ -24,7 +24,7 @@ public class board extends animPanel implements KeyListener{
     broadcasting bds;
     ArrayList<bat> bats;
     physics ph;
-    public board(int l, int b, int ups, int skp,physics physics,broadcasting bds) {
+    public board(int l, int b, int ups, int skp,physics physics,broadcasting bds, int stage) {
         super(l, b, ups, skp);
         spirits =new ArrayList<>();
         bats=new ArrayList<>();
@@ -67,7 +67,7 @@ public class board extends animPanel implements KeyListener{
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
-        setStage(3);
+        setStage(stage);
     }
 
     private void setStage(int stg){
@@ -103,7 +103,7 @@ public class board extends animPanel implements KeyListener{
                 } catch (IOException ex) {
                     System.out.println("image 404 block"+ex);
                 }
-                super.paintComponent(g);
+                //super.paintComponent(g);
                 // Draw the background image.
                 g.drawImage(image, 0, 0, this);
                 circularObstacle circ=new circularObstacle(this,Color.ORANGE,null,null);
