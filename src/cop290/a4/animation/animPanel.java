@@ -52,6 +52,7 @@ public class animPanel extends JPanel implements Runnable {
         return b;
     }
     protected void render(Graphics2D g) {
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
         g.drawImage(background,0,0,this);
         g.setColor(Color.BLACK);
         g.drawString("ups " + ups, 20, 30);

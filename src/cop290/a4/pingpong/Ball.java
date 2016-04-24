@@ -32,9 +32,6 @@ public class Ball extends Spirit {
 
     @Override
     public void updateSpirit(double dt) {
-        x += vx * dt;
-        y += vy * dt;
-        theta += w * dt;
         e2d.setFrame(x - r, y - r, 2 * r, 2 * r);
     }
 
@@ -46,7 +43,7 @@ public class Ball extends Spirit {
     public void renderSpirit(Graphics2D g) {
         g.setColor(Color.red);
         g.fillArc((int) e2d.getX(), (int) e2d.getY(), (int) e2d.getWidth(), (int) e2d.getHeight(), (int) (theta * 180 / Math.PI), 180);
-        g.setColor(Color.white);
+        g.setColor(Color.yellow);
         g.fillArc((int) e2d.getX(), (int) e2d.getY(), (int) e2d.getWidth(), (int) e2d.getHeight(), 180 + (int) (theta * 180 / Math.PI), 180);
     }
 }

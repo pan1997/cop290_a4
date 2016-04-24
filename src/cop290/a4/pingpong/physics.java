@@ -58,18 +58,31 @@ public class physics {
         //System.out.println(dt);
         last = current;
         blocks.forEach(e -> e.updateSpirit(dt));
-        balls.forEach(e -> e.updateSpirit(dt / 2));
+        for(Ball b:balls){
+            b.x+=b.vx*dt/2;
+            b.y+=b.vy*dt/2;
+            b.theta+=b.w*dt/2;
+        }
         for (Ball b : balls) {
             if (b.x + b.r >= b.parent().getB() || b.x <= b.r) {
                 b.lastid = wall;
                 b.vx = -b.vx;
+                if(b.x<=b.r)
+                    ((board)b.parent()).closeSide(3);
+                else ((board)b.parent()).closeSide(1);
             }
             if (b.y + b.r >= b.parent().getL() || b.y <= b.r) {
                 b.lastid = wall;
                 b.vy = -b.vy;
+                if(b.y<=b.r)
+                    ((board)b.parent()).closeSide(2);
+                else ((board)b.parent()).closeSide(0);
             }
-            b.updateSpirit(dt / 2);
+            b.x+=b.vx*dt/2;
+            b.y+=b.vy*dt/2;
+            b.theta+=b.w*dt/2;
         }
+        balls.forEach(e -> e.updateSpirit(dt));
         for (int i = 0; i < balls.size(); i++) {
             Ball b1 = balls.get(i);
             for (int j = i + 1; j < balls.size(); j++) {
@@ -124,13 +137,13 @@ public class physics {
 
                     //if ((top || bottom) && !(left || right)) {
                     if (wx && !wy) {
-                        System.out.println("y");
+                        //System.out.println("y");
                         ball.vy = -ball.vy;
                     } else if (wy && !wx) {
                         ball.vx = -ball.vx;
-                        System.out.println("x");
+                        //System.out.println("x");
                     } else {//edge
-                        System.out.println("Edge");
+                        //System.out.println("Edge");
                         double x, y;
                         x = ball.x < bat.x ? bat.x : bat.x + bat.l;
                         y = ball.y < bat.y ? bat.y : bat.y + bat.b;

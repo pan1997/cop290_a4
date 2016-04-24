@@ -135,6 +135,17 @@ public class board extends animPanel implements KeyListener{
             }
         }
     }
+
+    public void closeSide(int or){
+        /*block blk=new block(this);
+        blk.x=or==1?l-20:0;
+        blk.y=or==0?b-20:0;
+        blk.l=or%2==0?l:20;
+        blk.b=or%2==0?20:b;
+        //spirits.add(blk);
+        //ph.add(blk);
+        */
+    }
     @Override
     protected void createBackground() {
         Graphics g=background.getGraphics();
