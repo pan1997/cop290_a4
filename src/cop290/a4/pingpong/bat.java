@@ -3,7 +3,11 @@ package cop290.a4.pingpong;
 import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by pankaj on 13/4/16.
@@ -16,12 +20,17 @@ public class bat extends block {
 
     public bat(animPanel parent, int orientation) {
         super(parent);
+        try {
+            image = ImageIO.read(new File("./src/cop290/a4/backgrounds/wood.jpg"));
+        } catch (IOException ex) {
+            System.out.println("image 404 block");
+        }
         or = orientation;
         loc = 0.75;
         color = Color.blue;
         width = 100;
         fillet = 3;
-        thickness = 10;
+        thickness = 20;
         if (or % 2 == 0) {
             l = width;
             b = thickness;
@@ -43,6 +52,16 @@ public class bat extends block {
                 x = 0;
                 break;
         }
+    }
+
+    BufferedImage image;
+
+    @Override
+    public void renderSpirit(Graphics2D g) {
+        g.setPaint(new TexturePaint(image,rect));
+        //g.setColor(color);
+        //g.fill(rect);
+        g.fillRect((int)rect.getX(),(int)rect.getY(),(int)rect.getWidth(),(int)rect.getHeight());
     }
 
     @Override

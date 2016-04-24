@@ -6,7 +6,7 @@ import java.awt.*;
  * Created by pankaj on 30/3/16.
  */
 
-public abstract class Spirit {
+public abstract class Spirit extends Canvas {
     private static int ns;
 
     public double x, y;

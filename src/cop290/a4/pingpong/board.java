@@ -114,11 +114,18 @@ public class board extends animPanel implements KeyListener{
                 ph.add(circ);
             }break;
             case 4:{
+                Graphics g=background.getGraphics();
+                try {
+                    image = ImageIO.read(new File("./src/cop290/a4/backgrounds/dwtb.jpg"));
+                } catch (IOException ex) {
+                    System.out.println("image 404 block"+ex);
+                }
+                g.drawImage(image, 0, 0, this);
                 circularObstacle c1=new circularObstacle(this,null,Color.MAGENTA,Color.MAGENTA);
                 circularObstacle c2=new circularObstacle(this,null,Color.MAGENTA,Color.MAGENTA);
                 c1.r=c2.r=10;
-                c1.x=150;c1.y=150;
-                c2.x=c2.y=450;
+                c1.x=217;c1.y=142;
+                c2.x=402;c2.y=133;
                 spirits.add(c1);
                 spirits.add(c2);
                 ph.addTeleportPair(c1,c2);
