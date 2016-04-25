@@ -37,7 +37,7 @@ public class Main {
                     case "exit":
                         System.exit(0);
                         break;
-                    case "start":
+                    case "host":
                         try {
                             stage = Integer.parseInt(e.getActionCommand().split(" ")[1]);
                         } catch (Exception ew) {
@@ -55,6 +55,9 @@ public class Main {
                         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         main.setSize(600, 700);
                         main.setVisible(true);
+                        animPanel.singleFrame();
+                        break;
+                    case "start":
                         animPanel.start();
                         break;
                     case "rot":

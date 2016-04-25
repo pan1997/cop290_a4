@@ -54,7 +54,7 @@ public class broadcasting implements Runnable {
             DataOutputStream o = out.get(i);
             try {
                 for (Spirit s : spirits)
-                    if(!(s instanceof block)||(s instanceof bat)||!(s instanceof circularObstacle))
+                    if(!(s instanceof block)&&!(s instanceof circularObstacle))
                     o.writeUTF("loc "+s.toString());
                 o.flush();
             } catch (SocketException e) {

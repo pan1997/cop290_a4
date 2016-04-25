@@ -53,7 +53,6 @@ public class physics {
     static final int wall = 1000;
 
     long last = 0;
-
     void update() {
         long current = System.nanoTime();
         double dt = last != 0 ? (current - last) / 1000000000.0 : 0;

@@ -69,7 +69,14 @@ public class animPanel extends JPanel implements Runnable {
             System.out.println("No screen or img");
         }
     }
-
+    public void singleFrame(){
+        u++;
+        f++;
+        pt=System.nanoTime();
+        update();
+        render(gscreen);
+        paintRender();
+    }
     private void paintRender() {
         Graphics2D g = (Graphics2D)this.getGraphics();
         if (g != null && screen != null) {

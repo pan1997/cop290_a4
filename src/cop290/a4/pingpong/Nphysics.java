@@ -67,8 +67,16 @@ public class Nphysics extends physics implements Runnable {
                             System.out.println("Stage message");
                             board bd = (board) (balls.get(0).parent());
                             bd.setStage(Integer.parseInt(st.nextToken()));
+                        } else if (type.equals("bats")) {
+                            board bd = (board) (balls.get(0).parent());
+                            bd.bats.get(0).loc=Double.parseDouble(st.nextToken());
+                            bd.bats.get(1).loc=Double.parseDouble(st.nextToken());
+                            bd.bats.get(2).loc=Double.parseDouble(st.nextToken());
+                            bd.bats.get(3).loc=Double.parseDouble(st.nextToken());
+                            for(bat bt:bd.bats)
+                                bt.updateSpirit(0);
                         }
-                        System.out.println(cmd+"---"+type);
+                        //System.out.println(cmd+"---"+type);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
