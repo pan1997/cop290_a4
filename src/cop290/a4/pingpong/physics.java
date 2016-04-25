@@ -35,11 +35,11 @@ public class physics {
         holes.add(c2);
         teleport.put(c1.getID(), c2);
         teleport.put(c2.getID(), c1);
-        map.put(c1.getID(),c1);
-        map.put(c2.getID(),c2);
+        map.put(c1.getID(), c1);
+        map.put(c2.getID(), c2);
     }
 
-    public ArrayList<Ball> getBalls(){
+    public ArrayList<Ball> getBalls() {
         return balls;
     }
 
@@ -56,35 +56,36 @@ public class physics {
     static final int wall = 1000;
 
     long last = 0;
+
     void update() {
         long current = System.nanoTime();
         double dt = last != 0 ? (current - last) / 1000000000.0 : 0;
         //System.out.println(dt);
         last = current;
         blocks.forEach(e -> e.updateSpirit(dt));
-        for(Ball b:balls){
-            b.x+=b.vx*dt/2;
-            b.y+=b.vy*dt/2;
-            b.theta+=b.w*dt/2;
+        for (Ball b : balls) {
+            b.x += b.vx * dt / 2;
+            b.y += b.vy * dt / 2;
+            b.theta += b.w * dt / 2;
         }
         for (Ball b : balls) {
             if (b.x + b.r >= b.parent().getB() || b.x <= b.r) {
                 b.lastid = wall;
                 b.vx = -b.vx;
-                if(b.x<=b.r)
-                    ((board)b.parent()).closeSide(3);
-                else ((board)b.parent()).closeSide(1);
+                if (b.x <= b.r)
+                    ((board) b.parent()).closeSide(3);
+                else ((board) b.parent()).closeSide(1);
             }
             if (b.y + b.r >= b.parent().getL() || b.y <= b.r) {
                 b.lastid = wall;
                 b.vy = -b.vy;
-                if(b.y<=b.r)
-                    ((board)b.parent()).closeSide(2);
-                else ((board)b.parent()).closeSide(0);
+                if (b.y <= b.r)
+                    ((board) b.parent()).closeSide(2);
+                else ((board) b.parent()).closeSide(0);
             }
-            b.x+=b.vx*dt/2;
-            b.y+=b.vy*dt/2;
-            b.theta+=b.w*dt/2;
+            b.x += b.vx * dt / 2;
+            b.y += b.vy * dt / 2;
+            b.theta += b.w * dt / 2;
         }
         balls.forEach(e -> e.updateSpirit(dt));
         for (int i = 0; i < balls.size(); i++) {
@@ -124,7 +125,7 @@ public class physics {
             for (circularObstacle c : holes)
                 if (bl.lastid != c.getID()) {
                     double r = Math.sqrt((bl.x - c.x) * (bl.x - c.x) + (bl.y - c.y) * (bl.y - c.y));
-                    if (r <= bl.r+c.r) {
+                    if (r <= bl.r + c.r) {
                         circularObstacle to = teleport.get(c.getID());
                         bl.lastid = to.getID();
                         bl.x = to.x;
@@ -176,12 +177,10 @@ public class physics {
                             }
                             v2_along = vx * rxu + vy * ryu;
                         }
-                        ball.vx += -2 * (v1_along) * rxu+v2_along*rxu;
-                        ball.vy += -2 * (v1_along) * ryu+v2_along*ryu;
+                        ball.vx += -2 * (v1_along) * rxu + v2_along * rxu;
+                        ball.vy += -2 * (v1_along) * ryu + v2_along * ryu;
                     }
-
                 }
         }
-
     }
 }

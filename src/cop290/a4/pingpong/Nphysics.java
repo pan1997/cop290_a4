@@ -21,8 +21,12 @@ public class Nphysics extends physics implements Runnable {
         port = p;
         new Thread(this).start();
     }
-    void broadcast(String message)throws Exception{
-        dout.writeUTF(message);
+    void broadcast(String message){
+        try {
+            dout.writeUTF(message);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     @Override
     public void update() {
@@ -75,6 +79,9 @@ public class Nphysics extends physics implements Runnable {
                             bd.bats.get(3).loc=Double.parseDouble(st.nextToken());
                             for(bat bt:bd.bats)
                                 bt.updateSpirit(0);
+                        } else if(type.equals("userId")){
+                            board bd = (board) (balls.get(0).parent());
+                            bd.userId=Integer.parseInt(st.nextToken());
                         }
                         //System.out.println(cmd+"---"+type);
                     }

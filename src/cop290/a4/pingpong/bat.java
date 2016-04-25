@@ -11,7 +11,7 @@ import java.awt.*;
 public class bat extends block {
     double loc;
     int or;
-    double vel;
+    public double vel;
 
     public bat(animPanel parent, int orientation) {
         super(parent);

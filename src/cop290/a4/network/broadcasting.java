@@ -3,6 +3,7 @@ package cop290.a4.network;
 import cop290.a4.animation.Spirit;
 import cop290.a4.pingpong.bat;
 import cop290.a4.pingpong.block;
+import cop290.a4.pingpong.board;
 import cop290.a4.pingpong.circularObstacle;
 
 import java.io.DataInputStream;
@@ -12,6 +13,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 /**
  * Created by pankaj on 23/4/16.
@@ -24,6 +26,8 @@ public class broadcasting implements Runnable {
     ArrayList<DataOutputStream> out;
     ArrayList<DataInputStream> in;
     String initMessage;
+    public board parent;
+    public int users;
     public void setInitMessage(String s){
         initMessage=s;
     }
@@ -92,12 +96,34 @@ public class broadcasting implements Runnable {
                 System.out.println("Connected to " + s.getRemoteSocketAddress());
                 DataOutputStream dout;
                 out.add(dout = new DataOutputStream(s.getOutputStream()));
+                DataInputStream din=new DataInputStream(s.getInputStream());
+                in.add(din);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(;;) {
+                            try {
+                                String cmd=din.readUTF();
+                                StringTokenizer st=new StringTokenizer(cmd);
+                                String type=st.nextToken();
+                                if(type.equals("bmov")){
+                                    int id=Integer.parseInt(st.nextToken());
+                                    int btn=Integer.parseInt(st.nextToken());
+                                    double v=Double.parseDouble(st.nextToken());
+                                    parent.bats.get(btn).vel=v;
+                                }
+                            }catch (Exception e){
+                            }
+                        }
+                    }
+                }).start();
                 dout.writeUTF("GREETINGS from server\n");
                 for(Socket ss:sockets){
                     dout.writeUTF("Other_Users "+ss.getRemoteSocketAddress());
                 }
                 sockets.add(s);
                 dout.writeUTF(initMessage);
+                dout.writeUTF("userId "+users++);
                 dout.flush();
             }
         } catch (IOException e) {
