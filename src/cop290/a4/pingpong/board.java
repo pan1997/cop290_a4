@@ -190,7 +190,6 @@ public class board extends animPanel implements KeyListener{
     static double bd=1;
     @Override
     public void keyTyped(KeyEvent e) {
-
         switch (e.getKeyChar()){
             case 'd':bats.get(0).vel=bd;break;
             case 's':bats.get(0).vel=-bd;break;
