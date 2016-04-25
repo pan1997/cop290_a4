@@ -1,13 +1,13 @@
 package cop290.a4;
 
-import org.jdesktop.swingx.JXPanel;
-import org.jdesktop.swingx.border.DropShadowBorder;
+//import org.jdesktop.swingx.JXPanel;
+//import org.jdesktop.swingx.border.DropShadowBorder;
 
 import java.awt.*;
 
 /**
  * Created by kritarth on 24/4/16.
- */
+ *
 public class Canvas extends JXPanel {
 
     public Canvas(){
@@ -20,3 +20,4 @@ public class Canvas extends JXPanel {
         this.setBorder(shadow);
     }
 }
+*/

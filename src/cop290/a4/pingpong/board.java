@@ -19,7 +19,7 @@ public class board extends animPanel implements KeyListener{
     physics ph;
 
     int[] lives;
-    public board(int l, int b, int ups, int skp,physics physics,broadcasting bds) {
+    public board(int l, int b, int ups, int skp,physics physics,broadcasting bds,int s) {
         super(l, b, ups, skp);
         lives=new int[4];
         lives[0]=lives[1]=lives[2]=lives[3]=5;
@@ -64,8 +64,8 @@ public class board extends animPanel implements KeyListener{
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
-        setStage(2);
-        if(bds!=null)bds.setInitMessage("WELCOME\nstage "+5);
+        setStage(s);
+        if(bds!=null)bds.setInitMessage("WELCOME\nstage "+s);
     }
 
     private void setStage(int stg){
