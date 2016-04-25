@@ -1,13 +1,15 @@
 package cop290.a4.pingpong;
 
-import cop290.a4.animation.Spirit;
-import cop290.a4.animation.animPanel;
-import cop290.a4.network.broadcasting;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+
+import cop290.a4.animation.Spirit;
+import cop290.a4.animation.animPanel;
+import cop290.a4.network.broadcasting;
 
 /**
  * Created by pankaj on 12/4/16.
@@ -69,6 +71,12 @@ public class board extends animPanel implements KeyListener{
             if (bds != null) bds.setInitMessage("stage " + s);
         }
     }
+
+    public physics getph(){
+        return ph;
+    }
+
+
     public void setStage(int stg){
         switch (stg){
             case 1:{

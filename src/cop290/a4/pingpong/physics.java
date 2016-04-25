@@ -1,11 +1,10 @@
 package cop290.a4.pingpong;
 
-import cop290.a4.animation.Spirit;
-
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import cop290.a4.animation.Spirit;
 
 /**
  * Created by pankaj on 12/4/16.
@@ -38,6 +37,10 @@ public class physics {
         teleport.put(c2.getID(), c1);
         map.put(c1.getID(),c1);
         map.put(c2.getID(),c2);
+    }
+
+    public ArrayList<Ball> getBalls(){
+        return balls;
     }
 
     void add(block b) {
