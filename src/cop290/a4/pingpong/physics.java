@@ -36,6 +36,8 @@ public class physics {
         holes.add(c2);
         teleport.put(c1.getID(), c2);
         teleport.put(c2.getID(), c1);
+        map.put(c1.getID(),c1);
+        map.put(c2.getID(),c2);
     }
 
     void add(block b) {

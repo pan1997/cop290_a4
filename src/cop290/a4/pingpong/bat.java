@@ -15,6 +15,7 @@ public class bat extends block {
 
     public bat(animPanel parent, int orientation) {
         super(parent);
+        System.out.println(getID()+" bat");
         or = orientation;
         loc = 0.75;
         color = Color.blue;

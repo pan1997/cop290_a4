@@ -13,13 +13,16 @@ import java.util.ArrayList;
  * Created by pankaj on 12/4/16.
  */
 public class board extends animPanel implements KeyListener{
-
     ArrayList<Spirit> spirits;
     broadcasting bds;
     ArrayList<bat> bats;
     physics ph;
+
+    int[] lives;
     public board(int l, int b, int ups, int skp,physics physics,broadcasting bds) {
         super(l, b, ups, skp);
+        lives=new int[4];
+        lives[0]=lives[1]=lives[2]=lives[3]=5;
         spirits =new ArrayList<>();
         bats=new ArrayList<>();
         if(bds!=null)
@@ -61,7 +64,8 @@ public class board extends animPanel implements KeyListener{
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
-        setStage(5);
+        setStage(2);
+        if(bds!=null)bds.setInitMessage("WELCOME\nstage "+5);
     }
 
     private void setStage(int stg){
@@ -137,14 +141,17 @@ public class board extends animPanel implements KeyListener{
     }
 
     public void closeSide(int or){
-        /*block blk=new block(this);
-        blk.x=or==1?l-20:0;
-        blk.y=or==0?b-20:0;
-        blk.l=or%2==0?l:20;
-        blk.b=or%2==0?20:b;
-        //spirits.add(blk);
-        //ph.add(blk);
-        */
+        lives[or]--;
+        if(lives[or]==0) {
+            block blk = new block(this);
+            blk.x = or == 1 ? l - 20 : 0;
+            blk.y = or == 0 ? b - 20 : 0;
+            blk.l = or % 2 == 0 ? l : 20;
+            blk.b = or % 2 == 0 ? 20 : b;
+            spirits.add(blk);
+            ph.add(blk);
+        }
+
     }
     @Override
     protected void createBackground() {
@@ -161,12 +168,10 @@ public class board extends animPanel implements KeyListener{
     @Override
     protected void update() {
         super.update();
-        //spirits.forEach(e->e.updateSpirit());
         ph.update();
         try {
             if(bds!=null) {
                 bds.broadcast();
-                //System.out.println("Broadcasted");
             }
         }catch (Exception e){
             System.out.println(e);
@@ -176,10 +181,11 @@ public class board extends animPanel implements KeyListener{
     @Override
     protected void render(Graphics2D g) {
         super.render(g);
+        g.drawString("lives "+lives[0]+" "+lives[1]+" "+lives[2]+" "+lives[3],20,60);
         spirits.forEach(e->e.renderSpirit(g));
     }
 
-    static double bd=0.5;
+    static double bd=1;
     @Override
     public void keyTyped(KeyEvent e) {
 

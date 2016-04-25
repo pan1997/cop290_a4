@@ -43,14 +43,18 @@ public class Nphysics extends physics implements Runnable {
                     x=Double.parseDouble(st.nextToken());
                     y=Double.parseDouble(st.nextToken());
                     Spirit s=map.get(id);
-                    s.x=x;
-                    s.y=y;
+                    if(s!=null) {
+                        s.x = x;
+                        s.y = y;
+                    }else{
+                        //System.out.println("id "+id);
+                    }
                 }catch (Exception e){
-                    System.out.println(e);
+                    e.printStackTrace();
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }
