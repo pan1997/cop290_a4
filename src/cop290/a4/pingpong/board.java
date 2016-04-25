@@ -101,7 +101,7 @@ public class board extends animPanel implements KeyListener{
                 circ.r=25;
                 spirits.add(circ);
                 ph.add(circ);
-            }
+            }break;
             case 4:{
                 circularObstacle c1=new circularObstacle(this,null,Color.MAGENTA,Color.MAGENTA);
                 circularObstacle c2=new circularObstacle(this,null,Color.MAGENTA,Color.MAGENTA);
@@ -111,7 +111,7 @@ public class board extends animPanel implements KeyListener{
                 spirits.add(c1);
                 spirits.add(c2);
                 ph.addTeleportPair(c1,c2);
-            }
+            }break;
             case 5:{
                 block blk=new block(this);
                 blk.x=l/2-35;
