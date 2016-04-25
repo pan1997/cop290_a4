@@ -1,5 +1,6 @@
 package cop290.a4.pingpong;
 
+import cop290.a4.*;
 import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
 
@@ -29,6 +30,7 @@ public class block extends Spirit {
     public void renderSpirit(Graphics2D g) {
         g.setColor(color);
         g.fill(rect);
+
         //g.fillRect((int)rect.getX(),(int)rect.getY(),(int)rect.getWidth(),(int)rect.getHeight());
     }
 
