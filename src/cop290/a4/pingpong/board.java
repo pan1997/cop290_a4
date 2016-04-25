@@ -64,11 +64,12 @@ public class board extends animPanel implements KeyListener{
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
-        setStage(s);
-        if(bds!=null)bds.setInitMessage("WELCOME\nstage "+s);
+        if(s>0) {
+            setStage(s);
+            if (bds != null) bds.setInitMessage("stage " + s);
+        }
     }
-
-    private void setStage(int stg){
+    public void setStage(int stg){
         switch (stg){
             case 1:{
                 block blk=new block(this);
@@ -142,7 +143,8 @@ public class board extends animPanel implements KeyListener{
 
     public void closeSide(int or){
         lives[or]--;
-        if(lives[or]==0) {
+        bds.broadcast("life "+lives[0]+" "+lives[1]+" "+lives[2]+" "+lives[3]);
+        if(false&&lives[or]==0) {
             block blk = new block(this);
             blk.x = or == 1 ? l - 20 : 0;
             blk.y = or == 0 ? b - 20 : 0;

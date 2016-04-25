@@ -15,7 +15,9 @@ import java.util.IntSummaryStatistics;
 import java.util.StringTokenizer;
 
 public class Main {
-    static board animPanel=null;
+    static board animPanel = null;
+    static broadcasting bds = new broadcasting(1245, null);
+
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -28,29 +30,31 @@ public class Main {
             jt.setEditable(false);
             JTextField jtf = new JTextField();
 
-            broadcasting bds = new broadcasting(1245,null);
             jtf.addActionListener(e -> {
                 int stage = 1;
                 jt.append(e.getActionCommand() + "\n");
-                switch (e.getActionCommand().split(" ")[0]){
+                switch (e.getActionCommand().split(" ")[0]) {
                     case "exit":
                         System.exit(0);
                         break;
                     case "start":
-                        stage = Integer.parseInt(e.getActionCommand().split(" ")[1]);
-                        if(animPanel!=null){
-                            for(int i=1; i<JFrame.getFrames().length; i++){
+                        try {
+                            stage = Integer.parseInt(e.getActionCommand().split(" ")[1]);
+                        } catch (Exception ew) {
+                            stage = (int) (Math.random() * 4 + 1);
+                        }
+                        if (animPanel != null) {
+                            for (int i = 1; i < JFrame.getFrames().length; i++) {
                                 JFrame.getFrames()[i].dispose();
                             }
                         }
                         JFrame main = new JFrame("Game");
-                        animPanel=new board(600, 600, 100, 2,new physics(), bds, stage);
+                        animPanel = new board(600, 600, 100, 2, new physics(), bds, stage);
                         main.setContentPane(animPanel);
                         main.addKeyListener(animPanel);
                         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         main.setSize(600, 700);
                         main.setVisible(true);
-
                         animPanel.start();
                         break;
                     case "rot":
@@ -60,16 +64,14 @@ public class Main {
                         animPanel.stop();
                         break;
                     case "restart":
-
                         System.out.println("Restart");
-                        if(animPanel!=null){
-                            for(int i=1; i<JFrame.getFrames().length; i++){
+                        if (animPanel != null) {
+                            for (int i = 1; i < JFrame.getFrames().length; i++) {
                                 JFrame.getFrames()[i].dispose();
                             }
-
                         }
                         JFrame main2 = new JFrame("Game");
-                        animPanel=new board(600, 600, 100, 2,new physics(), bds, stage);
+                        animPanel = new board(600, 600, 100, 2, new physics(), bds, stage);
                         main2.setContentPane(animPanel);
                         main2.addKeyListener(animPanel);
                         main2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,14 +80,14 @@ public class Main {
 
                         animPanel.start();
                         break;
-                    default:{
-                        StringTokenizer st=new StringTokenizer(e.getActionCommand());
-                        if(st.nextToken().equals("connect")){
-                            String add=st.nextToken();
-                            int port= Integer.parseInt(st.nextToken());
-                            if(animPanel==null){
+                    default: {
+                        StringTokenizer st = new StringTokenizer(e.getActionCommand());
+                        if (st.nextToken().equals("connect")) {
+                            String add = st.nextToken();
+                            int port = Integer.parseInt(st.nextToken());
+                            if (animPanel == null) {
                                 JFrame main3 = new JFrame("Game");
-                                animPanel=new board(600, 600, 100, 2,new Nphysics(port,add),null,1);
+                                animPanel = new board(600, 600, 100, 2, new Nphysics(port, add), null, 0);
                                 main3.setContentPane(animPanel);
                                 main3.addKeyListener(animPanel);
                                 main3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -107,10 +109,6 @@ public class Main {
             //terminal.pack();
             terminal.setLocationRelativeTo(null);
             terminal.setVisible(true);
-
-
-
         }
     }
-
 }

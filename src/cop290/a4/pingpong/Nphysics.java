@@ -3,6 +3,7 @@ package cop290.a4.pingpong;
 import cop290.a4.animation.Spirit;
 
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.net.Socket;
 import java.util.StringTokenizer;
 
@@ -11,6 +12,7 @@ import java.util.StringTokenizer;
  */
 public class Nphysics extends physics implements Runnable {
     DataInputStream din;
+    DataOutputStream dout;
     int port;
     String serverAd;
 
@@ -19,11 +21,13 @@ public class Nphysics extends physics implements Runnable {
         port = p;
         new Thread(this).start();
     }
-
+    void broadcast(String message)throws Exception{
+        dout.writeUTF(message);
+    }
     @Override
     public void update() {
-        blocks.forEach(e->e.rect.setRect(e.x,e.y,e.l,e.b));
-        balls.forEach(e->e.e2d.setFrame(e.x-e.r,e.y-e.r,2*e.r,2*e.r));
+        blocks.forEach(e -> e.rect.setRect(e.x, e.y, e.l, e.b));
+        balls.forEach(e -> e.e2d.setFrame(e.x - e.r, e.y - e.r, 2 * e.r, 2 * e.r));
     }
 
     @Override
@@ -32,24 +36,41 @@ public class Nphysics extends physics implements Runnable {
             Socket cl = new Socket(serverAd, port);
             System.out.println("Connected");
             din = new DataInputStream(cl.getInputStream());
+            dout=new DataOutputStream(cl.getOutputStream());
             for (; ; ) {
                 String cmd = din.readUTF();
                 //System.out.println(cmd);
                 int id;
-                double x,y;
+                double x, y;
                 try {
                     StringTokenizer st = new StringTokenizer(cmd);
-                    id = Integer.parseInt(st.nextToken());
-                    x=Double.parseDouble(st.nextToken());
-                    y=Double.parseDouble(st.nextToken());
-                    Spirit s=map.get(id);
-                    if(s!=null) {
-                        s.x = x;
-                        s.y = y;
-                    }else{
-                        //System.out.println("id "+id);
+                    String type = st.nextToken();
+                    if (type.equals("loc")) {
+                        id = Integer.parseInt(st.nextToken());
+                        x = Double.parseDouble(st.nextToken());
+                        y = Double.parseDouble(st.nextToken());
+                        Spirit s = map.get(id);
+                        if (s != null) {
+                            s.x = x;
+                            s.y = y;
+                        } else {
+                            //System.out.println("id "+id);
+                        }
+                    } else {
+                        if (type.equals("life")) {
+                            board bd = (board) (balls.get(0).parent());
+                            bd.lives[0] = Integer.parseInt(st.nextToken());
+                            bd.lives[1] = Integer.parseInt(st.nextToken());
+                            bd.lives[2] = Integer.parseInt(st.nextToken());
+                            bd.lives[3] = Integer.parseInt(st.nextToken());
+                        } else if (type.equals("stage")) {
+                            System.out.println("Stage message");
+                            board bd = (board) (balls.get(0).parent());
+                            bd.setStage(Integer.parseInt(st.nextToken()));
+                        }
+                        System.out.println(cmd+"---"+type);
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

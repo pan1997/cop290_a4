@@ -5,6 +5,7 @@ import cop290.a4.pingpong.bat;
 import cop290.a4.pingpong.block;
 import cop290.a4.pingpong.circularObstacle;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -21,6 +22,7 @@ public class broadcasting implements Runnable {
     ArrayList<Socket> sockets;
     ArrayList<Spirit> spirits;
     ArrayList<DataOutputStream> out;
+    ArrayList<DataInputStream> in;
     String initMessage;
     public void setInitMessage(String s){
         initMessage=s;
@@ -32,15 +34,28 @@ public class broadcasting implements Runnable {
         spirits = as;
         out = new ArrayList<>();
         sockets = new ArrayList<>();
+        in=new ArrayList<>();
     }
-
+    public void broadcast(String message){
+        for (int i = 0; i < out.size(); i++) {
+            DataOutputStream o = out.get(i);
+            try {
+                o.writeUTF(message);
+                o.flush();
+            } catch (Exception e) {
+                out.remove(i);
+                i--;
+                System.out.println("Socket exception closed " + o);
+            }
+        }
+    }
     public void broadcast() throws Exception {
         for (int i = 0; i < out.size(); i++) {
             DataOutputStream o = out.get(i);
             try {
                 for (Spirit s : spirits)
                     if(!(s instanceof block)||(s instanceof bat)||!(s instanceof circularObstacle))
-                    o.writeUTF(s.toString());
+                    o.writeUTF("loc "+s.toString());
                 o.flush();
             } catch (SocketException e) {
                 out.remove(i);
@@ -77,8 +92,11 @@ public class broadcasting implements Runnable {
                 System.out.println("Connected to " + s.getRemoteSocketAddress());
                 DataOutputStream dout;
                 out.add(dout = new DataOutputStream(s.getOutputStream()));
-                sockets.add(s);
                 dout.writeUTF("GREETINGS from server\n");
+                for(Socket ss:sockets){
+                    dout.writeUTF("Other_Users "+ss.getRemoteSocketAddress());
+                }
+                sockets.add(s);
                 dout.writeUTF(initMessage);
                 dout.flush();
             }
