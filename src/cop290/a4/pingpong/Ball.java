@@ -1,10 +1,11 @@
 package cop290.a4.pingpong;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
+
 import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
-
-import java.awt.*;
-import java.awt.geom.Ellipse2D;
 
 /**
  * Created by pankaj on 12/4/16.
@@ -30,6 +31,14 @@ public class Ball extends Spirit {
         w = 15 * (Math.random() - 0.5);
         r = 10;
         e2d = new Ellipse2D.Double(x - r, y - r, 2 * r, 2 * r);
+    }
+
+    public double getVx(){
+        return vx;
+    }
+
+    public double getVy(){
+        return vy;
     }
 
     @Override
