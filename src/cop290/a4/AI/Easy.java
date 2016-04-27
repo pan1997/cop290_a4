@@ -32,7 +32,7 @@ public class Easy extends bat {
                 for(int i = 1; i < numBalls; i++){
                     if(balls.get(i).getVy() > 0 && balls.get(i).y > balls.get(ym).y){
                         ym = i;
-                        x = balls.get(i).x;
+                        xp = balls.get(i).x;
                     }
                 }
                 if(x+50.0/3 < xp){
