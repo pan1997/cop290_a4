@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/pingpong/Ball.java" afterPath="$PROJECT_DIR$/src/cop290/a4/pingpong/Ball.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/AI/Easy.java" afterPath="$PROJECT_DIR$/src/cop290/a4/AI/Easy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/pingpong/bat.java" afterPath="$PROJECT_DIR$/src/cop290/a4/pingpong/bat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java" afterPath="$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java" />
-    </list>
+    <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="" />
     <ignored path="cop290_a4.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
