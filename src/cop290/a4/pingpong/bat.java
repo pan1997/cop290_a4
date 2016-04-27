@@ -10,7 +10,7 @@ import cop290.a4.animation.animPanel;
 public class bat extends block {
     protected double loc;
     protected int or;
-    protected double vel;
+    public double vel;
 
     public bat(animPanel parent, int orientation) {
         super(parent);
