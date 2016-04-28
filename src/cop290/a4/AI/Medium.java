@@ -13,7 +13,7 @@ import cop290.a4.pingpong.board;
 public class Medium extends bat {
 
     ArrayList<Ball> balls;
-    double boardSize = 570;
+    double boardSize = 600;
     int numBalls;
 
     public Medium(animPanel parent, int orientation) {
@@ -59,13 +59,10 @@ public class Medium extends bat {
                         if (xp < 0) xp = -1 * xp;
                     }
 
-                    if (x + 50.0 / 4 < xp) {
-                        vel = 0.8;
-                    } else if (x - 50.0 / 4 > xp) {
-                        vel = -0.8;
-                    }
-                    else {
-                        vel = 0;
+                    if (x + 50.0 / 2 < xp) {
+                        vel = 1;
+                    } else if (x - 50.0 / 2 > xp) {
+                        vel = -1;
                     }
 
                     break;
@@ -103,13 +100,10 @@ public class Medium extends bat {
                         if (yp < 0) yp = -1 * yp;
                     }
 
-                    if (y + 50.0 / 4 < yp) {
-                        vel = -0.8;
-                    } else if (y - 50.0 / 4 > yp) {
-                        vel = 0.8;
-                    }
-                    else {
-                        vel = 0;
+                    if (y + 50.0 / 2 < yp) {
+                        vel = -1;
+                    } else if (y - 50.0 / 2 > yp) {
+                        vel = 1;
                     }
 
                     break;
@@ -147,13 +141,10 @@ public class Medium extends bat {
                         if (xp < 0) xp = -1 * xp;
                     }
 
-                    if (x + 50.0 / 4 < xp) {
-                        vel = -0.8;
-                    } else if (x - 50.0 / 4 > xp) {
-                        vel = 0.8;
-                    }
-                    else {
-                        vel = 0;
+                    if (x + 50.0 / 2 < xp) {
+                        vel = -1;
+                    } else if (x - 50.0 / 2 > xp) {
+                        vel = 1;
                     }
 
                     break;
@@ -191,13 +182,10 @@ public class Medium extends bat {
                         if (yp < 0) yp = -1 * yp;
                     }
 
-                    if (y + 50.0 / 4 < yp) {
-                        vel = 0.8;
-                    } else if (y - 50.0 / 4 > yp) {
-                        vel = -0.8;
-                    }
-                    else {
-                        vel = 0;
+                    if (y + 50.0 / 2 < yp) {
+                        vel = 1;
+                    } else if (y - 50.0 / 2 > yp) {
+                        vel = -1;
                     }
 
                     break;

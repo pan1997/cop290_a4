@@ -1,12 +1,12 @@
 package cop290.a4.AI;
 
-import java.util.ArrayList;
-
+import cop290.a4.Main;
 import cop290.a4.animation.animPanel;
 import cop290.a4.pingpong.Ball;
 import cop290.a4.pingpong.bat;
 import cop290.a4.pingpong.board;
 
+import java.util.ArrayList;
 /**
  * Created by pankaj on 28/4/16.
  */
@@ -56,8 +56,8 @@ public class PanAI extends bat {
             //System.out.println("mind "+mind+" mina "+mina);
             if (Math.abs(loc - mina) > 0.02)
                 if (mina < loc)
-                    vel = -0.6;
-                else vel = 0.6;
+                    vel = -1;
+                else vel = 1;
             else
                 vel = 0;
         }

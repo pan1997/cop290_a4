@@ -37,7 +37,7 @@ public class Nphysics extends physics implements Runnable {
         board bd = ((board) balls.get(0).parent());
         bat mbat = bd.bats.get(bd.userId);
         mbat.updateSpirit(dt);
-        //System.out.println("mbat "+mbat.vel+" updated "+mbat.loc+" "+dt);
+        System.out.println("mbat "+mbat.vel+" updated "+mbat.loc+" "+dt);
         blocks.forEach(e -> {
             if (e != mbat) e.rect.setRect(e.x, e.y, e.l, e.b);
         });
