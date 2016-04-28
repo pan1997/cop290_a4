@@ -1,16 +1,15 @@
 package cop290.a4.pingpong;
 
-import cop290.a4.animation.Spirit;
-import cop290.a4.animation.animPanel;
+import java.awt.Color;
 
-import java.awt.*;
+import cop290.a4.animation.animPanel;
 
 /**
  * Created by pankaj on 13/4/16.
  */
 public class bat extends block {
-    double loc;
-    int or;
+    protected double loc;
+    protected int or;
     public double vel;
 
     public bat(animPanel parent, int orientation) {
