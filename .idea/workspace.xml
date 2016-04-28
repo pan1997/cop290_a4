@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/Main.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting$1.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/physics.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/physics.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/Main.java" afterPath="$PROJECT_DIR$/src/cop290/a4/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java" afterPath="$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java" afterPath="$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/pingpong/board.java" afterPath="$PROJECT_DIR$/src/cop290/a4/pingpong/board.java" />
     </list>
     <ignored path="cop290_a4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +32,8 @@
       <file leaf-file-name="broadcasting.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1049">
-              <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+            <state relative-caret-position="1291">
+              <caret line="111" column="33" selection-start-line="111" selection-start-column="33" selection-end-line="111" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -81,7 +76,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-690">
+            <state relative-caret-position="-809">
               <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -93,7 +88,7 @@
       <file leaf-file-name="Nphysics.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="-524">
               <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
               <folding />
             </state>
@@ -110,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="board.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="71" column="42" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
+            <state relative-caret-position="210">
+              <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
               <folding>
                 <element signature="e#2875#2876#0" expanded="true" />
                 <element signature="e#7293#7294#0" expanded="true" />
@@ -123,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PanAI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PanAI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+            <state relative-caret-position="285">
+              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -174,10 +169,10 @@
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/circularObstacle.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" />
-        <option value="$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java" />
-        <option value="$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/Main.java" />
+        <option value="$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/board.java" />
+        <option value="$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java" />
       </list>
     </option>
   </component>
@@ -815,7 +810,7 @@
       <option name="presentableId" value="Default" />
       <updated>1461585524685</updated>
       <workItem from="1461586385159" duration="1277000" />
-      <workItem from="1461859989591" duration="4053000" />
+      <workItem from="1461859989591" duration="4392000" />
     </task>
     <task id="LOCAL-00001" summary="AI checked">
       <created>1461860564689</created>
@@ -838,11 +833,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461864418978</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ai improved and mybatAT bottom">
+      <created>1461864772119</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1461864772119</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5330000" />
+    <option name="totallyTimeSpent" value="5669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -882,7 +884,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="AI checked" />
     <MESSAGE value="PanAI" />
-    <option name="LAST_COMMIT_MESSAGE" value="PanAI" />
+    <MESSAGE value="ai improved and mybatAT bottom" />
+    <option name="LAST_COMMIT_MESSAGE" value="ai improved and mybatAT bottom" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1196,39 +1199,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-690">
-          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1242,21 +1217,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-524">
+          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-809">
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1049">
-          <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+        <state relative-caret-position="1291">
+          <caret line="111" column="33" selection-start-line="111" selection-start-column="33" selection-end-line="111" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="71" column="42" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
+        <state relative-caret-position="210">
+          <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
           <folding>
             <element signature="e#2875#2876#0" expanded="true" />
             <element signature="e#7293#7294#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

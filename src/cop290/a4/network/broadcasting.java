@@ -118,6 +118,7 @@ public class broadcasting implements Runnable {
                                     int btn = Integer.parseInt(st.nextToken());
                                     double v = Double.parseDouble(st.nextToken());
                                     parent.bats.get(btn).vel = v;
+                                    System.out.println(cmd);
                                 }
                             } catch (Exception e) {
                             }

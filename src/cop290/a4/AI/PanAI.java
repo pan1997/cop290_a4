@@ -17,6 +17,7 @@ public class PanAI extends bat {
 
     public PanAI(animPanel parent, int orientation) {
         super(parent, orientation);
+        ai=true;
         balls = ((board) parent).getph().getBalls();
     }
 
