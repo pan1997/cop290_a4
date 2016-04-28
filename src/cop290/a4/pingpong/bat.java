@@ -8,7 +8,7 @@ import cop290.a4.animation.animPanel;
  * Created by pankaj on 13/4/16.
  */
 public class bat extends block {
-    protected double loc;
+    public double loc;
     protected int or;
     public double vel;
     public boolean ai=false;

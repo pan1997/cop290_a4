@@ -59,27 +59,29 @@ public class board extends animPanel implements KeyListener {
             spirits.add(corners.get(i));
             ph.add(corners.get(i));
         }
-        if(ph instanceof Nphysics){
-            bat bt=new bat(this,0);
-            spirits.add(bt);
-            ph.add(bt);
-            bats.add(bt);bt=new bat(this,1);
-            spirits.add(bt);
-            ph.add(bt);
-            bats.add(bt);bt=new bat(this,2);
-            spirits.add(bt);
-            ph.add(bt);
-            bats.add(bt);bt=new bat(this,3);
+        if (ph instanceof Nphysics) {
+            bat bt = new bat(this, 0);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
-        }
-        else {
+            bt = new bat(this, 1);
+            spirits.add(bt);
+            ph.add(bt);
+            bats.add(bt);
+            bt = new bat(this, 2);
+            spirits.add(bt);
+            ph.add(bt);
+            bats.add(bt);
+            bt = new bat(this, 3);
+            spirits.add(bt);
+            ph.add(bt);
+            bats.add(bt);
+        } else {
             bat bt = new PanAI(this, 0);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
-            bt.ai=false;
+            bt.ai = false;
             bt = new PanAI(this, 1);
             spirits.add(bt);
             ph.add(bt);
@@ -222,7 +224,17 @@ public class board extends animPanel implements KeyListener {
         try {
             if (bds != null) {
                 bds.broadcast();
-                bds.broadcast("bats " + bats.get(0).loc + " " + bats.get(1).loc + " " + bats.get(2).loc + " " + bats.get(3).loc);
+                //
+                // bds.broadcast("bats " + bats.get(0).loc + " " + bats.get(1).loc + " " + bats.get(2).loc + " " + bats.get(3).loc);
+            }
+            for (int i = 0; i < bats.size(); i++) {
+                bat b = bats.get(i);
+                if (b.ai || i == userId) {
+                    if (bds != null)
+                        bds.broadcast("bat " + i + " " + b.loc);
+                    if (ph instanceof Nphysics)
+                        ((Nphysics) ph).broadcast("bat " + i + " " + b.loc);
+                }
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -240,6 +252,7 @@ public class board extends animPanel implements KeyListener {
 
     void setVel(int bt, double v) {
         bats.get(bt).vel = v;
+        bats.get(bt).updateSpirit(0);
     }
 
     @Override
@@ -247,33 +260,36 @@ public class board extends animPanel implements KeyListener {
         switch (e.getKeyChar()) {
             case 'g':
                 bats.get(userId).vel = -bd;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
+                System.out.println("vset");
+                //if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
                 break;
             case 'h':
                 bats.get(userId).vel = bd;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
+                System.out.println("vset");
+                //if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
                 break;
         }
+        /*
         switch (e.getKeyChar()) {
             case 'd':
                 bats.get(0).vel = bd;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 0 " + bats.get(0).vel);
+                //if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 0 " + bats.get(0).vel);
                 break;
             case 's':
                 bats.get(0).vel = -bd;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 0 " + bats.get(0).vel);
+                //if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 0 " + bats.get(0).vel);
                 break;
             case 'r':
                 bats.get(1).vel = bd;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 1 " + bats.get(1).vel);
+                //if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 1 " + bats.get(1).vel);
                 break;
             case 'f':
                 bats.get(1).vel = -bd;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 1 " + bats.get(1).vel);
+                //if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 1 " + bats.get(1).vel);
                 break;
             case 'w':
                 bats.get(2).vel = bd;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 2 " + bats.get(2).vel);
+                //if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 2 " + bats.get(2).vel);
                 break;
             case 'e':
                 bats.get(2).vel = -bd;
@@ -287,7 +303,7 @@ public class board extends animPanel implements KeyListener {
                 bats.get(3).vel = -bd;
                 if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 3 " + bats.get(3).vel);
                 break;
-        }
+        }*/
     }
 
     @Override
@@ -299,14 +315,17 @@ public class board extends animPanel implements KeyListener {
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyChar()) {
             case 'g':
-                if(bats.get(userId).vel<0) bats.get(userId).vel = 0;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
+                if (bats.get(userId).vel < 0) bats.get(userId).vel = 0;
+                System.out.println("vunset");
+                //if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
                 break;
             case 'h':
-                if(bats.get(userId).vel>0)bats.get(userId).vel = 0;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
+                if (bats.get(userId).vel > 0) bats.get(userId).vel = 0;
+                System.out.println("vunset");
+                //if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
                 break;
         }
+        /*
         switch (e.getKeyChar()) {
             case 'd':
                 if (bats.get(0).vel > 0) bats.get(0).vel = 0;
@@ -340,6 +359,6 @@ public class board extends animPanel implements KeyListener {
                 if (bats.get(3).vel < 0) bats.get(3).vel = 0;
                 if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 3 " + bats.get(3).vel);
                 break;
-        }
+        }*/
     }
 }

@@ -24,13 +24,23 @@ public class Nphysics extends physics implements Runnable {
     void broadcast(String message){
         try {
             dout.writeUTF(message);
+            dout.flush();
         }catch (Exception e){
             e.printStackTrace();
         }
     }
-    @Override
-    public void update() {
-        blocks.forEach(e -> e.rect.setRect(e.x, e.y, e.l, e.b));
+    long last = 0;
+    void update() {
+        long current = System.nanoTime();
+        double dt = last != 0 ? (current - last) / 1000000000.0 : 0;
+        last=current;
+        board bd = ((board) balls.get(0).parent());
+        bat mbat = bd.bats.get(bd.userId);
+        mbat.updateSpirit(dt);
+        //System.out.println("mbat "+mbat.vel+" updated "+mbat.loc+" "+dt);
+        blocks.forEach(e -> {
+            if (e != mbat) e.rect.setRect(e.x, e.y, e.l, e.b);
+        });
         balls.forEach(e -> e.e2d.setFrame(e.x - e.r, e.y - e.r, 2 * e.r, 2 * e.r));
     }
 
@@ -71,14 +81,13 @@ public class Nphysics extends physics implements Runnable {
                             System.out.println("Stage message");
                             board bd = (board) (balls.get(0).parent());
                             bd.setStage(Integer.parseInt(st.nextToken()));
-                        } else if (type.equals("bats")) {
+                        } else if (type.equals("bat")) {
                             board bd = (board) (balls.get(0).parent());
-                            bd.bats.get(0).loc=Double.parseDouble(st.nextToken());
-                            bd.bats.get(1).loc=Double.parseDouble(st.nextToken());
-                            bd.bats.get(2).loc=Double.parseDouble(st.nextToken());
-                            bd.bats.get(3).loc=Double.parseDouble(st.nextToken());
-                            for(bat bt:bd.bats)
-                                bt.updateSpirit(0);
+                            int xx=Integer.parseInt(st.nextToken());
+                            if(xx==bd.userId){
+                                System.err.println("Error");
+                            }
+                            bd.setVel(xx,Double.parseDouble(st.nextToken()));
                         } else if(type.equals("userId")){
                             board bd = (board) (balls.get(0).parent());
                             bd.userId=Integer.parseInt(st.nextToken());

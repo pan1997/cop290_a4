@@ -111,6 +111,7 @@ public class broadcasting implements Runnable {
                         for (; ; ) {
                             try {
                                 String cmd = din.readUTF();
+                                //System.out.println(cmd);
                                 StringTokenizer st = new StringTokenizer(cmd);
                                 String type = st.nextToken();
                                 if (type.equals("bmov")) {
@@ -119,6 +120,10 @@ public class broadcasting implements Runnable {
                                     double v = Double.parseDouble(st.nextToken());
                                     parent.bats.get(btn).vel = v;
                                     System.out.println(cmd);
+                                }
+                                else if(type.equals("bat")){
+                                    int xx=Integer.parseInt(st.nextToken());
+                                    parent.bats.get(xx).loc=Double.parseDouble(st.nextToken());
                                 }
                             } catch (Exception e) {
                             }
