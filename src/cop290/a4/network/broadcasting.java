@@ -28,9 +28,11 @@ public class broadcasting implements Runnable {
     String initMessage;
     public board parent;
     public int users;
-    public void setInitMessage(String s){
-        initMessage=s;
+
+    public void setInitMessage(String s) {
+        initMessage = s;
     }
+
     public broadcasting(int p, ArrayList<Spirit> as) {
         //out=new DataOutputStream(o);
         port = p;
@@ -38,9 +40,10 @@ public class broadcasting implements Runnable {
         spirits = as;
         out = new ArrayList<>();
         sockets = new ArrayList<>();
-        in=new ArrayList<>();
+        in = new ArrayList<>();
     }
-    public void broadcast(String message){
+
+    public void broadcast(String message) {
         for (int i = 0; i < out.size(); i++) {
             DataOutputStream o = out.get(i);
             try {
@@ -53,13 +56,14 @@ public class broadcasting implements Runnable {
             }
         }
     }
+
     public void broadcast() throws Exception {
         for (int i = 0; i < out.size(); i++) {
             DataOutputStream o = out.get(i);
             try {
                 for (Spirit s : spirits)
-                    if(!(s instanceof block)&&!(s instanceof circularObstacle))
-                    o.writeUTF("loc "+s.toString());
+                    if (!(s instanceof block) && !(s instanceof circularObstacle))
+                        o.writeUTF("loc " + s.toString());
                 o.flush();
             } catch (SocketException e) {
                 out.remove(i);
@@ -96,34 +100,34 @@ public class broadcasting implements Runnable {
                 System.out.println("Connected to " + s.getRemoteSocketAddress());
                 DataOutputStream dout;
                 out.add(dout = new DataOutputStream(s.getOutputStream()));
-                DataInputStream din=new DataInputStream(s.getInputStream());
+                DataInputStream din = new DataInputStream(s.getInputStream());
                 in.add(din);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        for(;;) {
+                        for (; ; ) {
                             try {
-                                String cmd=din.readUTF();
-                                StringTokenizer st=new StringTokenizer(cmd);
-                                String type=st.nextToken();
-                                if(type.equals("bmov")){
-                                    int id=Integer.parseInt(st.nextToken());
-                                    int btn=Integer.parseInt(st.nextToken());
-                                    double v=Double.parseDouble(st.nextToken());
-                                    parent.bats.get(btn).vel=v;
+                                String cmd = din.readUTF();
+                                StringTokenizer st = new StringTokenizer(cmd);
+                                String type = st.nextToken();
+                                if (type.equals("bmov")) {
+                                    int id = Integer.parseInt(st.nextToken());
+                                    int btn = Integer.parseInt(st.nextToken());
+                                    double v = Double.parseDouble(st.nextToken());
+                                    parent.bats.get(btn).vel = v;
                                 }
-                            }catch (Exception e){
+                            } catch (Exception e) {
                             }
                         }
                     }
                 }).start();
                 dout.writeUTF("GREETINGS from server\n");
-                for(Socket ss:sockets){
-                    dout.writeUTF("Other_Users "+ss.getRemoteSocketAddress());
+                for (Socket ss : sockets) {
+                    dout.writeUTF("Other_Users " + ss.getRemoteSocketAddress());
                 }
                 sockets.add(s);
                 dout.writeUTF(initMessage);
-                dout.writeUTF("userId "+users++);
+                dout.writeUTF("userId " + users++);
                 dout.flush();
             }
         } catch (IOException e) {
