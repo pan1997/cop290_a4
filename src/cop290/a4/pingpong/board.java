@@ -59,31 +59,39 @@ public class board extends animPanel implements KeyListener {
             spirits.add(corners.get(i));
             ph.add(corners.get(i));
         }
-        bat bt = new PanAI(this, 0);
-        if(ph instanceof Nphysics)
-            bt.ai=false;
-        spirits.add(bt);
-        ph.add(bt);
-        bats.add(bt);
-        bt = new PanAI(this, 1);
-        if(ph instanceof Nphysics)
-            bt.ai=false;
-        spirits.add(bt);
-        ph.add(bt);
-        bats.add(bt);
-        bt = new PanAI(this, 2);
-        if(ph instanceof Nphysics)
-            bt.ai=false;
-        spirits.add(bt);
-        ph.add(bt);
-        bats.add(bt);
-        bt = new PanAI(this, 3);
-        if(ph instanceof Nphysics)
-            bt.ai=false;
-        spirits.add(bt);
-        ph.add(bt);
-        bats.add(bt);
-
+        if(ph instanceof Nphysics){
+            bat bt=new bat(this,0);
+            spirits.add(bt);
+            ph.add(bt);
+            bats.add(bt);bt=new bat(this,1);
+            spirits.add(bt);
+            ph.add(bt);
+            bats.add(bt);bt=new bat(this,2);
+            spirits.add(bt);
+            ph.add(bt);
+            bats.add(bt);bt=new bat(this,3);
+            spirits.add(bt);
+            ph.add(bt);
+            bats.add(bt);
+        }
+        else {
+            bat bt = new PanAI(this, 0);
+            spirits.add(bt);
+            ph.add(bt);
+            bats.add(bt);
+            bt = new PanAI(this, 1);
+            spirits.add(bt);
+            ph.add(bt);
+            bats.add(bt);
+            bt = new PanAI(this, 2);
+            spirits.add(bt);
+            ph.add(bt);
+            bats.add(bt);
+            bt = new PanAI(this, 3);
+            spirits.add(bt);
+            ph.add(bt);
+            bats.add(bt);
+        }
         if (s > 0) {
             setStage(s);
             if (bds != null) bds.setInitMessage("stage " + s);

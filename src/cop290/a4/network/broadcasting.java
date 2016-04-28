@@ -44,6 +44,7 @@ public class broadcasting implements Runnable {
     }
 
     public void broadcast(String message) {
+        //System.out.println("broadcasted");
         for (int i = 0; i < out.size(); i++) {
             DataOutputStream o = out.get(i);
             try {
@@ -58,6 +59,8 @@ public class broadcasting implements Runnable {
     }
 
     public void broadcast() throws Exception {
+
+        //System.out.println("broadcasted");
         for (int i = 0; i < out.size(); i++) {
             DataOutputStream o = out.get(i);
             try {

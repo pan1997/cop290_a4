@@ -16,7 +16,7 @@ import cop290.a4.pingpong.physics;
 
 public class Main {
     static board animPanel = null;
-    static broadcasting bds = new broadcasting(2345, null);
+    static broadcasting bds = new broadcasting(1234, null);
 
     public static void main(String[] args) {
         try {
