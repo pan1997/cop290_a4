@@ -240,7 +240,6 @@ public class board extends animPanel implements KeyListener {
             System.out.println(e);
         }
     }
-
     @Override
     protected void render(Graphics2D g) {
         super.render(g);
