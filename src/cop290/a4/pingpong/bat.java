@@ -11,10 +11,11 @@ public class bat extends block {
     protected double loc;
     protected int or;
     public double vel;
+    protected boolean ai=false;
 
     public bat(animPanel parent, int orientation) {
         super(parent);
-        System.out.println(getID()+" bat");
+        //System.out.println(getID()+" bat");
         or = orientation;
         loc = 0.75;
         color = Color.blue;

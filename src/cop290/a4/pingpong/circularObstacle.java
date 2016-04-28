@@ -15,7 +15,7 @@ public class circularObstacle extends Spirit {
     Color center;
     public circularObstacle(animPanel parent,Color c1,Color c2,Color c3) {
         super(parent);
-        System.out.println(getID()+" circular obstacle");
+        //System.out.println(getID()+" circular obstacle");
         fill = c1;
         boundary = c2;
         center=c3;

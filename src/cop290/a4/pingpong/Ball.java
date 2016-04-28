@@ -21,7 +21,7 @@ public class Ball extends Spirit {
     Ball(animPanel parent) {
         super(parent);
 
-        System.out.println(getID()+" bat");
+        //System.out.println(getID()+" bat");
         x = 25 + Math.random() * 450;
         y = 25 + Math.random() * 450;
 

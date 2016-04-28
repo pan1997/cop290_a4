@@ -59,6 +59,7 @@ public class Main {
                         break;
                     case "start":
                         animPanel.start();
+                        JFrame.getFrames()[1].toFront();
                         break;
                     case "rot":
                         animPanel.rot++;

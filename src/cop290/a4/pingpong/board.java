@@ -1,5 +1,7 @@
 package cop290.a4.pingpong;
 
+import cop290.a4.AI.Easy;
+import cop290.a4.AI.Medium;
 import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
 import cop290.a4.network.broadcasting;
@@ -64,11 +66,11 @@ public class board extends animPanel implements KeyListener {
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
-        bt = new bat(this, 2);
+        bt = new Easy(this, 2);
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
-        bt = new bat(this, 3);
+        bt = new Medium(this, 3);
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
