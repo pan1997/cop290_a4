@@ -79,6 +79,7 @@ public class board extends animPanel implements KeyListener {
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
+            bt.ai=false;
             bt = new PanAI(this, 1);
             spirits.add(bt);
             ph.add(bt);
@@ -246,11 +247,11 @@ public class board extends animPanel implements KeyListener {
         switch (e.getKeyChar()) {
             case 'g':
                 bats.get(userId).vel = -bd;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(0).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
                 break;
             case 'h':
                 bats.get(userId).vel = bd;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(0).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
                 break;
         }
         switch (e.getKeyChar()) {
@@ -298,12 +299,12 @@ public class board extends animPanel implements KeyListener {
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyChar()) {
             case 'g':
-                bats.get(userId).vel = 0;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(0).vel);
+                if(bats.get(userId).vel<0) bats.get(userId).vel = 0;
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
                 break;
             case 'h':
-                bats.get(userId).vel = 0;
-                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(0).vel);
+                if(bats.get(userId).vel>0)bats.get(userId).vel = 0;
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(userId).vel);
                 break;
         }
         switch (e.getKeyChar()) {

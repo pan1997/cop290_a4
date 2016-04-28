@@ -11,7 +11,7 @@ public class bat extends block {
     protected double loc;
     protected int or;
     public double vel;
-    protected boolean ai=false;
+    public boolean ai=false;
 
     public bat(animPanel parent, int orientation) {
         super(parent);
