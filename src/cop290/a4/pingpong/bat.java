@@ -20,7 +20,7 @@ public class bat extends block {
         loc = 0.75;
         color = Color.blue;
         width = 100;
-        thickness = 10;
+        thickness = 15; //let this be. AI final computation of where will ball be will be easier. otherwise bat and no bat different
         if (or % 2 == 0) {
             l = width;
             b = thickness;
