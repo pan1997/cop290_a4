@@ -82,6 +82,7 @@ public class Nphysics extends physics implements Runnable {
                         } else if(type.equals("userId")){
                             board bd = (board) (balls.get(0).parent());
                             bd.userId=Integer.parseInt(st.nextToken());
+                            bd.rot=bd.userId;
                         }
                         //System.out.println(cmd+"---"+type);
                     }

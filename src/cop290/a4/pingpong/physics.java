@@ -67,6 +67,11 @@ public class physics {
             b.x += b.vx * dt / 2;
             b.y += b.vy * dt / 2;
             b.theta += b.w * dt / 2;
+            double vr=b.vx*b.vx+b.vy*b.vy;
+            if(vr>500000){
+                b.vx*=0.95;
+                b.vy*=0.95;
+            }
         }
         for (Ball b : balls) {
             if (b.x + b.r >= b.parent().getB() || b.x <= b.r) {

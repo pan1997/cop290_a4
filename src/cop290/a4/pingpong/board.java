@@ -32,9 +32,9 @@ public class board extends animPanel implements KeyListener {
         bats = new ArrayList<>();
         if (bds != null) {
             bds.setSpirits(spirits);
-            bds.parent=this;
-            userId=0;
-            bds.users=1;
+            bds.parent = this;
+            userId = 0;
+            bds.users = 1;
         }
         this.bds = bds;
         ph = physics;
@@ -59,30 +59,41 @@ public class board extends animPanel implements KeyListener {
             spirits.add(corners.get(i));
             ph.add(corners.get(i));
         }
-        bat bt = new bat(this, 0);
+        bat bt = new PanAI(this, 0);
+        if(ph instanceof Nphysics)
+            bt.ai=false;
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
         bt = new PanAI(this, 1);
+        if(ph instanceof Nphysics)
+            bt.ai=false;
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
         bt = new PanAI(this, 2);
+        if(ph instanceof Nphysics)
+            bt.ai=false;
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
         bt = new PanAI(this, 3);
+        if(ph instanceof Nphysics)
+            bt.ai=false;
         spirits.add(bt);
         ph.add(bt);
         bats.add(bt);
+
         if (s > 0) {
             setStage(s);
             if (bds != null) bds.setInitMessage("stage " + s);
         }
     }
-    public physics getph(){
+
+    public physics getph() {
         return ph;
     }
+
     public void setStage(int stg) {
         switch (stg) {
             case 1: {
@@ -179,7 +190,7 @@ public class board extends animPanel implements KeyListener {
 
     @Override
     public void start() {
-        ph.last=0;
+        ph.last = 0;
         super.start();
     }
 
@@ -218,44 +229,54 @@ public class board extends animPanel implements KeyListener {
 
     static double bd = 1;
 
-    void setVel(int bt,double v){
-        bats.get(bt).vel=v;
+    void setVel(int bt, double v) {
+        bats.get(bt).vel = v;
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
         switch (e.getKeyChar()) {
+            case 'g':
+                bats.get(userId).vel = -bd;
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(0).vel);
+                break;
+            case 'h':
+                bats.get(userId).vel = bd;
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(0).vel);
+                break;
+        }
+        switch (e.getKeyChar()) {
             case 'd':
                 bats.get(0).vel = bd;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 0 "+bats.get(0).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 0 " + bats.get(0).vel);
                 break;
             case 's':
                 bats.get(0).vel = -bd;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 0 "+bats.get(0).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 0 " + bats.get(0).vel);
                 break;
             case 'r':
                 bats.get(1).vel = bd;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 1 "+bats.get(1).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 1 " + bats.get(1).vel);
                 break;
             case 'f':
                 bats.get(1).vel = -bd;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 1 "+bats.get(1).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 1 " + bats.get(1).vel);
                 break;
             case 'w':
                 bats.get(2).vel = bd;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 2 "+bats.get(2).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 2 " + bats.get(2).vel);
                 break;
             case 'e':
                 bats.get(2).vel = -bd;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 2 "+bats.get(2).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 2 " + bats.get(2).vel);
                 break;
             case 'a':
                 bats.get(3).vel = bd;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 3 "+bats.get(3).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 3 " + bats.get(3).vel);
                 break;
             case 'q':
                 bats.get(3).vel = -bd;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 3 "+bats.get(3).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 3 " + bats.get(3).vel);
                 break;
         }
     }
@@ -268,37 +289,47 @@ public class board extends animPanel implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyChar()) {
+            case 'g':
+                bats.get(userId).vel = 0;
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(0).vel);
+                break;
+            case 'h':
+                bats.get(userId).vel = 0;
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " "+userId+" " + bats.get(0).vel);
+                break;
+        }
+        switch (e.getKeyChar()) {
             case 'd':
                 if (bats.get(0).vel > 0) bats.get(0).vel = 0;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 0 "+bats.get(0).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 0 " + bats.get(0).vel);
                 break;
             case 's':
                 if (bats.get(0).vel < 0) bats.get(0).vel = 0;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 0 "+bats.get(0).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 0 " + bats.get(0).vel);
                 break;
             case 'r':
                 if (bats.get(1).vel > 0) bats.get(1).vel = 0;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 1 "+bats.get(1).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 1 " + bats.get(1).vel);
                 break;
             case 'f':
                 if (bats.get(1).vel < 0) bats.get(1).vel = 0;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 1 "+bats.get(1).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 1 " + bats.get(1).vel);
                 break;
             case 'w':
                 if (bats.get(2).vel > 0) bats.get(2).vel = 0;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 2 "+bats.get(2).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 2 " + bats.get(2).vel);
                 break;
             case 'e':
                 if (bats.get(2).vel < 0) bats.get(2).vel = 0;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 2 "+bats.get(2).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 2 " + bats.get(2).vel);
                 break;
             case 'a':
                 if (bats.get(3).vel > 0) bats.get(3).vel = 0;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 3 "+bats.get(3).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 3 " + bats.get(3).vel);
                 break;
             case 'q':
                 if (bats.get(3).vel < 0) bats.get(3).vel = 0;
-                if(ph instanceof Nphysics)((Nphysics)ph).broadcast("bmov "+userId+" 3 "+bats.get(3).vel);
+                if (ph instanceof Nphysics) ((Nphysics) ph).broadcast("bmov " + userId + " 3 " + bats.get(3).vel);
                 break;
         }
     }
