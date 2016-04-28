@@ -34,13 +34,7 @@ public class Nphysics extends physics implements Runnable {
         long current = System.nanoTime();
         double dt = last != 0 ? (current - last) / 1000000000.0 : 0;
         last=current;
-        board bd = ((board) balls.get(0).parent());
-        bat mbat = bd.bats.get(bd.userId);
-        mbat.updateSpirit(dt);
-        System.out.println("mbat "+mbat.vel+" updated "+mbat.loc+" "+dt);
-        blocks.forEach(e -> {
-            if (e != mbat) e.rect.setRect(e.x, e.y, e.l, e.b);
-        });
+        blocks.forEach(e->e.updateSpirit(dt));
         balls.forEach(e -> e.e2d.setFrame(e.x - e.r, e.y - e.r, 2 * e.r, 2 * e.r));
     }
 
@@ -87,7 +81,9 @@ public class Nphysics extends physics implements Runnable {
                             if(xx==bd.userId){
                                 System.err.println("Error");
                             }
-                            bd.setVel(xx,Double.parseDouble(st.nextToken()));
+                            //System.out.println(cmd);
+                            bd.bats.get(xx).loc=Double.parseDouble(st.nextToken());
+                            //bd.setVel(xx,Double.parseDouble(st.nextToken()));
                         } else if(type.equals("userId")){
                             board bd = (board) (balls.get(0).parent());
                             bd.userId=Integer.parseInt(st.nextToken());
