@@ -98,7 +98,19 @@ public class Main {
                                 main3.setSize(600, 700);
                                 main3.setVisible(true);
                             }
-                            animPanel.start();
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try{
+                                        Thread.sleep(1000);
+                                        animPanel.start();
+                                    }
+                                    catch (Exception e){
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }).start();
+
                         }
                     }
                 }
