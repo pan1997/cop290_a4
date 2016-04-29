@@ -1,17 +1,20 @@
 package cop290.a4.pingpong;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
 import cop290.a4.AI.Easy;
 import cop290.a4.AI.Medium;
 import cop290.a4.AI.PanAI;
 import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
 import cop290.a4.network.broadcasting;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.ArrayList;
 
 /**
  * Created by pankaj on 12/4/16.
@@ -89,7 +92,7 @@ public class board extends animPanel implements KeyListener {
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
-            bt = new PanAI(this, 2);
+            bt = new Easy(this, 2);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
