@@ -24,9 +24,12 @@ public class Ball extends Spirit {
         //System.out.println(getID()+" bat");
         x = 25 + Math.random() * 450;
         y = 25 + Math.random() * 450;
-
-        vx = (Math.random() - 0.5) * 500.0;
-        vy = (Math.random() - 0.5) * 500.0;
+        double vr=0;
+        do {
+            vx = (Math.random() - 0.5) * 500.0;
+            vy = (Math.random() - 0.5) * 500.0;
+            vr=vx*vx+vy*vy;
+        }while (vr<300*300.0);
         theta = Math.random();
         w = 15 * (Math.random() - 0.5);
         r = 10;

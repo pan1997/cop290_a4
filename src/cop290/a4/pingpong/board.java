@@ -7,6 +7,7 @@ import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
 import cop290.a4.network.broadcasting;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -21,12 +22,14 @@ public class board extends animPanel implements KeyListener {
     public ArrayList<bat> bats;
     physics ph;
     int[] lives;
+    boolean closed[];
 
     int userId;
 
     public board(int l, int b, int ups, int skp, physics physics, broadcasting bds, int s) {
         super(l, b, ups, skp);
         lives = new int[4];
+        closed=new boolean[4];
         lives[0] = lives[1] = lives[2] = lives[3] = 5;
         spirits = new ArrayList<>();
         bats = new ArrayList<>();
@@ -90,7 +93,7 @@ public class board extends animPanel implements KeyListener {
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
-            bt = new PanAI(this, 3);
+            bt = new Easy(this, 3);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
@@ -187,16 +190,6 @@ public class board extends animPanel implements KeyListener {
     public void closeSide(int or) {
         lives[or]--;
         bds.broadcast("life " + lives[0] + " " + lives[1] + " " + lives[2] + " " + lives[3]);
-        if (false && lives[or] == 0) {
-            block blk = new block(this);
-            blk.x = or == 1 ? l - 20 : 0;
-            blk.y = or == 0 ? b - 20 : 0;
-            blk.l = or % 2 == 0 ? l : 20;
-            blk.b = or % 2 == 0 ? 20 : b;
-            spirits.add(blk);
-            ph.add(blk);
-        }
-
     }
 
     @Override
@@ -236,6 +229,27 @@ public class board extends animPanel implements KeyListener {
                         ((Nphysics) ph).broadcast("bat " + i + " " + b.loc);
                 }
             }
+            for(int or=0;or<4;or++)
+                if (lives[or] == 0&&!closed[or]) {
+                    block blk = new block(this);
+                    blk.x = or == 1 ? l - 20 : 0;
+                    blk.y = or == 0 ? b - 20 : 0;
+                    blk.l = or % 2 == 0 ? l : 20;
+                    blk.b = or % 2 == 0 ? 20 : b;
+                    spirits.add(blk);
+                    ph.add(blk);
+                    closed[or]=true;
+                    int nc=0,p=0;
+                    for(int i=0;i<4;i++)
+                        if(closed[i])
+                            nc++;
+                        else p=i;
+                    if(nc==3){
+                        JOptionPane.showMessageDialog(null,"Player "+p+" Wins","Game Ends",JOptionPane.INFORMATION_MESSAGE);
+                        stop();
+                        //stop();
+                    }
+                }
         } catch (Exception e) {
             System.out.println(e);
         }

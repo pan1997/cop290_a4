@@ -136,7 +136,7 @@ public class broadcasting implements Runnable {
                     dout.writeUTF("Other_Users " + ss.getRemoteSocketAddress());
                 }
                 sockets.add(s);
-                System.out.println("Socketssize"+sockets.size());
+                //System.out.println("Socketssize"+sockets.size());
                 parent.bats.get(sockets.size()).ai=false;
                 dout.writeUTF(initMessage);
                 dout.writeUTF("userId " + users++);
