@@ -29,6 +29,7 @@ public class animPanel extends JPanel implements Runnable {
         gscreen = (Graphics2D) screen.getGraphics();
         upsr = ups;
         nskip = skp;
+        setPreferredSize(new Dimension(l,b));
         createBackground();
     }
     protected void createBackground(){
@@ -86,7 +87,6 @@ public class animPanel extends JPanel implements Runnable {
             System.out.println("No screen or img1");
         }
     }
-
     public void start() {
         if(!running) {
             pt = System.nanoTime();

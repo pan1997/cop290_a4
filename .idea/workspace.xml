@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="v01">
+    <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="v01 final">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java" afterPath="$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/pingpong/board.java" afterPath="$PROJECT_DIR$/src/cop290/a4/pingpong/board.java" />
     </list>
     <ignored path="cop290_a4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,20 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="broadcasting.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1830">
-              <caret line="139" column="57" selection-start-line="139" selection-start-column="57" selection-end-line="139" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="bat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/bat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="15">
               <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -69,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+            <state relative-caret-position="-15">
+              <caret line="96" column="55" selection-start-line="96" selection-start-column="55" selection-end-line="96" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,9 +75,10 @@
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/board.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="94" column="25" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
+              <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1249#1256#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="animPanel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="animPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="601">
-              <caret line="116" column="32" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
+            <state relative-caret-position="211">
+              <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -128,11 +119,9 @@
       <file leaf-file-name="PanAI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -164,11 +153,11 @@
         <option value="$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/bat.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" />
-        <option value="$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/Ball.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/board.java" />
-        <option value="$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/Main.java" />
+        <option value="$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java" />
+        <option value="$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java" />
       </list>
     </option>
   </component>
@@ -431,7 +420,15 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/cop290/a4/AI/Easy.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/AI/Easy.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/AI/Medium.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/AI/PanAI.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/Main.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Ball.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/cop290/a4/Main.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/cop290/a4/pingpong/board.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -439,6 +436,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/Main$1.class</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -952,7 +950,7 @@
       <workItem from="1461869351325" duration="357000" />
       <workItem from="1461869771853" duration="74000" />
       <workItem from="1461869885604" duration="2539000" />
-      <workItem from="1461936171954" duration="1757000" />
+      <workItem from="1461936171954" duration="2233000" />
     </task>
     <task id="LOCAL-00001" summary="AI checked">
       <created>1461860564689</created>
@@ -1038,11 +1036,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461936477574</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="v01 final">
+      <created>1461937945420</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1461937945420</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14230000" />
+    <option name="totallyTimeSpent" value="14706000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -1097,7 +1102,8 @@
     <MESSAGE value="Errors corrected" />
     <MESSAGE value="bugs fixed" />
     <MESSAGE value="AI changed to check" />
-    <option name="LAST_COMMIT_MESSAGE" value="AI changed to check" />
+    <MESSAGE value="v01 final" />
+    <option name="LAST_COMMIT_MESSAGE" value="v01 final" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1120,9 +1126,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,9 +1196,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1466,24 +1468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1830">
-          <caret line="139" column="57" selection-start-line="139" selection-start-column="57" selection-end-line="139" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/bat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Ball.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1496,11 +1480,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1512,10 +1494,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="96" column="55" selection-start-line="96" selection-start-column="55" selection-end-line="96" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/board.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="94" column="25" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
+          <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1249#1256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="73" column="67" selection-start-line="73" selection-start-column="67" selection-end-line="73" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/bat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1524,19 +1535,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="116" column="32" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
+        <state relative-caret-position="211">
+          <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
