@@ -88,10 +88,12 @@ public class animPanel extends JPanel implements Runnable {
     }
 
     public void start() {
-        pt = System.nanoTime();
-        th = new Thread(this);
-        running = true;
-        th.start();
+        if(!running) {
+            pt = System.nanoTime();
+            th = new Thread(this);
+            running = true;
+            th.start();
+        }
     }
 
     public void stop() {

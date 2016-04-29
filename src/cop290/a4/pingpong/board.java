@@ -85,7 +85,7 @@ public class board extends animPanel implements KeyListener {
             ph.add(bt);
             bats.add(bt);
             bt.ai = false;
-            bt = new PanAI(this, 1);
+            bt = new Easy(this, 1);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
@@ -93,7 +93,7 @@ public class board extends animPanel implements KeyListener {
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
-            bt = new Easy(this, 3);
+            bt = new Medium(this, 3);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
