@@ -14,6 +14,7 @@ public class Easy extends bat {
 
     ArrayList<Ball> balls;
     int numBalls;
+    double vBat = 0.6;
 
     public Easy(animPanel parent, int orientation) {
         super(parent, orientation);
@@ -36,10 +37,14 @@ public class Easy extends bat {
                             xp = balls.get(i).x;
                         }
                     }
-                    if (x + 50.0 / 3 < xp) {
-                        vel = 1;
-                    } else if (x - 50.0 / 3 > xp) {
-                        vel = -1;
+                    if(balls.get(ym).getVy() > 0) {
+                        if (x + 50.0 / 3 < xp) {
+                            vel = vBat;
+                        } else if (x - 50.0 / 3 > xp) {
+                            vel = -vBat;
+                        } else {
+                            vel = 0;
+                        }
                     }
                     break;
                 }
@@ -53,10 +58,14 @@ public class Easy extends bat {
                             yp = balls.get(i).y;
                         }
                     }
-                    if (y + 50.0 / 3 < yp) {
-                        vel = -1;
-                    } else if (y - 50.0 / 3 > yp) {
-                        vel = 1;
+                    if(balls.get(xm).getVx() > 0) {
+                        if (y + 50.0 / 3 < yp) {
+                            vel = -vBat;
+                        } else if (y - 50.0 / 3 > yp) {
+                            vel = vBat;
+                        } else {
+                            vel = 0;
+                        }
                     }
                     break;
                 }
@@ -70,10 +79,14 @@ public class Easy extends bat {
                             xp = balls.get(i).x;
                         }
                     }
-                    if (x + 50.0 / 3 < xp) {
-                        vel = -1;
-                    } else if (x - 50.0 / 3 > xp) {
-                        vel = 1;
+                    if(balls.get(ym).getVy() < 0) {
+                        if (x + 50.0 / 3 < xp) {
+                            vel = -vBat;
+                        } else if (x - 50.0 / 3 > xp) {
+                            vel = vBat;
+                        } else {
+                            vel = 0;
+                        }
                     }
                     break;
                 }
@@ -87,10 +100,14 @@ public class Easy extends bat {
                             yp = balls.get(i).y;
                         }
                     }
-                    if (y + 50.0 / 3 < yp) {
-                        vel = 1;
-                    } else if (y - 50.0 / 3 > yp) {
-                        vel = -1;
+                    if(balls.get(xm).getVx() < 0) {
+                        if (y + 50.0 / 3 < yp) {
+                            vel = vBat;
+                        } else if (y - 50.0 / 3 > yp) {
+                            vel = -vBat;
+                        } else {
+                            vel = 0;
+                        }
                     }
                     break;
                 }
