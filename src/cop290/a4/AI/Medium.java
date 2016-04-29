@@ -13,7 +13,8 @@ import cop290.a4.pingpong.board;
 public class Medium extends bat {
 
     ArrayList<Ball> balls;
-    double boardSize = 600;
+    double boardSize = 570;
+    double boardAcSize = 600;
     int numBalls;
 
     public Medium(animPanel parent, int orientation) {
@@ -31,9 +32,9 @@ public class Medium extends bat {
                     double xp = 0, t = 10000, temp = 0;
                     int ym = 0;
                     if (balls.get(0).getVy() > 0)
-                        t = (boardSize - balls.get(0).y) / balls.get(0).getVy();
+                        t = (boardSize - balls.get(0).y + 15) / balls.get(0).getVy();
                     else
-                        t = -(boardSize + balls.get(0).y) / balls.get(0).getVy();
+                        t = -(boardSize + balls.get(0).y - 15) / balls.get(0).getVy();
 
                     for (int i = 1; i < numBalls; i++) {
                         if (balls.get(i).getVy() > 0)
@@ -59,10 +60,13 @@ public class Medium extends bat {
                         if (xp < 0) xp = -1 * xp;
                     }
 
-                    if (x + 50.0 / 2 < xp) {
-                        vel = 1;
-                    } else if (x - 50.0 / 2 > xp) {
-                        vel = -1;
+                    if (x + 50.0 / 4 < xp) {
+                        vel = 0.8;
+                    } else if (x - 50.0 / 4 > xp) {
+                        vel = -0.8;
+                    }
+                    else {
+                        vel = 0;
                     }
 
                     break;
@@ -72,9 +76,9 @@ public class Medium extends bat {
                     double yp = 0, t = 10000, temp = 0;
                     int ym = 0;
                     if (balls.get(0).getVx() > 0)
-                        t = (boardSize - balls.get(0).x) / balls.get(0).getVx();
+                        t = (boardSize - balls.get(0).x + 15) / balls.get(0).getVx();
                     else
-                        t = -(boardSize + balls.get(0).x) / balls.get(0).getVx();
+                        t = -(boardSize + balls.get(0).x - 15) / balls.get(0).getVx();
 
                     for (int i = 1; i < numBalls; i++) {
                         if (balls.get(i).getVx() > 0)
@@ -88,7 +92,7 @@ public class Medium extends bat {
                         }
                     }
 
-                    double d = t * Math.abs(balls.get(ym).getVx());
+                    double d = t * Math.abs(balls.get(ym).getVy());
                     //double q = d/boardSize;
                     double rem = d % boardSize;
 
@@ -100,10 +104,13 @@ public class Medium extends bat {
                         if (yp < 0) yp = -1 * yp;
                     }
 
-                    if (y + 50.0 / 2 < yp) {
-                        vel = -1;
-                    } else if (y - 50.0 / 2 > yp) {
-                        vel = 1;
+                    if (y + 50.0 / 4 < yp) {
+                        vel = -0.8;
+                    } else if (y - 50.0 / 4 > yp) {
+                        vel = 0.8;
+                    }
+                    else {
+                        vel = 0;
                     }
 
                     break;
@@ -113,9 +120,9 @@ public class Medium extends bat {
                     double xp = 0, t = 10000, temp = 0;
                     int ym = 0;
                     if (balls.get(0).getVy() > 0)
-                        t = (2 * boardSize - balls.get(0).y) / balls.get(0).getVy();
+                        t = (2 * boardSize - balls.get(0).y + 15) / balls.get(0).getVy();
                     else
-                        t = -(balls.get(0).y) / balls.get(0).getVy();
+                        t = -(balls.get(0).y - 15) / balls.get(0).getVy();
 
                     for (int i = 1; i < numBalls; i++) {
                         if (balls.get(i).getVy() > 0)
@@ -141,10 +148,13 @@ public class Medium extends bat {
                         if (xp < 0) xp = -1 * xp;
                     }
 
-                    if (x + 50.0 / 2 < xp) {
-                        vel = -1;
-                    } else if (x - 50.0 / 2 > xp) {
-                        vel = 1;
+                    if (x + 50.0 / 4 < xp) {
+                        vel = -0.8;
+                    } else if (x - 50.0 / 4 > xp) {
+                        vel = 0.8;
+                    }
+                    else {
+                        vel = 0;
                     }
 
                     break;
@@ -154,9 +164,9 @@ public class Medium extends bat {
                     double yp = 0, t = 10000, temp = 0;
                     int ym = 0;
                     if (balls.get(0).getVx() > 0)
-                        t = (2 * boardSize - balls.get(0).x) / balls.get(0).getVx();
+                        t = (2 * boardSize - balls.get(0).x + 15) / balls.get(0).getVx();
                     else
-                        t = -(balls.get(0).x) / balls.get(0).getVx();
+                        t = -(balls.get(0).x - 15) / balls.get(0).getVx();
 
                     for (int i = 1; i < numBalls; i++) {
                         if (balls.get(i).getVx() > 0)
@@ -170,7 +180,7 @@ public class Medium extends bat {
                         }
                     }
 
-                    double d = t * Math.abs(balls.get(ym).getVx());
+                    double d = t * Math.abs(balls.get(ym).getVy());
                     //double q = d/boardSize;
                     double rem = d % boardSize;
 
@@ -182,11 +192,16 @@ public class Medium extends bat {
                         if (yp < 0) yp = -1 * yp;
                     }
 
-                    if (y + 50.0 / 2 < yp) {
-                        vel = 1;
-                    } else if (y - 50.0 / 2 > yp) {
-                        vel = -1;
+                    if (loc*boardAcSize + 50.0 / 4 < yp) {
+                        vel = 0.8;
+                    } else if (loc*boardAcSize - 50.0 / 4 > yp) {
+                        vel = -0.8;
                     }
+                    else {
+                        vel = 0;
+                    }
+
+                    //System.out.println("y : " + loc*boardAcSize + ", yp : " + yp +", vel : " + vel + ", rem = " + rem);
 
                     break;
                 }
