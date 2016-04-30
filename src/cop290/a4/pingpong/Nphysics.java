@@ -1,5 +1,6 @@
 package cop290.a4.pingpong;
 
+import cop290.a4.Main;
 import cop290.a4.animation.Spirit;
 
 import java.io.DataInputStream;
@@ -13,8 +14,8 @@ import java.util.StringTokenizer;
  * Created by pankaj on 23/4/16.
  */
 public class Nphysics extends physics implements Runnable {
-    ArrayList<DataInputStream> din;
-    ArrayList<DataOutputStream> dout;
+    DataInputStream din;
+    DataOutputStream dout;
     int port;
     String serverAd;
     ServerSocket sck;
@@ -22,61 +23,42 @@ public class Nphysics extends physics implements Runnable {
     public Nphysics(int p, String s) {
         serverAd = s;
         port = p;
-        din = new ArrayList<>();
-        dout = new ArrayList<>();
+        new Thread(this).start();
+    }
+
+    void broadcast(String message) {
         try {
-            sck = new ServerSocket(port);
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for(;;)try{
-                        cl=sck.accept();
-                        new Thread(this).start();
-                        Thread.sleep(50);
-                    }catch (Exception e){e.printStackTrace();}
-                }
-            }).start();
+            dout.writeUTF(message);
+            dout.flush();
+            Main.bds.broadcast(message);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        new Thread(this).start();
     }
-    void broadcast(String message) {
-        dout.forEach(e -> {
-            try {
-                e.writeUTF(message);
-                e.flush();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        });
-    }
+
     long last = 0;
+
     void update() {
         long current = System.nanoTime();
         double dt = last != 0 ? (current - last) / 1000000000.0 : 0;
-        last=current;
-        blocks.forEach(e->e.updateSpirit(dt));
+        last = current;
+        blocks.forEach(e -> e.updateSpirit(dt));
         balls.forEach(e -> e.e2d.setFrame(e.x - e.r, e.y - e.r, 2 * e.r, 2 * e.r));
     }
+
     Socket cl;
+
     @Override
     public void run() {
         try {
-            if(cl==null)
+            if (cl == null)
                 cl = new Socket(serverAd, port);
-            DataInputStream dint ;
-            DataOutputStream doutt;
-            synchronized (cl) {
-                System.out.println("Connected");
-                dint = new DataInputStream(cl.getInputStream());
-                doutt = new DataOutputStream(cl.getOutputStream());
-                cl=null;
-            }
-            din.add(dint);
-            dout.add(doutt);
+            System.out.println("Connected");
+            din = new DataInputStream(cl.getInputStream());
+            dout = new DataOutputStream(cl.getOutputStream());
+            cl = null;
             for (; ; ) {
-                String cmd = dint.readUTF();
+                String cmd = din.readUTF();
                 //System.out.println(cmd);
                 int id;
                 double x, y;
@@ -107,19 +89,19 @@ public class Nphysics extends physics implements Runnable {
                             bd.setStage(Integer.parseInt(st.nextToken()));
                         } else if (type.equals("bat")) {
                             board bd = (board) (balls.get(0).parent());
-                            int xx=Integer.parseInt(st.nextToken());
-                            if(xx==bd.userId){
+                            int xx = Integer.parseInt(st.nextToken());
+                            if (xx == bd.userId) {
                                 System.err.println("Error");
                             }
                             //System.out.println(cmd);
-                            bd.bats.get(xx).loc=Double.parseDouble(st.nextToken());
+                            bd.bats.get(xx).loc = Double.parseDouble(st.nextToken());
                             //bd.setVel(xx,Double.parseDouble(st.nextToken()));
-                        } else if(type.equals("userId")){
+                        } else if (type.equals("userId")) {
                             board bd = (board) (balls.get(0).parent());
-                            bd.userId=Integer.parseInt(st.nextToken());
-                            bd.rot=bd.userId;
-                        } else if(type.equals("Other_users")){
-                            serverAd=st.nextToken();
+                            bd.userId = Integer.parseInt(st.nextToken());
+                            bd.rot = bd.userId;
+                        } else if (type.equals("Other_users")) {
+                            serverAd = st.nextToken();
                             new Thread(this).start();
                         }
                         //System.out.println(cmd+"---"+type);

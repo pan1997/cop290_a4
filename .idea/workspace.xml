@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/physics.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/physics.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/Main.java" afterPath="$PROJECT_DIR$/src/cop290/a4/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" afterPath="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" />
     </list>
     <ignored path="cop290_a4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,8 +65,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="96" column="55" selection-start-line="96" selection-start-column="55" selection-end-line="96" selection-end-column="55" />
+            <state relative-caret-position="-1259">
+              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,7 +74,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="board.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/board.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
@@ -98,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Nphysics.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Nphysics.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+            <state relative-caret-position="225">
+              <caret line="104" column="53" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -164,12 +163,12 @@
         <option value="$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/bat.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/Ball.java" />
-        <option value="$PROJECT_DIR$/src/cop290/a4/Main.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java" />
-        <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/board.java" />
+        <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" />
+        <option value="$PROJECT_DIR$/src/cop290/a4/Main.java" />
       </list>
     </option>
   </component>
@@ -933,7 +932,7 @@
       <workItem from="1461869885604" duration="2539000" />
       <workItem from="1461936171954" duration="2283000" />
       <workItem from="1461938736934" duration="721000" />
-      <workItem from="1462005733640" duration="1807000" />
+      <workItem from="1462005733640" duration="2124000" />
     </task>
     <task id="LOCAL-00001" summary="AI checked">
       <created>1461860564689</created>
@@ -1040,11 +1039,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462007325804</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="NPhysics changed for more than 2 players">
+      <created>1462007547722</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1462007547722</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17284000" />
+    <option name="totallyTimeSpent" value="17601000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -1445,16 +1451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="96" column="55" selection-start-line="96" selection-start-column="55" selection-end-line="96" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -1498,28 +1494,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/bat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-161">
           <caret line="66" column="61" selection-start-line="66" selection-start-column="61" selection-end-line="66" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1532,6 +1510,34 @@
             <element signature="e#3068#3069#0" expanded="true" />
             <element signature="e#3093#3094#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/bat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1259">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="104" column="53" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
