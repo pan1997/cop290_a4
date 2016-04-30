@@ -14,7 +14,7 @@ public class block extends Spirit {
     int width, thickness;
     int l, b;
     Rectangle rect;
-    Color color;
+    Color color; //block class for all rectangular objects
 
     public block(animPanel parent) {
         super(parent);

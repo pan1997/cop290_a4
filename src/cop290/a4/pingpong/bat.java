@@ -11,7 +11,7 @@ public class bat extends block {
     public double loc;
     protected int or;
     public double vel;
-    public boolean ai=false;
+    public boolean ai=false; //class for the four paddles of the players
 
     public bat(animPanel parent, int orientation) {
         super(parent);
@@ -45,9 +45,9 @@ public class bat extends block {
     }
 
     @Override
-    public void updateSpirit(double dt) {
+    public void updateSpirit(double dt) { //update location of bat according to loc of bat and it's orientation
         loc += vel * dt;
-        loc = Math.min(loc, 1 - (width / 2 + 15.0) / parent.getB());
+        loc = Math.min(loc, 1 - (width / 2 + 15.0) / parent.getB()); //fixing bats location within it's boundaries
         loc = Math.max(loc, 0 + (width / 2 + 15.0) / parent.getB());
         switch (or) {
             case 0:

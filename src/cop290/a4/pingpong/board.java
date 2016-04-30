@@ -22,11 +22,12 @@ public class board extends animPanel implements KeyListener {
     public ArrayList<bat> bats;
     physics ph;
     int[] lives;
-    boolean closed[];
+    boolean closed[]; //class for the final board on which the game is played
 
     int userId;
 
-    public board(int l, int b, int ups, int skp, physics physics, broadcasting bds, int s, int live) {
+    public board(int l, int b, int ups, int skp, physics physics, broadcasting bds, int s, int live) { //defining the basic board
+        //including balls, bats, and corners
         super(l, b, ups, skp);
         lives = new int[4];
         closed = new boolean[4];
@@ -84,6 +85,7 @@ public class board extends animPanel implements KeyListener {
             bats.add(bt);
             bt.ai=false;
         } else {
+            //adding ai's for no payers connected
             bat bt = new Medium(this, 0);
             spirits.add(bt);
             ph.add(bt);
@@ -103,7 +105,7 @@ public class board extends animPanel implements KeyListener {
             bats.add(bt);
         }
         if (s > 0) {
-            setStage(s);
+            setStage(s); //setting stage out of 5 stages
             if (bds != null) bds.setInitMessage("stage " + s);
         }
     }
@@ -112,7 +114,7 @@ public class board extends animPanel implements KeyListener {
         return ph;
     }
 
-    public void setStage(int stg) {
+    public void setStage(int stg) { //defining all stages
         switch (stg) {
             case 1: {
                 block blk = new block(this);
@@ -277,7 +279,7 @@ public class board extends animPanel implements KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(KeyEvent e) { //control for the paddle you ahve
         switch (e.getKeyChar()) {
             case 'g':
                 bats.get(userId).vel = -bd;
