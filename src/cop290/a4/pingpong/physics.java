@@ -22,7 +22,7 @@ public class physics {
     //map of id to spirits
     Map<Integer, Spirit> map;
     double rv = 0.2;
-
+    //constructor
     public physics() {
         balls = new ArrayList<>();
         blocks = new ArrayList<>();
@@ -31,12 +31,12 @@ public class physics {
         circs = new ArrayList<>();
         holes = new ArrayList<>();
     }
-
+    //add balls to the simulation
     void add(Ball b) {
         balls.add(b);
         map.put(b.getID(), b);
     }
-
+    //add teleport pair to the simulation
     void addTeleportPair(circularObstacle c1, circularObstacle c2) {
         holes.add(c1);
         holes.add(c2);
@@ -45,25 +45,25 @@ public class physics {
         map.put(c1.getID(), c1);
         map.put(c2.getID(), c2);
     }
-
+    //get balls
     public ArrayList<Ball> getBalls() {
         return balls;
     }
-
+    //add block or bat to the simulation
     void add(block b) {
         blocks.add(b);
         map.put(b.getID(), b);
     }
-
+    //add simple circular obstacle to the world
     void add(circularObstacle c) {
         circs.add(c);
         map.put(c.getID(), c);
     }
-
+    //id of wall
     static final int wall = 1000;
 
     long last = 0;
-
+    //single discrete frame update of world
     void update() {
         long current = System.nanoTime();
         double dt = last != 0 ? (current - last) / 1000000000.0 : 0;

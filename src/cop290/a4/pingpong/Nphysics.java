@@ -13,8 +13,11 @@ import cop290.a4.animation.Spirit;
 
 /**
  * Created by pankaj on 23/4/16.
+ * Networked remote physics
+ * mirrors the world at the broadcaster
  */
 public class Nphysics extends physics implements Runnable {
+    //IO styeams
     DataInputStream din;
     DataOutputStream dout;
     int port;
