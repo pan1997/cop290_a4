@@ -12,6 +12,9 @@ import cop290.a4.pingpong.board;
  */
 public class Medium extends bat {
 
+    //medium AI finds out the ball that'll reach it fastest and does this at every frame to avoid ball to ball collision errors
+    //works better than human until velocity made slow
+
     ArrayList<Ball> balls;
     double boardSize = 570;
     double boardAcSize = 600;
@@ -148,9 +151,9 @@ public class Medium extends bat {
                         if (xp < 0) xp = -1 * xp;
                     }
 
-                    if (loc*boardAcSize + 50.0 / 4 < xp) {
+                    if ((1-loc)*boardAcSize + 50.0 / 4 < xp) {
                         vel = -0.8;
-                    } else if (loc*boardAcSize - 50.0 / 4 > xp) {
+                    } else if ((1-loc)*boardAcSize - 50.0 / 4 > xp) {
                         vel = 0.8;
                     }
                     else {
