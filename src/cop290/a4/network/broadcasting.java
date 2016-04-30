@@ -23,6 +23,7 @@ public class broadcasting implements Runnable {
     ArrayList<Socket> sockets;
     ArrayList<Spirit> spirits;
     ArrayList<DataOutputStream> out;
+    ArrayList<Integer> player;
     ArrayList<DataInputStream> in;
     String initMessage;
     public board parent;
@@ -38,6 +39,7 @@ public class broadcasting implements Runnable {
         new Thread(this).start();
         spirits = as;
         out = new ArrayList<>();
+        player = new ArrayList<>();
         sockets = new ArrayList<>();
         in = new ArrayList<>();
     }
@@ -72,7 +74,8 @@ public class broadcasting implements Runnable {
                     o.flush();
                 }
             } catch (SocketException e) {
-
+                parent.bats.get(player.get(i)).ai = true;
+                player.remove(i);
                 out.remove(i);
                 i--;
                 System.out.println("Socket exception closed " + o);
@@ -149,6 +152,7 @@ public class broadcasting implements Runnable {
                 //System.out.println("Socketssize"+sockets.size());
                 parent.bats.get(sockets.size()).ai=false;
                 dout.writeUTF(initMessage);
+                player.add(users);
                 dout.writeUTF("userId " + users++);
                 dout.flush();
             }
