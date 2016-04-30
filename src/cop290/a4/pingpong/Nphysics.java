@@ -29,7 +29,7 @@ public class Nphysics extends physics implements Runnable {
         try {
             dout.writeUTF(message);
             dout.flush();
-            Main.bds.broadcast(message);
+            //Main.bds.broadcast(message);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,23 +90,23 @@ public class Nphysics extends physics implements Runnable {
                             board bd = (board) (balls.get(0).parent());
                             int xx = Integer.parseInt(st.nextToken());
                             if (xx == bd.userId) {
-                                System.err.println("Error");
-                            }
-                            //System.out.println(cmd);
-                            bd.bats.get(xx).loc = Double.parseDouble(st.nextToken());
+                                //System.err.println("Error");
+                            } else
+                                bd.bats.get(xx).loc = Double.parseDouble(st.nextToken());
                             //bd.setVel(xx,Double.parseDouble(st.nextToken()));
                         } else if (type.equals("userId")) {
                             board bd = (board) (balls.get(0).parent());
                             bd.userId = Integer.parseInt(st.nextToken());
                             bd.rot = bd.userId;
                         } else if (type.equals("Other_Users")) {
-                            System.out.println(cmd);
+                            /*System.out.println(cmd);
                             serverAd = st.nextToken();
                             StringTokenizer t = new StringTokenizer(serverAd, ":");
                             serverAd = t.nextToken();
                             serverAd = serverAd.substring(1);
                             port = Integer.parseInt(t.nextToken());
                             new Thread(this).start();
+                            */
                         }
                         //System.out.println(cmd+"---"+type);
                     }

@@ -124,6 +124,10 @@ public class broadcasting implements Runnable {
                                 else if(type.equals("bat")){
                                     int xx=Integer.parseInt(st.nextToken());
                                     parent.bats.get(xx).loc=Double.parseDouble(st.nextToken());
+                                    for(DataOutputStream dt:out){
+                                        dt.writeUTF(cmd);
+                                        dt.flush();
+                                    }
                                 }
                             } catch (Exception e) {
                             }

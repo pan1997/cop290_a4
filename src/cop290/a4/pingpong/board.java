@@ -32,7 +32,7 @@ public class board extends animPanel implements KeyListener {
         super(l, b, ups, skp);
         lives = new int[4];
         closed=new boolean[4];
-        lives[0] = lives[1] = lives[2] = lives[3] = 5;
+        lives[0] = lives[1] = lives[2] = lives[3] = 100;
         spirits = new ArrayList<>();
         bats = new ArrayList<>();
         if (bds != null) {
