@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import cop290.a4.AI.Medium;
-import cop290.a4.AI.PanAI;
 import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
 import cop290.a4.network.broadcasting;
@@ -82,7 +81,7 @@ public class board extends animPanel implements KeyListener {
             ph.add(bt);
             bats.add(bt);
         } else {
-            bat bt = new PanAI(this, 0);
+            bat bt = new Medium(this, 0);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
@@ -91,7 +90,7 @@ public class board extends animPanel implements KeyListener {
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
-            bt = new PanAI(this, 02);
+            bt = new Medium(this, 02);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);

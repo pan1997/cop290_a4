@@ -6,7 +6,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.StringTokenizer;
 
-import cop290.a4.Main;
 import cop290.a4.animation.Spirit;
 
 /**
@@ -105,6 +104,7 @@ public class Nphysics extends physics implements Runnable {
                             serverAd = t.nextToken();
                             serverAd = serverAd.substring(1);
                             port = Integer.parseInt(t.nextToken());
+                            System.out.println(serverAd + " " + port);
                             new Thread(this).start();
                             */
                         }
