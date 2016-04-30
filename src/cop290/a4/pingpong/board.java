@@ -26,11 +26,11 @@ public class board extends animPanel implements KeyListener {
 
     int userId;
 
-    public board(int l, int b, int ups, int skp, physics physics, broadcasting bds, int s) {
+    public board(int l, int b, int ups, int skp, physics physics, broadcasting bds, int s, int live) {
         super(l, b, ups, skp);
         lives = new int[4];
         closed = new boolean[4];
-        lives[0] = lives[1] = lives[2] = lives[3] = 10;
+        lives[0] = lives[1] = lives[2] = lives[3] = live;
         spirits = new ArrayList<>();
         bats = new ArrayList<>();
         if (bds != null) {

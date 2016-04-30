@@ -32,6 +32,7 @@ public class Main {
 
             jtf.addActionListener(e -> {
                 int stage = 1;
+                int lives = 10;
                 jt.append(e.getActionCommand() + "\n");
                 switch (e.getActionCommand().split(" ")[0]) {
                     case "exit":
@@ -49,7 +50,7 @@ public class Main {
                             }
                         }
                         JFrame main = new JFrame("Game");
-                        animPanel = new board(600, 600, 100, 2, new physics(), bds, stage);
+                        animPanel = new board(600, 600, 100, 2, new physics(), bds, stage, Integer.parseInt(e.getActionCommand().split(" ")[2]));
                         main.setContentPane(animPanel);
                         main.addKeyListener(animPanel);
                         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,7 +76,7 @@ public class Main {
                             }
                         }
                         JFrame main2 = new JFrame("Game");
-                        animPanel = new board(600, 600, 100, 2, new physics(), bds, stage);
+                        animPanel = new board(600, 600, 100, 2, new physics(), bds, stage, Integer.parseInt(e.getActionCommand().split(" ")[2]));
                         main2.setContentPane(animPanel);
                         main2.addKeyListener(animPanel);
                         main2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,7 +92,7 @@ public class Main {
                             int port = Integer.parseInt(st.nextToken());
                             if (animPanel == null) {
                                 JFrame main3 = new JFrame("Game");
-                                animPanel = new board(600, 600, 100, 2, new Nphysics(port, add), null, 0);
+                                animPanel = new board(600, 600, 100, 2, new Nphysics(port, add), null, 0, Integer.parseInt(e.getActionCommand().split(" ")[2]));
                                 main3.setContentPane(animPanel);
                                 main3.addKeyListener(animPanel);
                                 main3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
