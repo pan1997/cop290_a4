@@ -150,7 +150,7 @@ public class board extends animPanel implements KeyListener {
             case 4: {
                 circularObstacle c1 = new circularObstacle(this, null, Color.MAGENTA, Color.MAGENTA);
                 circularObstacle c2 = new circularObstacle(this, null, Color.MAGENTA, Color.MAGENTA);
-                c1.r = c2.r = 10;
+                c1.r = c2.r = 20;
                 c1.x = 150;
                 c1.y = 150;
                 c2.x = c2.y = 450;

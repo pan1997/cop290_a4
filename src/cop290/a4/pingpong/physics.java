@@ -69,7 +69,7 @@ public class physics {
             b.y += b.vy * dt / 2;
             b.theta += b.w * dt / 2;
             double vr=b.vx*b.vx+b.vy*b.vy;
-            if(vr>200000){
+            if(vr>250000){
                 b.vx*=0.95;
                 b.vy*=0.95;
             }
@@ -79,10 +79,10 @@ public class physics {
                 b.lastid = wall;
                 b.vx = -b.vx;
                 if(b.x + b.r >= b.parent().getB()){
-                    b.vy = b.vy + (b.w*b.r)*rv;
+                    //b.vy = b.vy + (b.w*b.r)*rv;
                 }
                 else {
-                    b.vy = b.vy - (b.w * b.r)*rv;
+                    //b.vy = b.vy - (b.w * b.r)*rv;
                 }
                 if (b.x <= b.r)
                     ((board) b.parent()).closeSide(3);
@@ -92,10 +92,10 @@ public class physics {
                 b.lastid = wall;
                 b.vy = -b.vy;
                 if(b.y + b.r >= b.parent().getL()){
-                    b.vx = b.vx - (b.w*b.r)*rv;
+                    //b.vx = b.vx - (b.w*b.r)*rv;
                 }
                 else {
-                    b.vx = b.vx + (b.w * b.r)*rv;
+                    //b.vx = b.vx + (b.w * b.r)*rv;
                 }
                 if (b.y <= b.r)
                     ((board) b.parent()).closeSide(2);
@@ -166,7 +166,7 @@ public class physics {
                     if (wx && !wy) {
                         //System.out.println("y");
                         ball.vy = -ball.vy;
-                        if(bat instanceof bat){
+                        /*if(bat instanceof bat){
                             bat b = (bat) bat;
                             switch (bat.b){
                                 case 0 :
@@ -176,10 +176,10 @@ public class physics {
                                     ball.vx = ball.vx + (ball.w*ball.r)*rv;
                                     break;
                             }
-                        }
+                        }*/
                     } else if (wy && !wx) {
                         ball.vx = -ball.vx;
-                        if(bat instanceof bat){
+                        /*if(bat instanceof bat){
                             bat b = (bat) bat;
                             switch (bat.b){
                                 case 0 :
@@ -189,7 +189,7 @@ public class physics {
                                     ball.vy = ball.vy - (ball.w*ball.r)*rv;
                                     break;
                             }
-                        }
+                        }*/
                         //System.out.println("x");
                     } else {//edge
                         //System.out.println("Edge");
