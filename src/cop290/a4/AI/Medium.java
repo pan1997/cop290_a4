@@ -60,9 +60,9 @@ public class Medium extends bat {
                         if (xp < 0) xp = -1 * xp;
                     }
 
-                    if (x + 50.0 / 4 < xp) {
+                    if (loc*boardAcSize + 50.0 / 4 < xp) {
                         vel = 0.8;
-                    } else if (x - 50.0 / 4 > xp) {
+                    } else if (loc*boardAcSize - 50.0 / 4 > xp) {
                         vel = -0.8;
                     }
                     else {
@@ -104,9 +104,9 @@ public class Medium extends bat {
                         if (yp < 0) yp = -1 * yp;
                     }
 
-                    if (y + 50.0 / 4 < yp) {
+                    if (loc*boardAcSize + 50.0 / 4 < yp) {
                         vel = -0.8;
-                    } else if (y - 50.0 / 4 > yp) {
+                    } else if (loc*boardAcSize - 50.0 / 4 > yp) {
                         vel = 0.8;
                     }
                     else {
@@ -148,9 +148,9 @@ public class Medium extends bat {
                         if (xp < 0) xp = -1 * xp;
                     }
 
-                    if (x + 50.0 / 4 < xp) {
+                    if (loc*boardAcSize + 50.0 / 4 < xp) {
                         vel = -0.8;
-                    } else if (x - 50.0 / 4 > xp) {
+                    } else if (loc*boardAcSize - 50.0 / 4 > xp) {
                         vel = 0.8;
                     }
                     else {

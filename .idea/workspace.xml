@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting$1.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/AI/Medium.java" afterPath="$PROJECT_DIR$/src/cop290/a4/AI/Medium.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cop290_a4.iws" />
@@ -69,8 +66,8 @@
       <file leaf-file-name="Medium.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/AI/Medium.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46180555">
-              <caret line="110" column="21" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.9010417">
+              <caret line="152" column="46" selection-start-line="152" selection-start-column="46" selection-end-line="152" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -162,7 +159,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/cop290/a4/AI/Medium.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/AI/Easy.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/circularObstacle.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java" />
@@ -176,6 +172,7 @@
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/board.java" />
+        <option value="$PROJECT_DIR$/src/cop290/a4/AI/Medium.java" />
       </list>
     </option>
   </component>
@@ -810,7 +807,13 @@
       <option name="project" value="LOCAL" />
       <updated>1462010529516</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="stash">
+      <created>1462011277920</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1462011277920</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -873,7 +876,8 @@
     <MESSAGE value="stages" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="ai when disconnect" />
-    <option name="LAST_COMMIT_MESSAGE" value="ai when disconnect" />
+    <MESSAGE value="stash" />
+    <option name="LAST_COMMIT_MESSAGE" value="stash" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1311,8 +1315,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/AI/Medium.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46180555">
-          <caret line="110" column="21" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.9010417">
+          <caret line="152" column="46" selection-start-line="152" selection-start-column="46" selection-end-line="152" selection-end-column="46" />
           <folding />
         </state>
       </provider>
