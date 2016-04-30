@@ -31,8 +31,8 @@ public class board extends animPanel implements KeyListener {
     public board(int l, int b, int ups, int skp, physics physics, broadcasting bds, int s) {
         super(l, b, ups, skp);
         lives = new int[4];
-        closed=new boolean[4];
-        lives[0] = lives[1] = lives[2] = lives[3] = 100;
+        closed = new boolean[4];
+        lives[0] = lives[1] = lives[2] = lives[3] = 10;
         spirits = new ArrayList<>();
         bats = new ArrayList<>();
         if (bds != null) {
@@ -231,8 +231,8 @@ public class board extends animPanel implements KeyListener {
                         ((Nphysics) ph).broadcast("bat " + i + " " + b.loc);
                 }
             }
-            for(int or=0;or<4;or++)
-                if (lives[or] == 0&&!closed[or]) {
+            for (int or = 0; or < 4; or++)
+                if (lives[or] == 0 && !closed[or]) {
                     block blk = new block(this);
                     blk.x = or == 1 ? l - 20 : 0;
                     blk.y = or == 0 ? b - 20 : 0;
@@ -240,14 +240,14 @@ public class board extends animPanel implements KeyListener {
                     blk.b = or % 2 == 0 ? 20 : b;
                     spirits.add(blk);
                     ph.add(blk);
-                    closed[or]=true;
-                    int nc=0,p=0;
-                    for(int i=0;i<4;i++)
-                        if(closed[i])
+                    closed[or] = true;
+                    int nc = 0, p = 0;
+                    for (int i = 0; i < 4; i++)
+                        if (closed[i])
                             nc++;
-                        else p=i;
-                    if(nc==3){
-                        JOptionPane.showMessageDialog(null,"Player "+p+" Wins","Game Ends",JOptionPane.INFORMATION_MESSAGE);
+                        else p = i;
+                    if (nc == 3) {
+                        JOptionPane.showMessageDialog(null, "Player " + p + " Wins", "Game Ends", JOptionPane.INFORMATION_MESSAGE);
                         stop();
                         //stop();
                     }

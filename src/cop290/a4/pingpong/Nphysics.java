@@ -17,7 +17,6 @@ public class Nphysics extends physics implements Runnable {
     DataOutputStream dout;
     int port;
     String serverAd;
-    ServerSocket sck;
 
     public Nphysics(int p, String s) {
         serverAd = s;

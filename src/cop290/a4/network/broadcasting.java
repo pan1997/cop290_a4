@@ -47,8 +47,10 @@ public class broadcasting implements Runnable {
         for (int i = 0; i < out.size(); i++) {
             DataOutputStream o = out.get(i);
             try {
-                o.writeUTF(message);
-                o.flush();
+                synchronized (o) {
+                    o.writeUTF(message);
+                    o.flush();
+                }
             } catch (Exception e) {
                 out.remove(i);
                 i--;
@@ -63,10 +65,12 @@ public class broadcasting implements Runnable {
         for (int i = 0; i < out.size(); i++) {
             DataOutputStream o = out.get(i);
             try {
-                for (Spirit s : spirits)
-                    if (!(s instanceof block) && !(s instanceof circularObstacle))
-                        o.writeUTF("loc " + s.toString());
-                o.flush();
+                synchronized (o) {
+                    for (Spirit s : spirits)
+                        if (!(s instanceof block) && !(s instanceof circularObstacle))
+                            o.writeUTF("loc " + s.toString());
+                    o.flush();
+                }
             } catch (SocketException e) {
 
                 out.remove(i);
@@ -125,8 +129,10 @@ public class broadcasting implements Runnable {
                                     int xx=Integer.parseInt(st.nextToken());
                                     parent.bats.get(xx).loc=Double.parseDouble(st.nextToken());
                                     for(DataOutputStream dt:out){
-                                        dt.writeUTF(cmd);
-                                        dt.flush();
+                                        synchronized (dt) {
+                                            dt.writeUTF(cmd);
+                                            dt.flush();
+                                        }
                                     }
                                 }
                             } catch (Exception e) {
