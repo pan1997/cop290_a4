@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="Server shift for more than 2 players">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/AI/Medium.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/AI/Medium.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting$1.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" />
+    <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" afterPath="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" />
     </list>
@@ -81,7 +76,7 @@
       <file leaf-file-name="board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="915">
               <caret line="84" column="24" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
               <folding>
                 <element signature="e#1168#1175#0" expanded="true" />
@@ -105,8 +100,8 @@
       <file leaf-file-name="Nphysics.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
+            <state relative-caret-position="136">
+              <caret line="124" column="40" selection-start-line="124" selection-start-column="40" selection-end-line="124" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,8 +112,8 @@
       <file leaf-file-name="broadcasting.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="75" column="105" selection-start-line="75" selection-start-column="105" selection-end-line="75" selection-end-column="105" />
+            <state relative-caret-position="60">
+              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#852#853#0" expanded="true" />
@@ -945,7 +940,7 @@
       <workItem from="1461869885604" duration="2539000" />
       <workItem from="1461936171954" duration="2283000" />
       <workItem from="1461938736934" duration="721000" />
-      <workItem from="1462005733640" duration="7161000" />
+      <workItem from="1462005733640" duration="7783000" />
     </task>
     <task id="LOCAL-00001" summary="AI checked">
       <created>1461860564689</created>
@@ -1108,15 +1103,22 @@
       <option name="project" value="LOCAL" />
       <updated>1462012625902</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Server shift for more than 2 players">
+      <created>1462012904236</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1462012904236</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22638000" />
+    <option name="totallyTimeSpent" value="23260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1126,7 +1128,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32819724" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32819724" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1171,7 +1173,8 @@
     <MESSAGE value="NPhysics changed for more than 2 players" />
     <MESSAGE value="bugs fixed" />
     <MESSAGE value="Server shift" />
-    <option name="LAST_COMMIT_MESSAGE" value="Server shift" />
+    <MESSAGE value="Server shift for more than 2 players" />
+    <option name="LAST_COMMIT_MESSAGE" value="Server shift for more than 2 players" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1580,18 +1583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="84" column="24" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
-          <folding>
-            <element signature="e#1168#1175#0" expanded="true" />
-            <element signature="e#3122#3123#0" expanded="true" />
-            <element signature="e#3147#3148#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2789">
@@ -1603,10 +1594,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="84" column="24" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
+          <folding>
+            <element signature="e#1168#1175#0" expanded="true" />
+            <element signature="e#3122#3123#0" expanded="true" />
+            <element signature="e#3147#3148#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="75" column="105" selection-start-line="75" selection-start-column="105" selection-end-line="75" selection-end-column="105" />
+        <state relative-caret-position="60">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#852#853#0" expanded="true" />
@@ -1619,8 +1622,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
+        <state relative-caret-position="136">
+          <caret line="124" column="40" selection-start-line="124" selection-start-column="40" selection-end-line="124" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

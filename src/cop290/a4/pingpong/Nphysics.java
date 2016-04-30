@@ -123,22 +123,6 @@ public class Nphysics extends physics implements Runnable {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    board bd = ((board) balls.get(0).parent());
-                    if (others.size() > 0) {
-
-                    } else {
-                        bd.bds = Main.bds;
-                        physics ph = new physics();
-                        ph.balls=balls;
-                        ph.map=map;
-                        ph.blocks=blocks;
-                        ph.circs=circs;
-                        ph.teleport=teleport;
-                        ph.holes=holes;
-                        bd.ph = ph;
-                        System.out.println("Physics changed jsckbkjcbk");
-                        return;
-                    }
                 }
             }
         } catch (Exception e) {
@@ -151,6 +135,8 @@ public class Nphysics extends physics implements Runnable {
                 return;
             } else {
                 bd.bds = Main.bds;
+                Main.bds.parent=bd;
+                Main.bds.setSpirits(bd.spirits);
                 Main.bds.users=bd.userId+1;
                 physics ph = new physics();
                 ph.balls=balls;
