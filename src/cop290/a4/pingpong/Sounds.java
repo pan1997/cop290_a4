@@ -1,7 +1,6 @@
 package cop290.a4.pingpong;
 
 import cop290.a4.Main;
-import org.classpath.icedtea.pulseaudio.PulseAudioMixer;
 
 import javax.sound.sampled.*;
 import java.io.BufferedInputStream;

@@ -4,119 +4,38 @@ import java.awt.*;
 
 /**
  * Created by pankaj on 30/3/16.
+ * This is the main spirit class. it is the base for all balls boards and others.
  */
 
-public abstract class Spirit extends Canvas {
+public abstract class Spirit {
+    //total number of spirits
     private static int ns;
-
+    //x and y coord of the spirit
     public double x, y;
+    //spirit id
     int id;
+    //parent component
     protected animPanel parent;
-
+    //return id
     public int getID() {
         return id;
     }
-
+    //constructor
     public Spirit(animPanel parent) {
         this.parent = parent;
         id = ns++;
     }
-
+    /*
+        call to pudate spirit
+     */
     public abstract void updateSpirit(double dt);
-
+    /*
+    call to render spirit
+     */
     public abstract void renderSpirit(Graphics2D g);
 
     @Override
     public String toString() {
         return getID() + " " + x + " " + y;
-    }
-}
-
-class ballSpirit extends Spirit {
-    double x, y, vx, vy;
-    double r;
-
-
-    public ballSpirit(animPanel a) {
-        super(a);
-        double theta = Math.random() * Math.PI * 2;
-        vx = (Math.cos(theta) * 5);
-        vy = (Math.sin(theta) * 5);
-        r = 10;
-        x = y = 250;
-    }
-
-    @Override
-    public void updateSpirit(double dt) {
-        x += vx*dt;
-        y += vy*dt;
-        //if(x+r>=parent.b||x<=r)
-        //    vx=-vx;
-        //if(y+r>=parent.l||y<=r)
-        //    vy=-vy;
-    }
-
-    @Override
-    public void renderSpirit(Graphics2D g) {
-        g.setColor(Color.red);
-        g.fillOval((int) (x - r), (int) (y - r), (int) (2 * r), (int) (2 * r));
-    }
-}
-
-class batSpirit extends Spirit {
-    int orinetation;
-    double px, py;
-
-    batSpirit(animPanel parent, int o) {
-        super(parent);
-        orinetation = o;
-        switch (orinetation) {
-            case 0:
-                py = parent.l - 10;
-                px = 0;
-                break;
-            case 1:
-                px = parent.b - 10;
-                py = 0;
-                break;
-            case 2:
-                py = 0;
-                px = 0;
-                break;
-            case 3:
-                px = 0;
-                py = 0;
-                break;
-        }
-    }
-
-    @Override
-    public void updateSpirit(double dt) {
-    }
-
-    public void updateLoc(double x, double y) {
-        switch (orinetation) {
-            case 0:
-                px = x - 25;
-                break;
-            case 1:
-                py = y - 25;
-                break;
-            case 2:
-                px = x - 25;
-                break;
-            case 3:
-                py = y - 25;
-                break;
-        }
-    }
-
-    @Override
-    public void renderSpirit(Graphics2D g) {
-        g.setColor(Color.blue);
-        if (orinetation % 2 == 0)
-            g.fillRect((int) px, (int) py, 50, 10);
-        else
-            g.fillRect((int) px, (int) py, 10, 50);
     }
 }
