@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import cop290.a4.animation.Spirit;
+import cop290.a4.pingpong.Ball;
 import cop290.a4.pingpong.block;
 import cop290.a4.pingpong.board;
 import cop290.a4.pingpong.circularObstacle;
@@ -68,9 +69,13 @@ public class broadcasting implements Runnable {
             DataOutputStream o = out.get(i);
             try {
                 synchronized (o) {
-                    for (Spirit s : spirits)
+                    for (Spirit s : spirits) {
                         if (!(s instanceof block) && !(s instanceof circularObstacle))
                             o.writeUTF("loc " + s.toString());
+                        if(s instanceof Ball){
+                            o.writeUTF("balls "+s.getID()+" "+((Ball) s).getVx()+" "+((Ball) s).getVy());
+                        }
+                    }
                     o.flush();
                 }
             } catch (SocketException e) {

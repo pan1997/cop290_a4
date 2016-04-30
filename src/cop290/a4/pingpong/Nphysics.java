@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import cop290.a4.Main;
@@ -24,6 +25,7 @@ public class Nphysics extends physics implements Runnable {
         serverAd = s;
         port = p;
         new Thread(this).start();
+        others=new ArrayList<>();
     }
 
     void broadcast(String message) {
@@ -99,6 +101,13 @@ public class Nphysics extends physics implements Runnable {
                             board bd = (board) (balls.get(0).parent());
                             bd.userId = Integer.parseInt(st.nextToken());
                             bd.rot = bd.userId;
+                        } else if(type.equals("balls")){
+                            id = Integer.parseInt(st.nextToken());
+                            x = Double.parseDouble(st.nextToken());
+                            y = Double.parseDouble(st.nextToken());
+                            Ball s = (Ball)map.get(id);
+                            s.vx=x;
+                            s.vy=y;
                         } else if (type.equals("Other_Users")) {
                             //System.out.println(cmd);
                             serverAd = st.nextToken();
@@ -116,17 +125,42 @@ public class Nphysics extends physics implements Runnable {
                     e.printStackTrace();
                     board bd = ((board) balls.get(0).parent());
                     if (others.size() > 0) {
+
                     } else {
                         bd.bds = Main.bds;
                         physics ph = new physics();
-                        for (Spirit s : bd.spirits)
-                            ph.add(s);
+                        ph.balls=balls;
+                        ph.map=map;
+                        ph.blocks=blocks;
+                        ph.circs=circs;
+                        ph.teleport=teleport;
+                        ph.holes=holes;
                         bd.ph = ph;
+                        System.out.println("Physics changed jsckbkjcbk");
+                        return;
                     }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
+            board bd = ((board) balls.get(0).parent());
+            if (others.size() > 0) {
+
+            } else {
+                bd.bds = Main.bds;
+                physics ph = new physics();
+                ph.balls=balls;
+                ph.map=map;
+                ph.blocks=blocks;
+                ph.circs=circs;
+                ph.teleport=teleport;
+                ph.holes=holes;
+                bd.ph = ph;
+                for(int i=0;i<4;i++)
+                    if(i!=bd.userId)
+                        bd.bats.get(i).ai=true;
+                System.out.println("Physics changed");
+            }
         }
     }
 }

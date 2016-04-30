@@ -49,9 +49,6 @@ public class physics {
         map.put(b.getID(), b);
     }
 
-    void add(Spirit s){
-        System.out.println("Erororo");
-    }
     void add(circularObstacle c) {
         circs.add(c);
         map.put(c.getID(), c);

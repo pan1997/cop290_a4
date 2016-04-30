@@ -63,22 +63,26 @@ public class board extends animPanel implements KeyListener {
             ph.add(corners.get(i));
         }
         if (ph instanceof Nphysics) {
-            bat bt = new bat(this, 0);
+            bat bt = new PanAI(this, 0);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
-            bt = new bat(this, 1);
+            bt.ai=false;
+            bt = new PanAI(this, 1);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
-            bt = new bat(this, 2);
+            bt.ai=false;
+            bt = new PanAI(this, 2);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
-            bt = new bat(this, 3);
+            bt.ai=false;
+            bt = new PanAI(this, 3);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
+            bt.ai=false;
         } else {
             bat bt = new Medium(this, 0);
             spirits.add(bt);
