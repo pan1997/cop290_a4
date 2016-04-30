@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java" afterPath="$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java" afterPath="$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java" />
     </list>
     <ignored path="cop290_a4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,14 +38,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="physics.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="physics.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2789">
-              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+            <state relative-caret-position="0">
+              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
               <folding>
-                <element signature="e#1028#1029#0" expanded="true" />
-                <element signature="e#1056#1057#0" expanded="true" />
+                <element signature="e#1215#1216#0" expanded="true" />
+                <element signature="e#1243#1244#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="animPanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="animPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="144" column="34" selection-start-line="144" selection-start-column="34" selection-end-line="144" selection-end-column="34" />
+            <state relative-caret-position="154">
+              <caret line="149" column="19" selection-start-line="149" selection-start-column="19" selection-end-line="149" selection-end-column="19" />
               <folding>
                 <element signature="e#1984#1985#0" expanded="true" />
                 <element signature="e#2008#2009#0" expanded="true" />
@@ -141,14 +139,14 @@
       <file leaf-file-name="broadcasting.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
+            <state relative-caret-position="-837">
               <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#852#853#0" expanded="true" />
-                <element signature="e#883#884#0" expanded="true" />
-                <element signature="e#2729#2730#0" expanded="true" />
-                <element signature="e#2757#2758#0" expanded="true" />
+                <element signature="e#942#943#0" expanded="true" />
+                <element signature="e#973#974#0" expanded="true" />
+                <element signature="e#2945#2946#0" expanded="true" />
+                <element signature="e#2973#2974#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -180,7 +178,6 @@
         <option value="$PROJECT_DIR$/src/cop290/a4/AI/PanAI.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/bat.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/Main.java" />
-        <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/Ball.java" />
@@ -188,6 +185,7 @@
         <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/board.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/animation/Spirit.java" />
         <option value="$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java" />
+        <option value="$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java" />
       </list>
     </option>
   </component>
@@ -1026,7 +1024,7 @@
       <workItem from="1461869885604" duration="2539000" />
       <workItem from="1461936171954" duration="2283000" />
       <workItem from="1461938736934" duration="721000" />
-      <workItem from="1462005733640" duration="9245000" />
+      <workItem from="1462005733640" duration="9479000" />
     </task>
     <task id="LOCAL-00001" summary="AI checked">
       <created>1461860564689</created>
@@ -1217,11 +1215,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462014398938</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="documentation">
+      <created>1462014991201</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1462014991201</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24722000" />
+    <option name="totallyTimeSpent" value="24956000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -1235,7 +1240,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819724" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32819724" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1301,10 +1306,10 @@
           <caret line="116" column="58" selection-start-line="116" selection-start-column="58" selection-end-line="116" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#883#884#0" expanded="true" />
-            <element signature="e#2729#2730#0" expanded="true" />
-            <element signature="e#2757#2758#0" expanded="true" />
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#2945#2946#0" expanded="true" />
+            <element signature="e#2973#2974#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1324,8 +1329,8 @@
         <state relative-caret-position="885">
           <caret line="65" column="30" selection-start-line="65" selection-start-column="30" selection-end-line="65" selection-end-column="30" />
           <folding>
-            <element signature="e#1028#1029#0" expanded="true" />
-            <element signature="e#1056#1057#0" expanded="true" />
+            <element signature="e#1215#1216#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1512,10 +1517,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#883#884#0" expanded="true" />
-            <element signature="e#2729#2730#0" expanded="true" />
-            <element signature="e#2757#2758#0" expanded="true" />
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#2945#2946#0" expanded="true" />
+            <element signature="e#2973#2974#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1525,8 +1530,8 @@
         <state relative-caret-position="0">
           <caret line="185" column="1" selection-start-line="185" selection-start-column="1" selection-end-line="185" selection-end-column="1" />
           <folding>
-            <element signature="e#1028#1029#0" expanded="true" />
-            <element signature="e#1056#1057#0" expanded="true" />
+            <element signature="e#1215#1216#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1564,8 +1569,8 @@
         <state relative-caret-position="0">
           <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
           <folding>
-            <element signature="e#1028#1029#0" expanded="true" />
-            <element signature="e#1056#1057#0" expanded="true" />
+            <element signature="e#1215#1216#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1654,17 +1659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2789">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-          <folding>
-            <element signature="e#1028#1029#0" expanded="true" />
-            <element signature="e#1056#1057#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -1725,27 +1719,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java">
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        <state relative-caret-position="154">
+          <caret line="149" column="19" selection-start-line="149" selection-start-column="19" selection-end-line="149" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#883#884#0" expanded="true" />
-            <element signature="e#2729#2730#0" expanded="true" />
-            <element signature="e#2757#2758#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2008#2009#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cop290/a4/animation/animPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="144" column="34" selection-start-line="144" selection-start-column="34" selection-end-line="144" selection-end-column="34" />
+        <state relative-caret-position="-837">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
           <folding>
-            <element signature="e#1984#1985#0" expanded="true" />
-            <element signature="e#2008#2009#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#2945#2946#0" expanded="true" />
+            <element signature="e#2973#2974#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding>
+            <element signature="e#1215#1216#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
           </folding>
         </state>
       </provider>

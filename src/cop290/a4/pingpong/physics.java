@@ -8,12 +8,18 @@ import cop290.a4.animation.Spirit;
 
 /**
  * Created by pankaj on 12/4/16.
+ * It performs the physics/world updates
  */
 public class physics {
+    // the set of balls
     ArrayList<Ball> balls;
+    //set of blocks including bats
     ArrayList<block> blocks;
+    //set of circular objects and holes
     ArrayList<circularObstacle> circs, holes;
+    //teleport maps
     Map<Integer, circularObstacle> teleport;
+    //map of id to spirits
     Map<Integer, Spirit> map;
     double rv = 0.2;
 
