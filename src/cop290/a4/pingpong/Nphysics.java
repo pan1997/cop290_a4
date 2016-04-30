@@ -4,8 +4,10 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import cop290.a4.Main;
 import cop290.a4.animation.Spirit;
 
 /**
@@ -16,6 +18,7 @@ public class Nphysics extends physics implements Runnable {
     DataOutputStream dout;
     int port;
     String serverAd;
+    ArrayList<String> others;
 
     public Nphysics(int p, String s) {
         serverAd = s;
@@ -97,20 +100,29 @@ public class Nphysics extends physics implements Runnable {
                             bd.userId = Integer.parseInt(st.nextToken());
                             bd.rot = bd.userId;
                         } else if (type.equals("Other_Users")) {
-                            /*System.out.println(cmd);
+                            //System.out.println(cmd);
                             serverAd = st.nextToken();
                             StringTokenizer t = new StringTokenizer(serverAd, ":");
                             serverAd = t.nextToken();
                             serverAd = serverAd.substring(1);
-                            port = Integer.parseInt(t.nextToken());
-                            System.out.println(serverAd + " " + port);
-                            new Thread(this).start();
-                            */
+                            others.add(serverAd);
+                            //System.out.println(serverAd + " " + port);
+                            //new Thread(this).start();
+
                         }
                         //System.out.println(cmd+"---"+type);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    board bd = ((board) balls.get(0).parent());
+                    if (others.size() > 0) {
+                    } else {
+                        bd.bds = Main.bds;
+                        physics ph = new physics();
+                        for (Spirit s : bd.spirits)
+                            ph.add(s);
+                        bd.ph = ph;
+                    }
                 }
             }
         } catch (Exception e) {

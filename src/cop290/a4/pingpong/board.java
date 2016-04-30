@@ -1,8 +1,6 @@
 package cop290.a4.pingpong;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -10,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import cop290.a4.AI.Medium;
+import cop290.a4.AI.PanAI;
 import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
 import cop290.a4.network.broadcasting;
@@ -86,7 +85,7 @@ public class board extends animPanel implements KeyListener {
             ph.add(bt);
             bats.add(bt);
             bt.ai = false;
-            bt = new Medium(this, 1);
+            bt = new PanAI(this, 1);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
