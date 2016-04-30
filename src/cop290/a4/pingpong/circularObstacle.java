@@ -1,14 +1,15 @@
 package cop290.a4.pingpong;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
+
 import cop290.a4.animation.Spirit;
 import cop290.a4.animation.animPanel;
-
-import java.awt.*;
 
 /**
  * Created by pankaj on 24/4/16.
  */
-public class circularObstacle extends Spirit {
+public class circularObstacle extends Spirit { //stationary and teleport pair parents
     double r;
     Color fill;
     Color boundary;
