@@ -4,30 +4,52 @@ import cop290.a4.animation.Spirit;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
  * Created by pankaj on 23/4/16.
  */
 public class Nphysics extends physics implements Runnable {
-    DataInputStream din;
-    DataOutputStream dout;
+    ArrayList<DataInputStream> din;
+    ArrayList<DataOutputStream> dout;
     int port;
     String serverAd;
+    ServerSocket sck;
 
     public Nphysics(int p, String s) {
         serverAd = s;
         port = p;
-        new Thread(this).start();
-    }
-    void broadcast(String message){
+        din = new ArrayList<>();
+        dout = new ArrayList<>();
         try {
-            dout.writeUTF(message);
-            dout.flush();
-        }catch (Exception e){
+            sck = new ServerSocket(port);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for(;;)try{
+                        cl=sck.accept();
+                        new Thread(this).start();
+                        Thread.sleep(50);
+                    }catch (Exception e){e.printStackTrace();}
+                }
+            }).start();
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        new Thread(this).start();
+    }
+    void broadcast(String message) {
+        dout.forEach(e -> {
+            try {
+                e.writeUTF(message);
+                e.flush();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
     }
     long last = 0;
     void update() {
@@ -37,16 +59,24 @@ public class Nphysics extends physics implements Runnable {
         blocks.forEach(e->e.updateSpirit(dt));
         balls.forEach(e -> e.e2d.setFrame(e.x - e.r, e.y - e.r, 2 * e.r, 2 * e.r));
     }
-
+    Socket cl;
     @Override
     public void run() {
         try {
-            Socket cl = new Socket(serverAd, port);
-            System.out.println("Connected");
-            din = new DataInputStream(cl.getInputStream());
-            dout=new DataOutputStream(cl.getOutputStream());
+            if(cl==null)
+                cl = new Socket(serverAd, port);
+            DataInputStream dint ;
+            DataOutputStream doutt;
+            synchronized (cl) {
+                System.out.println("Connected");
+                dint = new DataInputStream(cl.getInputStream());
+                doutt = new DataOutputStream(cl.getOutputStream());
+                cl=null;
+            }
+            din.add(dint);
+            dout.add(doutt);
             for (; ; ) {
-                String cmd = din.readUTF();
+                String cmd = dint.readUTF();
                 //System.out.println(cmd);
                 int id;
                 double x, y;
@@ -88,6 +118,9 @@ public class Nphysics extends physics implements Runnable {
                             board bd = (board) (balls.get(0).parent());
                             bd.userId=Integer.parseInt(st.nextToken());
                             bd.rot=bd.userId;
+                        } else if(type.equals("Other_users")){
+                            serverAd=st.nextToken();
+                            new Thread(this).start();
                         }
                         //System.out.println(cmd+"---"+type);
                     }
