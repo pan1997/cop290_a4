@@ -1,11 +1,5 @@
 package cop290.a4.network;
 
-import cop290.a4.animation.Spirit;
-import cop290.a4.pingpong.bat;
-import cop290.a4.pingpong.block;
-import cop290.a4.pingpong.board;
-import cop290.a4.pingpong.circularObstacle;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -14,6 +8,11 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+
+import cop290.a4.animation.Spirit;
+import cop290.a4.pingpong.block;
+import cop290.a4.pingpong.board;
+import cop290.a4.pingpong.circularObstacle;
 
 /**
  * Created by pankaj on 23/4/16.
@@ -69,6 +68,7 @@ public class broadcasting implements Runnable {
                         o.writeUTF("loc " + s.toString());
                 o.flush();
             } catch (SocketException e) {
+
                 out.remove(i);
                 i--;
                 System.out.println("Socket exception closed " + o);
