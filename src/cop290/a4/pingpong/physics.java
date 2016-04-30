@@ -15,6 +15,7 @@ public class physics {
     ArrayList<circularObstacle> circs, holes;
     Map<Integer, circularObstacle> teleport;
     Map<Integer, Spirit> map;
+    double rv = 0.2;
 
     public physics() {
         balls = new ArrayList<>();
@@ -68,7 +69,7 @@ public class physics {
             b.y += b.vy * dt / 2;
             b.theta += b.w * dt / 2;
             double vr=b.vx*b.vx+b.vy*b.vy;
-            if(vr>500000){
+            if(vr>200000){
                 b.vx*=0.95;
                 b.vy*=0.95;
             }
@@ -77,13 +78,25 @@ public class physics {
             if (b.x + b.r >= b.parent().getB() || b.x <= b.r) {
                 b.lastid = wall;
                 b.vx = -b.vx;
-                if (b.x <= b.r) 
+                if(b.x + b.r >= b.parent().getB()){
+                    b.vy = b.vy + (b.w*b.r)*rv;
+                }
+                else {
+                    b.vy = b.vy - (b.w * b.r)*rv;
+                }
+                if (b.x <= b.r)
                     ((board) b.parent()).closeSide(3);
                 else ((board) b.parent()).closeSide(1);
             }
             if (b.y + b.r >= b.parent().getL() || b.y <= b.r) {
                 b.lastid = wall;
                 b.vy = -b.vy;
+                if(b.y + b.r >= b.parent().getL()){
+                    b.vx = b.vx - (b.w*b.r)*rv;
+                }
+                else {
+                    b.vx = b.vx + (b.w * b.r)*rv;
+                }
                 if (b.y <= b.r)
                     ((board) b.parent()).closeSide(2);
                 else ((board) b.parent()).closeSide(0);
@@ -109,6 +122,10 @@ public class physics {
                     b1.vy += (v2_along - v1_along) * ryu;
                     b2.vx += (v1_along - v2_along) * rxu;
                     b2.vy += (v1_along - v2_along) * ryu;
+
+                    double wTemp = b1.w;
+                    b1.w = -b2.w;
+                    b2.w = -wTemp;
                 }
             }
         }
@@ -149,8 +166,30 @@ public class physics {
                     if (wx && !wy) {
                         //System.out.println("y");
                         ball.vy = -ball.vy;
+                        if(bat instanceof bat){
+                            bat b = (bat) bat;
+                            switch (bat.b){
+                                case 0 :
+                                    ball.vx = ball.vx - (ball.w*ball.r)*rv;
+                                    break;
+                                case 2 :
+                                    ball.vx = ball.vx + (ball.w*ball.r)*rv;
+                                    break;
+                            }
+                        }
                     } else if (wy && !wx) {
                         ball.vx = -ball.vx;
+                        if(bat instanceof bat){
+                            bat b = (bat) bat;
+                            switch (bat.b){
+                                case 0 :
+                                    ball.vy = ball.vy + (ball.w*ball.r)*rv;
+                                    break;
+                                case 2 :
+                                    ball.vy = ball.vy - (ball.w*ball.r)*rv;
+                                    break;
+                            }
+                        }
                         //System.out.println("x");
                     } else {//edge
                         //System.out.println("Edge");

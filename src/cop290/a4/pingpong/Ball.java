@@ -31,7 +31,12 @@ public class Ball extends Spirit {
             vr=vx*vx+vy*vy;
         }while (vr<300*300.0);
         theta = Math.random();
-        w = 15 * (Math.random() - 0.5);
+        double wr = 0;
+        do{
+            w = 15 * (Math.random() - 0.5);
+            wr = Math.abs(w);
+        }while (wr < 5);
+
         r = 10;
         e2d = new Ellipse2D.Double(x - r, y - r, 2 * r, 2 * r);
     }
