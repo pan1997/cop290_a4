@@ -77,7 +77,7 @@ public class physics {
             if (b.x + b.r >= b.parent().getB() || b.x <= b.r) {
                 b.lastid = wall;
                 b.vx = -b.vx;
-                if (b.x <= b.r)
+                if (b.x <= b.r) 
                     ((board) b.parent()).closeSide(3);
                 else ((board) b.parent()).closeSide(1);
             }
