@@ -91,7 +91,7 @@ public class board extends animPanel implements KeyListener {
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
-            bt = new PanAI(this, 2);
+            bt = new PanAI(this, 02);
             spirits.add(bt);
             ph.add(bt);
             bats.add(bt);
@@ -142,7 +142,7 @@ public class board extends animPanel implements KeyListener {
                 circularObstacle circ = new circularObstacle(this, Color.ORANGE, null, null);
                 circ.x = l / 2;
                 circ.y = b / 2;
-                circ.r = 25;
+                circ.r = 35;
                 spirits.add(circ);
                 ph.add(circ);
             }
@@ -150,10 +150,10 @@ public class board extends animPanel implements KeyListener {
             case 4: {
                 circularObstacle c1 = new circularObstacle(this, null, Color.MAGENTA, Color.MAGENTA);
                 circularObstacle c2 = new circularObstacle(this, null, Color.MAGENTA, Color.MAGENTA);
-                c1.r = c2.r = 20;
-                c1.x = 150;
-                c1.y = 150;
-                c2.x = c2.y = 450;
+                c1.r = c2.r = 10;
+                c1.x = 180;
+                c1.y = 180;
+                c2.x = c2.y = 420;
                 spirits.add(c1);
                 spirits.add(c2);
                 ph.addTeleportPair(c1, c2);
@@ -169,19 +169,19 @@ public class board extends animPanel implements KeyListener {
                 circularObstacle c1 = new circularObstacle(this, null, Color.MAGENTA, Color.MAGENTA);
                 circularObstacle c2 = new circularObstacle(this, null, Color.MAGENTA, Color.MAGENTA);
                 c1.r = c2.r = 10;
-                c1.x = 150;
-                c1.y = 150;
-                c2.x = c2.y = 450;
+                c1.x = 180;
+                c1.y = 180;
+                c2.x = c2.y = 420;
                 spirits.add(c1);
                 spirits.add(c2);
                 ph.addTeleportPair(c1, c2);
                 c1 = new circularObstacle(this, null, Color.CYAN, Color.CYAN);
                 c2 = new circularObstacle(this, null, Color.CYAN, Color.CYAN);
                 c1.r = c2.r = 10;
-                c1.x = 450;
-                c1.y = 150;
-                c2.x = 150;
-                c2.y = 450;
+                c1.x = 420;
+                c1.y = 180;
+                c2.x = 180;
+                c2.y = 420;
                 spirits.add(c1);
                 spirits.add(c2);
                 ph.addTeleportPair(c1, c2);
