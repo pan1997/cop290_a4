@@ -249,6 +249,9 @@ public class board extends animPanel implements KeyListener {
                             nc++;
                         else p = i;
                     if (nc == 3) {
+                        Sounds sounds = new Sounds();
+                        sounds.initSound();
+                        sounds.playSound("go");
                         JOptionPane.showMessageDialog(null, "Player " + p + " Wins", "Game Ends", JOptionPane.INFORMATION_MESSAGE);
                         stop();
                         //stop();

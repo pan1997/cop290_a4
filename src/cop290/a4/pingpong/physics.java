@@ -157,6 +157,13 @@ public class physics {
         for (Ball ball : balls) {
             for (block bat : blocks)
                 if (ball.lastid != bat.getID() && ball.e2d.intersects(bat.x, bat.y, bat.l, bat.b)) {
+
+                    if(bat instanceof bat) {
+                        Sounds sounds = new Sounds();
+                        sounds.initSound();
+                        sounds.playSound("bat");
+                    }
+
                     ball.lastid = bat.getID();
 
                     boolean wx = ball.x >= bat.x && ball.x <= bat.x + bat.l;
