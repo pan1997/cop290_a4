@@ -6,20 +6,33 @@ import java.awt.image.BufferedImage;
 
 /**
  * Created by pankaj on 29/3/16.
+ * It is the base class containing animation framework
+ * It has double buffering and supports variable fps targets maintaing constant ups.
  */
 
 public class animPanel extends JPanel implements Runnable {
+    // length and breadth of the diosplay
     protected int b, l;
+    // count updates and frames rendered
     protected int u, f;
+    //initital infromation containing fps vs ups targets
     private long nskip, delay;
+    //requested updates per second
     private int upsr;
+    //current ups and fps
     private double ups, fps;
+    //The double buffer
     private Image screen;
+    // the graphics of the image
     private Graphics2D gscreen;
     private long pt;
+    //background
     protected Image background;
+    //runner thread
     Thread th;
+    //rotation
     public int rot=0;
+    //constructor
     public animPanel(int l, int b, int ups, int skp) {
         super();
         this.l = l;
@@ -32,11 +45,17 @@ public class animPanel extends JPanel implements Runnable {
         setPreferredSize(new Dimension(l,b));
         createBackground();
     }
+    /*
+    creates the background for the worls
+     */
     protected void createBackground(){
         Graphics g=background.getGraphics();
         g.setColor(Color.white);
         g.fillRect(0,0,l,b);
     }
+    /*
+    single update called upsr times per second
+     */
     protected void update() {
         if (u == 50) {
             long c = System.nanoTime();
@@ -46,12 +65,21 @@ public class animPanel extends JPanel implements Runnable {
             pt = c;
         }
     }
+    /*
+    return lsnget
+     */
     public int getL(){
         return l;
     }
+    /*
+    return breadth
+     */
     public int getB(){
         return b;
     }
+    /*
+    single frame render on the internal buffer
+     */
     protected void render(Graphics2D g) {
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
         g.drawImage(background,0,0,this);
@@ -59,7 +87,9 @@ public class animPanel extends JPanel implements Runnable {
         g.drawString("ups " + ups, 20, 30);
         g.drawString("fps " + fps, 20, 45);
     }
-
+    /*
+    single frame render on the screen
+     */
     public void paintComponent(Graphics gd) {
         super.paintComponent(gd);
         Graphics2D g = (Graphics2D)gd;
@@ -70,6 +100,9 @@ public class animPanel extends JPanel implements Runnable {
             System.out.println("No screen or img");
         }
     }
+    /*
+    single frame update + render
+     */
     public void singleFrame(){
         u++;
         f++;
@@ -78,6 +111,9 @@ public class animPanel extends JPanel implements Runnable {
         render(gscreen);
         paintRender();
     }
+    /*
+    active render the frame
+     */
     private void paintRender() {
         Graphics2D g = (Graphics2D)this.getGraphics();
         if (g != null && screen != null) {
@@ -87,6 +123,9 @@ public class animPanel extends JPanel implements Runnable {
             System.out.println("No screen or img1");
         }
     }
+    /*
+    start or restart the animation
+     */
     public void start() {
         if(!running) {
             pt = System.nanoTime();
@@ -95,13 +134,15 @@ public class animPanel extends JPanel implements Runnable {
             th.start();
         }
     }
-
+    /*
+    Stop/pause the game
+     */
     public void stop() {
         running = false;
     }
-
+    //true when game is on
     boolean running;
-
+    //the animation update render loop
     public void run() {
         long st = System.nanoTime();
         long td, slt;
