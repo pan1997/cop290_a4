@@ -100,7 +100,7 @@ public class Nphysics extends physics implements Runnable {
                             board bd = (board) (balls.get(0).parent());
                             bd.userId = Integer.parseInt(st.nextToken());
                             bd.rot = bd.userId;
-                        } else if (type.equals("Other_users")) {
+                        } else if (type.equals("Other_Users")) {
                             serverAd = st.nextToken();
                             new Thread(this).start();
                         }
