@@ -1,7 +1,12 @@
 package cop290.a4.terminal;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 /**
  * Created by pankaj on 12/4/16.
@@ -17,7 +22,7 @@ public class terminal{
         try{
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         }catch (Exception e){}
-        JFrame jf=new JFrame("tst");
+        JFrame jf=new JFrame("tst"); //access the game (give commands) using console
         JTextArea jt=new JTextArea();
         JTextField jtf=new JTextField();
         jtf.addActionListener(e -> {

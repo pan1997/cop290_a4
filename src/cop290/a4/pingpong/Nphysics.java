@@ -1,14 +1,13 @@
 package cop290.a4.pingpong;
 
-import cop290.a4.Main;
-import cop290.a4.animation.Spirit;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
+
+import cop290.a4.Main;
+import cop290.a4.animation.Spirit;
 
 /**
  * Created by pankaj on 23/4/16.
@@ -101,7 +100,12 @@ public class Nphysics extends physics implements Runnable {
                             bd.userId = Integer.parseInt(st.nextToken());
                             bd.rot = bd.userId;
                         } else if (type.equals("Other_Users")) {
+                            System.out.println(cmd);
                             serverAd = st.nextToken();
+                            StringTokenizer t = new StringTokenizer(serverAd, ":");
+                            serverAd = t.nextToken();
+                            serverAd = serverAd.substring(1);
+                            port = Integer.parseInt(t.nextToken());
                             new Thread(this).start();
                         }
                         //System.out.println(cmd+"---"+type);
