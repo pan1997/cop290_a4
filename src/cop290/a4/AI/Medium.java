@@ -12,6 +12,9 @@ import cop290.a4.pingpong.board;
  */
 public class Medium extends bat {
 
+    //medium AI finds out the ball that'll reach it fastest and does this at every frame to avoid ball to ball collision errors
+    //works better than human until velocity made slow
+
     ArrayList<Ball> balls;
     double boardSize = 570;
     double boardAcSize = 600;
@@ -36,6 +39,8 @@ public class Medium extends bat {
                     else
                         t = -(boardSize + balls.get(0).y - 15) / balls.get(0).getVy();
 
+                    //finds time taken to reach by first ball
+
                     for (int i = 1; i < numBalls; i++) {
                         if (balls.get(i).getVy() > 0)
                             temp = (boardSize - balls.get(i).y) / balls.get(i).getVy();
@@ -47,9 +52,11 @@ public class Medium extends bat {
                             ym = i;
                         }
                     }
+                    //finds ball that'll reach fastest and it's time
 
                     double d = t * Math.abs(balls.get(ym).getVx());
-                    //double q = d/boardSize;
+                    //distance that it'll move from it's position currently till it reaches bat
+
                     double rem = d % boardSize;
 
                     if (balls.get(ym).getVx() > 0) {
@@ -60,6 +67,8 @@ public class Medium extends bat {
                         if (xp < 0) xp = -1 * xp;
                     }
 
+                    //found the x/y co-ordinate of the location where ball that'll reach fastest will reach
+
                     if (loc*boardAcSize + 50.0 / 4 < xp) {
                         vel = 0.8;
                     } else if (loc*boardAcSize - 50.0 / 4 > xp) {
@@ -68,6 +77,8 @@ public class Medium extends bat {
                     else {
                         vel = 0;
                     }
+
+                    //adjusts the paddle acc. to the final ball location where it should go
 
                     break;
                 }
@@ -148,9 +159,9 @@ public class Medium extends bat {
                         if (xp < 0) xp = -1 * xp;
                     }
 
-                    if (loc*boardAcSize + 50.0 / 4 < xp) {
+                    if ((1-loc)*boardAcSize + 50.0 / 4 < xp) {
                         vel = -0.8;
-                    } else if (loc*boardAcSize - 50.0 / 4 > xp) {
+                    } else if ((1-loc)*boardAcSize - 50.0 / 4 > xp) {
                         vel = 0.8;
                     }
                     else {

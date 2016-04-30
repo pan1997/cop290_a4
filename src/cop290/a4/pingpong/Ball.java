@@ -9,6 +9,7 @@ import cop290.a4.animation.animPanel;
 
 /**
  * Created by pankaj on 12/4/16.
+ *
  */
 public class Ball extends Spirit {
     double vx, vy, theta, w;

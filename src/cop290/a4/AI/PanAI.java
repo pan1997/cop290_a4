@@ -12,6 +12,9 @@ import cop290.a4.pingpong.board;
 public class PanAI extends bat {
     ArrayList<Ball> balls;
 
+    //computes best possible selections of balls to hit and also maintains a near to center positions whenever it cam
+    //for better reachability to incoming balls
+
     public PanAI(animPanel parent, int orientation) {
         super(parent, orientation);
         ai=true;

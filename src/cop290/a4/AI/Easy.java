@@ -12,6 +12,9 @@ import cop290.a4.pingpong.board;
  */
 public class Easy extends bat {
 
+    //easy AI follows the nearest ball and doesn't look at the speed or ball that'll reach faster.
+    //easy AI's bat speed is also 0.6 times compared to fastest possible bat speed
+
     ArrayList<Ball> balls;
     int numBalls;
     double vBat = 0.6;
@@ -27,7 +30,7 @@ public class Easy extends bat {
         if(ai) {
             numBalls = balls.size();
 
-            switch (or) {
+            switch (or) { //choosing direction acc to orientation
                 case 0: {
                     double xp = 0;
                     int ym = 0;
@@ -36,7 +39,7 @@ public class Easy extends bat {
                             ym = i;
                             xp = balls.get(i).x;
                         }
-                    }
+                    } //choosing nearest ball coming towards bat
                     if(balls.get(ym).getVy() > 0) {
                         if (x + 50.0 / 3 < xp) {
                             vel = vBat;
@@ -45,7 +48,7 @@ public class Easy extends bat {
                         } else {
                             vel = 0;
                         }
-                    }
+                    }//aligning bat with nearest ball
                     break;
                 }
 

@@ -22,9 +22,9 @@ public class broadcasting implements Runnable {
     int port;
     ServerSocket skt;
     ArrayList<Socket> sockets;
-    ArrayList<Spirit> spirits;
-    ArrayList<DataOutputStream> out;
-    ArrayList<Integer> player;
+    ArrayList<Spirit> spirits; //spirits of animated objects
+    ArrayList<DataOutputStream> out; //data out streams of sockets
+    ArrayList<Integer> player; //bat number hashed to socket
     ArrayList<DataInputStream> in;
     String initMessage;
     public board parent;
@@ -45,7 +45,7 @@ public class broadcasting implements Runnable {
         in = new ArrayList<>();
     }
 
-    public void broadcast(String message) {
+    public void broadcast(String message) { //send a specific message on a socket
         //System.out.println("broadcasted");
         for (int i = 0; i < out.size(); i++) {
             DataOutputStream o = out.get(i);
@@ -62,7 +62,7 @@ public class broadcasting implements Runnable {
         }
     }
 
-    public void broadcast() throws Exception {
+    public void broadcast() throws Exception { //send data that is computed to all client player
 
         //System.out.println("broadcasted");
         for (int i = 0; i < out.size(); i++) {
@@ -79,7 +79,7 @@ public class broadcasting implements Runnable {
                     o.flush();
                 }
             } catch (SocketException e) {
-                parent.bats.get(player.get(i)).ai = true;
+                parent.bats.get(player.get(i)).ai = true; //when player disconnects make him ai
                 player.remove(i);
                 out.remove(i);
                 i--;
@@ -134,7 +134,7 @@ public class broadcasting implements Runnable {
                                     System.out.println(cmd);
                                 }
                                 else if(type.equals("bat")){
-                                    int xx=Integer.parseInt(st.nextToken());
+                                    int xx=Integer.parseInt(st.nextToken()); //sends bats locations
                                     parent.bats.get(xx).loc=Double.parseDouble(st.nextToken());
                                     for(DataOutputStream dt:out){
                                         synchronized (dt) {
@@ -153,9 +153,9 @@ public class broadcasting implements Runnable {
                 for (Socket ss : sockets) {
                     dout.writeUTF("Other_Users " + ss.getRemoteSocketAddress());
                 }
-                sockets.add(s);
+                sockets.add(s); //add socket to sockert list once a new user connects
                 //System.out.println("Socketssize"+sockets.size());
-                parent.bats.get(sockets.size()).ai=false;
+                parent.bats.get(sockets.size()).ai=false; //hashes bat to socket
                 dout.writeUTF(initMessage);
                 player.add(users);
                 dout.writeUTF("userId " + users++);
