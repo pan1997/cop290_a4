@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="bugs fixed">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/physics.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/physics.class" />
+    <list default="true" id="15b31ce5-2535-47c8-89ed-1ead00b5965b" name="Default" comment="Server shift for more than 2 players">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/AI/Medium.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/AI/Medium.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting$1.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/network/broadcasting.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/Nphysics.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" afterPath="$PROJECT_DIR$/out/production/COP290_A4/cop290/a4/pingpong/board.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java" afterPath="$PROJECT_DIR$/src/cop290/a4/network/broadcasting.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" afterPath="$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/pingpong/board.java" afterPath="$PROJECT_DIR$/src/cop290/a4/pingpong/board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java" afterPath="$PROJECT_DIR$/src/cop290/a4/pingpong/physics.java" />
     </list>
     <ignored path="cop290_a4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,8 +105,8 @@
       <file leaf-file-name="Nphysics.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="109" column="35" selection-start-line="109" selection-start-column="35" selection-end-line="109" selection-end-column="35" />
+            <state relative-caret-position="331">
+              <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -944,7 +945,7 @@
       <workItem from="1461869885604" duration="2539000" />
       <workItem from="1461936171954" duration="2283000" />
       <workItem from="1461938736934" duration="721000" />
-      <workItem from="1462005733640" duration="6878000" />
+      <workItem from="1462005733640" duration="7161000" />
     </task>
     <task id="LOCAL-00001" summary="AI checked">
       <created>1461860564689</created>
@@ -1100,15 +1101,22 @@
       <option name="project" value="LOCAL" />
       <updated>1462011565379</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Server shift">
+      <created>1462012625902</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1462012625902</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22355000" />
+    <option name="totallyTimeSpent" value="22638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1118,7 +1126,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32819724" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32819724" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1162,7 +1170,8 @@
     <MESSAGE value="v01.1 final" />
     <MESSAGE value="NPhysics changed for more than 2 players" />
     <MESSAGE value="bugs fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugs fixed" />
+    <MESSAGE value="Server shift" />
+    <option name="LAST_COMMIT_MESSAGE" value="Server shift" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1610,8 +1619,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cop290/a4/pingpong/Nphysics.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="109" column="35" selection-start-line="109" selection-start-column="35" selection-end-line="109" selection-end-column="35" />
+        <state relative-caret-position="331">
+          <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

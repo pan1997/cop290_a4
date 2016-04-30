@@ -145,9 +145,13 @@ public class Nphysics extends physics implements Runnable {
             e.printStackTrace();
             board bd = ((board) balls.get(0).parent());
             if (others.size() > 0) {
-
+                serverAd=others.get(0);
+                System.out.println(serverAd+":1234");
+                new Thread(this).start();
+                return;
             } else {
                 bd.bds = Main.bds;
+                Main.bds.users=bd.userId+1;
                 physics ph = new physics();
                 ph.balls=balls;
                 ph.map=map;
